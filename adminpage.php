@@ -1,3 +1,7 @@
+<?php
+include('dbConn.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +64,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Verfifed User</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Jay Dedhiya(Admin)</span>
                 <img class="img-profile rounded-circle" src="img/dp.png">
               </a>
               <!-- Dropdown - User Information -->
@@ -87,8 +91,8 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Available Association Opportunities</h1>
-          <p class="mb-4">Once you have shortlisted an opportunity, click on Request Details and we will soon get back to you with a detailed proposal!</p>
+          <h1 class="h3 mb-2 text-gray-800">Registered User</h1>
+          <!-- <p class="mb-4">Once you have shortlisted an opportunity, click on Request Details and we will soon get back to you with a detailed proposal!</p> -->
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -98,93 +102,51 @@
                 <table class="table" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
+                      <th>User id</th>
                       <th>Type</th>
-                      <th>Movie Name</th>
-                      <th>Genre</th>
-                      <th>Starcast</th>
-                      <th>Release Date</th>
-                      <th>Budget Range ₹</th>
-                      <th></th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Name</th>
+                      <th>Designation</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Verified?</th>
                     </tr>
                   </thead>
-                  
                   <tbody>
-                    <tr>
-                      <td>Co-Branding</td>
-                      <td>Tiger Zinda Hai</td>
-                      <td>Action, Drama </td>
-                      <td>Salman Khan, Katrina Kaif</td>
-                      <td>2019/15/08</td>
-                      <td>10,00,000 to 1,00,00,000</td>
-                      <td>
-                      <a class="btn btn-warning btn-icon-split btn-sm" data-toggle="modal" href="#portfolioModal1"> <span class="text">View More</span></a>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">Request Details</span></a>
-                      </td>
-                    </tr>
-                
-                    <tr>
-                      <td>In-Film</td>
-                      <td>Cara Stevens</td>
-                      <td>Sales Assistant</td>
-                      <td>New York</td>
-                      <td>2011/12/06</td>
-                      <td>10,000 to 1,00,000</td>   
-                     <td>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">View More</span></a>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">Request Details</span></a>
-                      </td>
-                    </tr>
-                   
-                    <tr>
-                      <td>In-Film</td>
-                      <td>Cara Stevens</td>
-                      <td>Sales Assistant</td>
-                      <td>New York</td>
-                      <td>2011/12/06</td>
-                      <td>10,000 to 1,00,000</td>   
-                     <td>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">View More</span></a>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">Request Details</span></a>
-                      </td>
-                    </tr>
-                    
-                     <tr>
-                      <td>In-Film</td>
-                      <td>Cara Stevens</td>
-                      <td>Sales Assistant</td>
-                      <td>New York</td>
-                      <td>2011/12/06</td>
-                      <td>10,000 to 1,00,000</td>   
-                     <td>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">View More</span></a>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">Request Details</span></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>In-Film</td>
-                      <td>Cara Stevens</td>
-                      <td>Sales Assistant</td>
-                      <td>New York</td>
-                      <td>2011/12/06</td>
-                      <td>10,000 to 1,00,000</td>   
-                     <td>
-                      <a href="" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">View More</span></a>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">Request Details</span></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>In-Film</td>
-                      <td>Cara Stevens</td>
-                      <td>Sales Assistant</td>
-                      <td>New York</td>
-                      <td>2011/12/06</td>
-                      <td>10,000 to 1,00,000</td>   
-                     <td>
-                      <a class="btn btn-warning btn-icon-split btn-sm" data-toggle="modal" href="#portfolioModal1"> <span class="text">View More</span></a>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">Request Details</span></a>
-                      </td>
-                    </tr>
-                    
+                      <?php
+                      include('dbConn.php');
+                      $data = $conn->query("SELECT * FROM users")->fetchAll();
+                        // and somewhere later:
+                         
+                    foreach ($data as $row) 
+                      
+                    {
+                        $user_id=$row['user_id'];
+                        echo '<tr>';
+                        echo '<td>'.$row['user_id'].'</td>';
+                        echo '<td>'.$row['Type'].'</td>';
+                        echo '<td>'.$row['First name'].'</td>';
+                        echo '<td>'.$row['Last name'].'</td>';
+                        echo '<td>'.$row['Name'].'</td>';
+                        echo '<td>'.$row['Designation'].'</td>';
+                        echo '<td>'.$row['Email'].'</td>';
+                        echo '<td>'.$row['Phone'].'</td>';
+
+                        if($row['Verified']=='No')
+                        {
+                         echo "<td ><a href='./mail/contact_me.php?user_id=$user_id'><button style='display: block; margin: auto' type='button' class='btn btn-warning'><i class='fa fa-check' aria-hidden='true'></i>&nbsp;Verify</button></a></td>";
+                        }
+                    else
+                        {
+                            echo "<td ><a href=''><button style='display: block; margin: auto' type='button' class='btn btn-success'><i class='fa fa-check' aria-hidden='true'></i>&nbsp;Verified</button></a></td>";
+                        }
+
+                        echo '</tr>';
+                    }
+                      
+                      ?>
+                 
                   </tbody>
                 </table>
               </div>
