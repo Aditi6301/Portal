@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="StyleSheet" href="index_data/160x600-Paypal-CBT.css" type="text/css">
+
+	<!-- animation libraries -->
+	<script type="text/javascript" src="index_data/TweenLite.js"></script>
+	<script type="text/javascript" src="index_data/TimelineLite.js"></script>
+	<script type="text/javascript" src="index_data/EasePack.js"></script>
+    <script type="text/javascript" src="index_data/EasePack.js"></script>
+	<script type="text/javascript" src="index_data/CSSPlugin.js"></script>
+
+    <!-- Added in for Standard ClickTag-->
+    <script type="text/javascript">
+        var clickTag = "https://www.paypal.com/in/webapps/mpp/diwali-cashback-vouchers"; 
+    </script>
+<script type="text/javascript">
+    
+  (function() {
+    var MAX_URL_PARAM_LENGTH = 34;
+    var CLICK_X_URL_KEY = 'nx';
+    var CLICK_Y_URL_KEY = 'ny';
+    var CREATIVE_DIMENSIONS_KEY = 'dim';
+    var AD_URL_PARAM = '&adurl=';
+
+    var relegateNavigation = '';
+    var urlParamMap = {};
+
+    urlParamMap[CLICK_X_URL_KEY] = null;
+    urlParamMap[CLICK_Y_URL_KEY] = null;
+    urlParamMap[CREATIVE_DIMENSIONS_KEY] = null;
+
+    var handleClickTagMessage = function(e) {
+      try {
+        var eventData = JSON.parse(e.data);
+      } catch (err) {
+        return;
+      }
+      if (eventData.isInitClickTag) {
+        if (eventData.clickTags) {
+          for (var i = 0; i < eventData.clickTags.length; i++) {
+            var clkTag = eventData.clickTags[i];
+            window[clkTag.name] = clkTag.url;
+          }
+        } else if (eventData.clickTag) {
+          window.clickTag = eventData.clickTag;
+        }
+        relegateNavigation = eventData.relegateNavigation;
+      }
+    };
+
+    var storeClickCoordinates = function(e) {
+      urlParamMap[CLICK_X_URL_KEY] = Math.round(e.clientX);
+      urlParamMap[CLICK_Y_URL_KEY] = Math.round(e.clientY);
+    };
+
+    var getCreativeDimensions = function() {
+      return window.innerWidth + 'x' + window.innerHeight;
+    }
+
+    var getExitClickParams = function(e) {
+      urlParamMap[CREATIVE_DIMENSIONS_KEY] = getCreativeDimensions();
+
+      var exitParams = '';
+      for (var key in urlParamMap) {
+        exitParams += '&' + key + '=';
+        if (urlParamMap[key] !== null) {
+          exitParams += urlParamMap[key];
+        }
+      }
+      return exitParams;
+    }
+
+    var appendExitClickParams = function(url) {
+      var adUrlIndex = url.toLowerCase().indexOf(AD_URL_PARAM);
+      var paramsToBeAdded = getExitClickParams();
+      if (adUrlIndex > -1 && paramsToBeAdded.length <= MAX_URL_PARAM_LENGTH) {
+        url = url.substr(0, adUrlIndex) + paramsToBeAdded +
+          url.substr(adUrlIndex);
+      };
+      return url;
+    };
+
+    if (open.call) {
+      window.open = function(open) {
+        return function(url, name, features) {
+          url = appendExitClickParams(url);
+          if (relegateNavigation === 'parent') {
+            var message = {'clickTag': url, 'isPostClickTag': true};
+            parent.postMessage(JSON.stringify(message), '*');
+          } else {
+            var args = [url, name];
+            if (features) {
+              args.push(features);
+            }
+            open.apply(window, args);
+          }
+        };
+      }(window.open);
+    }
+
+    if (window.addEventListener) {
+      window.addEventListener(
+          'message', handleClickTagMessage, false);
+      window.addEventListener('mousedown', storeClickCoordinates, true);
+    } else {
+      window.attachEvent('onmessage', handleClickTagMessage);
+    }
+  })();
+    
+  </script></head>
+<body> 
+    <div id="container">
+		<div id="contents">
+            <div id="FrameElements">
+
+                <!-- Backgrounds, logos, and CTA -->
+                <img id="BG01Image" src="index_data/bg.jpg" style="transform: matrix(1, 0, 0, 1, -20, 0);">
+				
+                
+                <div id="textBGCover" style="transform: matrix(1, 0, -0.15837, 0.99999, -271, 0);"></div>
+                <div id="textBG01" style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1;"></div>
+                <div id="textBG02" style="opacity: 0;"></div>
+
+                <div id="LogoPayPal" style="transform: matrix(1, 0, 0, 1, -15, 0);"></div>
+                <div id="CTA" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                <div id="TC" style="transform: matrix(1, 0, 0, 1, -20, 0);">*T&amp;C Apply</div>
+
+                <!-- FRAMES - Update frame copy here -->
+                <div id="Frame01" class="Frames">
+                    <div id="TextF0101" class="TextBoxes Text01" style="transform: matrix(1, 0, 0, 1, -440, 0);">Flights Hai.</div>
+                    <div id="TextF0102" class="TextBoxes Text02" style="transform: matrix(1, 0, 0, 1, -440, 0);">Hotels Hai.</div>
+                    <div id="TextF0103" class="TextBoxes Text03" style="transform: matrix(1, 0, 0, 1, -440, 0);">₹750 cashback</div>
+                    <div id="TextF0104" class="TextBoxes Text04" style="transform: matrix(1, 0, 0, 1, -440, 0);">voucher* Hai.</div>
+                    <div id="TextF0105" class="TextBoxes Text05" style="transform: matrix(1, 0, 0, 1, -440, 0);"></div>
+                </div>
+                <div id="Frame02" class="Frames">
+                    <div id="TextF0201" class="TextBoxes Text01" style="transform: matrix(1, 0, 0, 1, -440, 0);">win</div>
+                    <div id="TextF0202" class="TextBoxes Text02" style="transform: matrix(1, 0, 0, 1, -440, 0);">travel vouchers*</div>
+                    <div id="TextF0203" class="TextBoxes Text03" style="transform: matrix(1, 0, 0, 1, -530, 0);">worth ₹12,000</div>
+                    <div id="TextF0204" class="TextBoxes Text04" style="transform: matrix(1, 0, 0, 1, -530, 0);">Each</div>
+                    <div id="TextF0205" class="TextBoxes Text05 logos" style="transform: matrix(1, 0, 0, 1, 0, 0);"><img src="index_data/3rd.png"></div>
+                </div>
+                <div id="Frame03" class="Frames">
+                    <div id="TextF0301" class="TextBoxes Text01" style="transform: matrix(1, 0, 0, 1, 0, 0);">Pay</div>
+                    <div id="TextF0302" class="TextBoxes Text02" style="transform: matrix(1, 0, 0, 1, 0, 0);">with PayPal.</div>
+                    <div id="TextF0302" class="TextBoxes Text03">Safe Hai.</div>
+                    <div id="TextF0302" class="TextBoxes Text04"></div>
+                    <div id="TextF0303" class="TextBoxes Text05" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                </div>
+                <div id="Frame04" class="Frames">
+                    <div id="TextF0401" class="TextBoxes Text01" style="transform: matrix(1, 0, 0, 1, -600, 0);"></div>
+                    <div id="TextF0402" class="TextBoxes Text02" style="transform: matrix(1, 0, 0, 1, -600, 0);"></div>
+                </div>
+
+                <!-- Colour Transitions -->
+                <div id="CornerLeftF01" style="transform: matrix(1, 0, 0, 1, -440, 0);"><div id="ColourL01" class="OverlayColour" style="background-image: linear-gradient(rgb(236, 8, 104) 0%, rgb(236, 8, 104) 43%);"></div></div>
+                <div id="CornerRightF01" style="transform: matrix(1, 0, 0, 1, 40, 0);"><div id="ColourR01" class="OverlayColour" style="background-color: rgb(1, 155, 227);"></div></div>
+                <div id="OverlaySlideF0102" style="transform: matrix(1, 0, 0, 1, -1300, 0);"><div id="ColourSF0102" class="OverlayColour02" style="background: rgb(1, 155, 227) none repeat scroll 0% 0%;"></div></div>
+                <div id="OverlaySlideF0101" style="transform: matrix(1, 0, 0, 1, -1500, 0);"><div id="ColourSF0101" class="OverlayColour02" style="background-color: rgb(236, 8, 104);"></div></div>
+
+                <div id="CornerLeftF02" style="transform: matrix(1, 0, 0, 1, -440, 0);"><div id="ColourL02" class="OverlayColour" style="background-image: linear-gradient(rgb(236, 8, 104) 0%, rgb(236, 8, 104) 43%);"></div></div>
+                <div id="CornerRightF02" style="transform: matrix(1, 0, 0, 1, 40, 0);"><div id="ColourR02" class="OverlayColour" style="background-color: rgb(1, 155, 227);"></div></div>
+                <div id="OverlaySlideF0202" style="transform: matrix(1, 0, 0, 1, -1300, 0);"><div id="ColourSF0202" class="OverlayColour02" style="background: rgb(1, 155, 227) none repeat scroll 0% 0%;"></div></div>
+                <div id="OverlaySlideF0201" style="transform: matrix(1, 0, 0, 1, -1500, 0);"><div id="ColourSF0201" class="OverlayColour02" style="background-color: rgb(236, 8, 104);"></div></div>  
+
+                <div id="CornerLeftF03" style="transform: matrix(1, 0, 0, 1, -330, 0);"><div id="ColourL03" class="OverlayColour" style="background-image: linear-gradient(rgb(236, 8, 104) 0%, rgb(236, 8, 104) 43%);"></div></div>
+                <div id="CornerRightF03" style="transform: matrix(1, 0, 0, 1, 0, 0);"><div id="ColourR03" class="OverlayColour" style="background-color: rgb(1, 155, 227);"></div></div>
+                <div id="OverlaySlideF0302" style="transform: matrix(1, 0, 0, 1, -1300, 0);"><div id="ColourSF0302" class="OverlayColour02" style="background: rgb(1, 155, 227) none repeat scroll 0% 0%;"></div></div>
+                <div id="OverlaySlideF0301" style="transform: matrix(1, 0, 0, 1, -1500, 0);"><div id="ColourSF0301" class="OverlayColour02" style="background-color: rgb(236, 8, 104);"></div></div>  
+
+                <div id="CornerLeftF04" style="transform: matrix(1, 0, 0, 1, -350, 0);"><div id="ColourL04" class="OverlayColour" style="background-image: linear-gradient(rgb(236, 8, 104) 0%, rgb(236, 8, 104) 43%);"></div></div>
+                <div id="CornerRightF04" style="transform: matrix(1, 0, 0, 1, 40, 0);"><div id="ColourR04" class="OverlayColour" style="background-color: rgb(1, 155, 227);"></div></div>
+                <div id="OverlaySlideF0402" style="transform: matrix(1, 0, 0, 1, 800, 0);"><div id="ColourSF0402" class="OverlayColour02" style="background: rgb(1, 155, 227) none repeat scroll 0% 0%;"></div></div>
+                <div id="OverlaySlideF0401" style="transform: matrix(1, 0, 0, 1, 800, 0);"><div id="ColourSF0401" class="OverlayColour02" style="background-color: rgb(236, 8, 104);"></div></div>  
+
+                <!-- Border -->
+                <div id="b-left" class="border"></div>
+                <div id="b-right" class="border"></div>
+                <div id="b-top" class="border"></div>
+                <div id="b-bottom" class="border"></div>
+
+            </div>
+
+            <!-- button & ClickTag Code-->
+            <a href="javascript:window.open(window.clickTag)">
+                <div id="exitbtn"></div>
+            </a>
+			<div id="repeat" onclick="reload()" style="transform: matrix(1, 0, 0, 1, -5, 0);"><img src="index_data/repeat.png" alt=""></div>
+		</div>
+    </div>
+    <script src="index_data/160x600-Paypal-CBT.js" type="text/javascript"></script>
+
+
+</body></html>

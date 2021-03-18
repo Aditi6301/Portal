@@ -1,0 +1,312 @@
+@charset "UTF-8";
+/* CSS Document */
+ *, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'PayPalSans';
+  src: url('PayPalSansBig-Regular.woff') format('woff'); 
+  
+}
+
+@font-face {
+    font-family: 'dharma_gothic_eexbold_italic';
+    src: url('dharmagothice-exbolditalic_0-webfont.woff2') format('woff2'),
+         url('dharmagothice-exbolditalic_0-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.border {
+   background-color:#000000;
+   position:absolute;
+   z-index:99999;
+
+}
+/* border edge ids */
+#b-left {
+	width:1px;
+	height:600px;	
+	
+}
+#b-right {
+	width:1px;
+	height:100%;
+	right:0;
+}
+#b-top {
+	height:1px;
+	width:100%;
+}
+#b-bottom {
+	height:1px;
+	width:100%;
+	bottom:0;
+}
+body, body * {
+	vertical-align:baseline;
+	border:0 none;
+	outline:0;
+	padding:0;
+	margin:0;
+}
+
+
+
+#PanelStart{
+	position:absolute;
+	display:inline-block;
+}
+
+#container{
+	position:absolute;
+	display:inline-block;
+	width:160px;
+	height:600px;
+	top:0px;
+	left:0px;
+	margin:auto;
+}
+
+
+#contents {
+	position:absolute;
+	display:inline-block;
+	top: 0px;
+	right:0px;
+	width:160px;
+	height:600px;
+	border:1px solid #FFF;
+	background-color:#000;
+	z-index:100;
+	display:block;
+	overflow: hidden;
+}
+
+#BG01Image{
+	position:absolute;
+	right:-20px;
+	top:0px;
+	z-index:400;
+	width:160px;
+	height:600px;
+}
+#BG01Image img {
+	width: 100%;
+	display: block;
+}
+
+#textBG01,#textBG02,#textBGCover{
+	position:absolute;
+	left:0px;
+	top:0px;
+	z-index:400;
+	width:160px;
+	height:600px;
+}
+
+#textBGCover{
+	-webkit-transform:skew(-9deg);
+  	-moz-transform:skew(-9deg);
+  	transform:skew(-9deg);
+}
+
+
+
+.TextBoxes{
+	font-family: 'dharma_gothic_eexbold_italic';
+	padding-left:5px;
+	padding-top:7px;
+	line-height: 33px;
+    font-size: 28px;
+	color: #FFF;
+	position:absolute;
+	width:160px;
+	height:600px;
+	z-index:500;
+	top:158px;
+	left: -2px;
+    text-align: center;
+	text-transform: uppercase;
+}
+
+.Text01{
+	
+	padding-left:0;
+}
+.Text02{
+	padding-left: 0;
+    padding-top:40px!important;
+}
+.Text03{
+	padding-top: 73px !important;
+    padding-left: 0;
+}
+.logos{
+padding-top: 84px !important;
+}
+.Text04{
+	padding-top: 106px !important;
+    padding-left: 0;
+}
+#Frame02 #TextF0205 {
+    padding-top: 146px !important;
+}
+.Text05{
+	padding-left: 0;
+    padding-top: 79px !important;
+    color: #fdd200;
+	
+}
+.Text04.logos{
+	padding-top: 120px !important;
+}
+#Frame03 .TextF0303{
+	
+	padding-top:140px !important;
+	padding-left: 9px !important;
+}
+
+/*-Non 'Money' PayPal Logo 
+#LogoPayPal{
+	position:absolute;
+	width:108px;
+	height:37px;
+	right:0px;
+	bottom:0px;
+	background-image: url("Logo-PayaPal.png");
+	z-index:1000;
+}
+*/
+
+#LogoPayPal{
+    position: absolute;
+    width: 84px;
+    height: 25px;
+    right: -12px;
+    bottom: 0px;
+    background-image: url(Logo-PayaPal_02.png);
+    background-repeat: no-repeat;
+    z-index: 1000;
+}
+
+#CornerLeftF01, #CornerLeftF02, #CornerLeftF03, #CornerLeftF04{
+	position:absolute;
+	width:440px;
+	height:600px;
+	left:-133px;
+	background-color: transparent;
+	z-index:2000;
+}
+
+#CornerRightF01, #CornerRightF02, #CornerRightF03, #CornerRightF04{
+	position:absolute;
+	width:440px;
+	height:600px;
+	right:-463px;
+	background-color: transparent;
+	z-index:2000;
+}
+
+#OverlaySlideF0101,#OverlaySlideF0102, #OverlaySlideF0201, #OverlaySlideF0202,  #OverlaySlideF0301, #OverlaySlideF0302,  #OverlaySlideF0401, #OverlaySlideF0402{
+	position:absolute;
+	width:200px;
+	height:600px;
+	left:-20px;
+	background-color: transparent;
+	z-index:2000;
+}
+
+
+.OverlayColour{
+	position:absolute;
+	margin: 0 auto;
+	width:437px;
+	height:600px;
+	z-index:2001;
+	-webkit-transform:skew(-9deg);
+  	-moz-transform:skew(-9deg);
+  	transform:skew(-9deg);
+}
+
+.OverlayColour02{
+	position:absolute;
+	margin: 0 auto;
+	width:160px;
+	height:600px;
+	z-index:2001;
+	-webkit-transform:skew(-9deg);
+  	-moz-transform:skew(-9deg);
+  	transform:skew(-9deg);
+}
+
+
+/*#CTA{
+	display: inline-block;
+    position: absolute;
+    font-family: 'dharma_gothic_eexbold_italic';
+    right: 20px;
+    background-color: transparent;
+    z-index: 1001;
+    -webkit-transform: skew(-9deg);
+    -moz-transform: skew(-9deg);
+    transform: skew(-9deg);
+    line-height: 8px;
+    padding: 3px;
+    font-size: 10px;
+    text-align: center;
+    bottom: 28px;
+    background-color: #009cde;
+    color: #FFF;
+    letter-spacing: 0.8px;
+}*/
+#CTA {
+	position: absolute;
+    width: 61px;
+    height: 16px;
+    right: 21px;
+    bottom: 28px;
+    background-image: url(signup.png);
+    background-repeat: no-repeat;
+    z-index: 1000;
+}
+#TC{
+    display: inline-block;
+    position: absolute;
+    font-family: 'PayPalSans', sans-serif;
+    left: 51px;
+    background-color: transparent;
+    z-index: 1000;
+    line-height: 13px;
+    font-size: 7px;
+    bottom: 3px;
+    color: #FFF;
+}
+    
+#exitbtn{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background-color:transparent;
+	cursor:pointer;
+	z-index:4000;
+}
+#repeat{
+	position: absolute;
+    width: 16px;
+    height: 16px;
+    z-index: 5000;
+    cursor: pointer;
+    bottom: 4px;
+    right: 133px;
+}
+
+#repeat img{
+	width:100%;
+}
