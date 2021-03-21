@@ -1,3 +1,7 @@
+<?php
+include('UserLogin.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,12 +79,12 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Login</h1>
                   </div>
-                  <form class="user">
+                  <form class="user" method="post">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address">
+                      <input type="email"  name="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Email Address">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Password">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -88,9 +92,7 @@
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <a href="tables.html" class="btn btn-primary btn-block">
-                      Login
-                    </a>
+                    <button class="btn btn-primary btn-block" id="submit" name="Login" type="submit">Login</button>
                 
                   </form>
                   <hr>

@@ -1,6 +1,18 @@
 <?php
 include('UserLogin.php');
 $email=$_GET['Email'];
+$AlreadySet=$conn->prepare("SELECT * FROM login  WHERE Email= ?");
+    $AlreadySet->bindValue(1,$email);
+    $AlreadySet->execute();
+    if($AlreadySet->rowCount()>0)  //email found
+    {
+      $PasswordAlreadySet='Yes';
+    }
+    else
+    {
+      $PasswordAlreadySet='No';
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +41,7 @@ $email=$_GET['Email'];
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="checkSet()">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -80,7 +92,9 @@ $email=$_GET['Email'];
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Set Password</h1>
                   </div>
-                  <form class="user" method="post">
+
+                  <div >
+                  <form class="user" method="post" class="setUserPassword" id="setUserPassword" style="display: none;" >
                   <div class="form-group">
                       <input type="text" name="email" class="form-control form-control-user" id="email" value="<?php echo $email;?>">
                     </div>
@@ -94,10 +108,18 @@ $email=$_GET['Email'];
                     <button class="btn btn-primary btn-block" id="submit" name="SetPassword" type="submit"> Set Password</button>
                 
                   </form>
+
+  </div>
                   <hr>
                   <div class="text-center">
-                    <p class="small">Create an account: <a href="brandregister.php">Brand</a> or <a href="phregister.php">Production House</a>
+                    <p class="small">Create an account: <a href="brandregister.php">Brand</a> or <a href="phregister.php">Production House</a></P>
                   </div>
+
+                  <div id="password_already_set" class="password_already_set">
+                    <p class="small">Your password is already set!</p>
+                  </div>
+
+
                   
                 
               </div>
@@ -151,7 +173,10 @@ $email=$_GET['Email'];
 
   <!-- Bootstrap core JavaScript-->
   
-  <script>var check = function() {
+  <script>
+
+
+  var check = function() {
   if (document.getElementById('password1').value ==
     document.getElementById('password2').value) {
     document.getElementById('message').style.color = 'green';
@@ -162,7 +187,29 @@ $email=$_GET['Email'];
     document.getElementById('message').innerHTML = 'Passwords do not match';
     document.getElementById('submit').disabled = true;
   }
-}</script>
+}
+// $(document).ready(function(){
+
+   
+//   if( =='Yes')
+//   {
+//     document.getElementById('setUserPassword').style.display="none";
+//     // $("#setUserPassword").hide();
+//     $("#password_already_set").show();
+
+//   }
+//   else
+//   {
+//     $("#setUserPassword").show();
+//     $("#password_already_set").hide();
+    
+//   }
+  
+// });
+
+</script>
+
+
  
   
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -184,3 +231,10 @@ $email=$_GET['Email'];
 </body>
 
 </html>
+<script>
+  window.onload = function(){
+  var check = "Yes";
+    document.getElementById('setUserPassword').style.display = block;
+  //document.getElementById('setUserPassword').style.display = none;
+}
+</script>
