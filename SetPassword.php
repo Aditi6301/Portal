@@ -1,7 +1,21 @@
 <?php
-include('UserLogin.php');
+include('UserSetPassword.php');
+session_start();
 $email=$_GET['Email'];
+$AlreadySet=$conn->prepare("SELECT * FROM login  WHERE Email= ?");
+$AlreadySet->bindValue(1,$email);
+$AlreadySet->execute();
+if($AlreadySet->rowCount()>0)  //email found
+{
+  $PasswordAlreadySet='Yes';
+}
+else
+{
+  $PasswordAlreadySet='No';
+}
+    
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,9 +92,11 @@ $email=$_GET['Email'];
               
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Set Password</h1>
+                    <h1 class="h4 text-gray-900 mb-4" class='hideForm'>Set Password</h1>
                   </div>
-                  <form class="user" method="post">
+
+                  <div >
+                  <form class="user" method="post"  id="setUserPassword" >
                   <div class="form-group">
                       <input type="text" name="email" class="form-control form-control-user" id="email" value="<?php echo $email;?>">
                     </div>
@@ -94,12 +110,19 @@ $email=$_GET['Email'];
                     <button class="btn btn-primary btn-block" id="submit" name="SetPassword" type="submit"> Set Password</button>
                 
                   </form>
-                  <hr>
+
+  </div>
+                  <!-- <hr>
                   <div class="text-center">
-                    <p class="small">Create an account: <a href="brandregister.php">Brand</a> or <a href="phregister.php">Production House</a>
+                    <p class="small">Create an account: <a href="brandregister.php">Brand</a> or <a href="phregister.php">Production House</a></P>
+                  </div> -->
+
+                  <div id="password_already_set" class="password_already_set">
+                    <p class="small">Your password is already set!<a href="forgotpassword.html">Forgot Password?</a></p>
                   </div>
-                  
-                
+                <div>
+                <p class="small">Login here!<a href="login.php">Forgot Password?</a></p>
+                </div>
               </div>
             </div>
           </div>
@@ -110,21 +133,6 @@ $email=$_GET['Email'];
     </div>
 
   </div>
-
-     
-     
-  
-      
-    
-
-         
-         
-         
-         
-         
-
-
-     
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -151,20 +159,6 @@ $email=$_GET['Email'];
 
   <!-- Bootstrap core JavaScript-->
   
-  <script>var check = function() {
-  if (document.getElementById('password1').value ==
-    document.getElementById('password2').value) {
-    document.getElementById('message').style.color = 'green';
-    document.getElementById('message').innerHTML = 'Passwords match';
-    document.getElementById('submit').disabled = false;
-  } else {
-    document.getElementById('message').style.color = 'red';
-    document.getElementById('message').innerHTML = 'Passwords do not match';
-    document.getElementById('submit').disabled = true;
-  }
-}</script>
- 
-  
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -184,3 +178,35 @@ $email=$_GET['Email'];
 </body>
 
 </html>
+<script type="text/javascript">
+var check = "<?php echo $PasswordAlreadySet; ?>";
+if(check == 'Yes')
+{
+  // alert("Hide form");
+  $("form").hide();
+  $("h1").hide();
+  $(".password_already_set").show();
+  
+ 
+}
+else{
+  $("form").show();
+  $(".password_already_set").hide();
+
+}
+
+var check = function() {
+  if (document.getElementById('password1').value ==
+    document.getElementById('password2').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'Passwords match';
+    document.getElementById('submit').disabled = false;
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'Passwords do not match';
+    document.getElementById('submit').disabled = true;
+  }
+}
+
+
+</script>
