@@ -19,6 +19,8 @@ if(isset($_POST['SetPassword']))
         {
             $hashed_password = password_hash($password1, PASSWORD_DEFAULT);
             $user_status='Active';
+
+           
             // var_dump($hashed_password);
             $getId=$conn->prepare("SELECT * FROM users WHERE Email= ?");
             $getId->bindValue(1,$email);
@@ -30,6 +32,10 @@ if(isset($_POST['SetPassword']))
                 $user_id=$UserId['user_id'];
                 }
             }
+            $_SESSION["loggedin"] = true;
+            $_SESSION["user_id"] = $user_id;
+            $_SESSION["email"] = $email; 
+            
             $sql=$conn->prepare("INSERT INTO `login`(`user_id`, `Email`, `password`,`login_time`,`user_status`) VALUES ('$user_id','$email','$hashed_password',CURRENT_TIMESTAMP,$user_status)");
             $result=$sql->execute() or die($conn->error);
             if($result)
@@ -42,4 +48,23 @@ if(isset($_POST['SetPassword']))
             }
         }
 }
+if(isset($_POST['ResetPassword']))
+{
+    $email=$_POST['email'];
+    $getId=$conn->prepare("SELECT * FROM users WHERE Email= ?");
+    $getId->bindValue(1,$email);
+    $getId->execute();
+    if($getId->rowCount()>0)  //email found
+    {
+        while($UserId = $getId->fetch())
+        {
+           $user_id=$UserId['user_id'];
+        }
+        echo "<script>alert('Check Your mail to reset password!!');</script>";
+        header("location:./mail/ResetPasswordMail.php?user_id=$user_id");
+        
+    }
+
+}
+
 ?>

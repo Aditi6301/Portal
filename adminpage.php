@@ -137,7 +137,7 @@ include('dbConn.php');
                         {
                          echo "<td ><a href='./mail/contact_me.php?user_id=$user_id'><button style='display: block; margin: auto' type='button' class='btn btn-warning'><i class='fa fa-check' aria-hidden='true'></i>&nbsp;Verify</button></a></td>";
                         }
-                    else
+                      else
                         {
                             echo "<td ><a href=''><button style='display: block; margin: auto' type='button' class='btn btn-success'><i class='fa fa-check' aria-hidden='true'></i>&nbsp;Verified</button></a></td>";
                         }

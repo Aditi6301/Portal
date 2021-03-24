@@ -1,3 +1,7 @@
+<?php
+include('UserSetPassword.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,8 +85,8 @@
                       <input type="email" name="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Enter your registered Email Address">
                     </div>
                    
-                   
-                    <button class="btn btn-primary btn-block" id="submit" name="Reset" type="submit">Reset</button>
+                    <!-- <a href='./mail/contact_me.php?user_id=$user_id'><button style='display: block; margin: auto' type='button' class='btn btn-warning'>Reset Password</button></a> -->
+                    <button class="btn btn-primary btn-block" id="submit" name="ResetPassword" type="submit">Reset</button>
                   </form>
                  
                  
