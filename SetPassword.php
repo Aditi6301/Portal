@@ -1,6 +1,5 @@
 <?php
 include('UserSetPassword.php');
-session_start();
 $email=$_GET['Email'];
 $AlreadySet=$conn->prepare("SELECT * FROM login  WHERE Email= ?");
 $AlreadySet->bindValue(1,$email);
@@ -120,9 +119,13 @@ else
                   <div id="password_already_set" class="password_already_set">
                     <p class="small">Your password is already set!<a href="forgotpassword.html">Forgot Password?</a></p>
                   </div>
+<<<<<<< HEAD
                 <div>
                 <p class="small">Login here!<a href="login.php">Forgot Password?</a></p>
                 </div>
+=======
+                
+>>>>>>> 8bbc09644ac04f0ffb940f156c3904e513142e15
               </div>
             </div>
           </div>

@@ -1,6 +1,5 @@
 <?php
 include('UserLogin.php');
-session_start();
 ?>
 
 <!DOCTYPE html>
