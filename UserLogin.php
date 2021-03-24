@@ -65,64 +65,6 @@ if(isset($_POST['Login']))
 
 }
 
-if(isset($_POST['Login']))
-{
-
-    $email=$_POST['email'];
-    $password=$_POST['password'];
-    $getPassword=$conn->prepare("SELECT * FROM login  WHERE Email= ?");
-    $getPassword->bindValue(1,$email);
-    $getPassword->execute();
-    if($getPassword->rowCount()>0)  //email found
-    {
-        while($row = $getPassword->fetch())
-        {
-            if(password_verify($password,$row['password']))
-            {
-                $getType=$conn->prepare("SELECT * FROM users WHERE Email= ?");
-                $getType->bindValue(1,$email);
-                $getType->execute();
-                if($getType->rowCount()>0)
-                {
-                    while($Trow = $getType->fetch())
-                    {
-                        if($Trow['Type']=='Production')
-                        {
-                            echo "<script>alert('Login Successful!!'); window.location='tables2.html'</script>";
-                        }
-                        elseif($Trow['Type'] =='Brand')
-                        {
-                            echo "<script>alert('Login Successful!!'); window.location='tables.html'</script>";
-                        }
-                        else
-                        {
-                            echo "<script>alert('Login Successful!!'); window.location='adminpage.html'</script>";
-                        }
-                        
-                    }
-                }
-
-                
-
-                
-            }
-            else
-            {
-                echo "<script>alert('Login failed!!'); window.location='login.php'</script>";
-            }
-        }
-        
-    }
-    else
-    {
-        echo "User does not exist.Please register first";
-    }
-    
-
-}
-
-
-
 
 
 
