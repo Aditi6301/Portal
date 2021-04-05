@@ -24,7 +24,7 @@ if($checkIfUnique->rowCount()>0)  //similar email found
 }
 else
 {
-    $sql=$conn->prepare("INSERT INTO `users`(`Type`, `First name`, `Last name`, `Name`, `Designation`, `Email`, `Phone`) VALUES ('$Type','$Firstname','$Lastname','$Name','$Designation','$Email','$Phone')");
+    $sql=$conn->prepare("INSERT INTO `users`(`Type`, `First name`, `Last name`, `CompanyName`, `Designation`, `Email`, `Phone`) VALUES ('$Type','$Firstname','$Lastname','$Name','$Designation','$Email','$Phone')");
     $result=$sql->execute() or die($conn->error);
     if($result)
     {

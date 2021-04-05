@@ -1,7 +1,7 @@
 <?php
 include('UserSetPassword.php');
 $email=$_GET['Email'];
-$AlreadySet=$conn->prepare("SELECT * FROM login  WHERE Email= ?");
+$AlreadySet=$conn->prepare("SELECT * FROM users  WHERE Email= ?");
 $AlreadySet->bindValue(1,$email);
 $AlreadySet->execute();
 if($AlreadySet->rowCount()>0)  //email found

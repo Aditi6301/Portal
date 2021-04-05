@@ -36,11 +36,14 @@ if(isset($_POST['SetPassword']))
             $_SESSION["user_id"] = $user_id;
             $_SESSION["email"] = $email; 
             
-            $sql=$conn->prepare("INSERT INTO `login`(`user_id`, `Email`, `password`,`login_time`,`user_status`) VALUES ('$user_id','$email','$hashed_password',CURRENT_TIMESTAMP,$user_status)");
-            $result=$sql->execute() or die($conn->error);
+            $sql = "UPDATE users SET password=?  WHERE email=?";
+            $stmt= $conn->prepare($sql);
+            $result=$stmt->execute([$hashed_password,$email]) or die($conn->error);
+            // $sql=$conn->prepare("INSERT INTO `login`(`user_id`, `Email`, `password`,`login_time`,`user_status`) VALUES ('$user_id','$email','$hashed_password',CURRENT_TIMESTAMP,$user_status)");
+            // $result=$sql->execute() or die($conn->error);
             if($result)
             {
-                echo "<script>alert('Password set successfully!!'); window.location='tables.html'</script>";
+                echo "<script>alert('Password set successfully!!'); window.location='tables.php'</script>";
             }
             else
             {

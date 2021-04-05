@@ -106,7 +106,7 @@ include('dbConn.php');
                       <th>Type</th>
                       <th>First Name</th>
                       <th>Last Name</th>
-                      <th>Name</th>
+                      <th>Company Name</th>
                       <th>Designation</th>
                       <th>Email</th>
                       <th>Phone</th>
@@ -128,7 +128,7 @@ include('dbConn.php');
                         echo '<td>'.$row['Type'].'</td>';
                         echo '<td>'.$row['First name'].'</td>';
                         echo '<td>'.$row['Last name'].'</td>';
-                        echo '<td>'.$row['Name'].'</td>';
+                        echo '<td>'.$row['CompanyName'].'</td>';
                         echo '<td>'.$row['Designation'].'</td>';
                         echo '<td>'.$row['Email'].'</td>';
                         echo '<td>'.$row['Phone'].'</td>';
