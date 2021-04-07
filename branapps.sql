@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2021 at 12:17 PM
+-- Generation Time: Apr 07, 2021 at 02:03 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -50,7 +50,14 @@ INSERT INTO `login` (`user_id`, `Email`, `CompanyName`, `login_time`, `user_stat
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-05 10:07:10', 'Active'),
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-05 10:08:16', 'Active'),
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-05 10:08:47', 'Active'),
-(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-05 10:09:05', 'Active');
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-05 10:09:05', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-07 07:19:14', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-07 10:18:21', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-07 10:34:45', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-07 11:17:33', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-07 11:57:53', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-07 11:58:31', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-07 11:59:51', 'Active');
 
 -- --------------------------------------------------------
 
@@ -78,7 +85,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`, `Designation`, `Email`, `password`, `Phone`, `Verified`) VALUES
 (1, 'Brand', 'Nidhi', 'Abhyankar', 'Puma', 'abc', 'nidhiabhyankar@gmail.com', NULL, 123344, 'Yes'),
 (2, 'Brand', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', NULL, 2, 'No'),
-(3, 'Brand', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia149@gmail.com', '$2y$10$Qj9rvt4DRsTlunlJkme/r.bmtlNiXfH01iv7etW84FJcR58xroOAK', 69, 'Yes');
+(3, 'Brand', 'Shreya', 'k', 'Puma', 'DEF', 'shreyakedia149@gmail.com', '$2y$10$Qj9rvt4DRsTlunlJkme/r.bmtlNiXfH01iv7etW84FJcR58xroOAK', 69, 'Yes');
 
 --
 -- Indexes for dumped tables
