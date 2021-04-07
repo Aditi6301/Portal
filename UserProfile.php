@@ -91,38 +91,66 @@ include('UserLogin.php');
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">User Login Information</h1>
+       
 
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+<?php
+    
+    $getInfo=$conn->prepare("SELECT * FROM users  WHERE Email= '{$_SESSION["email"]}'");
+    $getInfo->execute();
+    while($row = $getInfo->fetch())
+    {
+     
+        
+       
+        
+        
+    
+    
+?>
 
-          <?php
+<center>
+              <div class="col-lg-6">
+              
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-7">User Profile</h1>
+                  </div>
+                    <div class="form-group">
+                                <div class="card" style="width: 25rem;">
+                                  <img class="img-profile rounded-circle" src="img/dp.png" alt="Card image cap" style="width: 13rem; margin-left: 110px;">
+                                  <div class="card-body">
+                                    <p style="text-align:left;"><b>Name:</b>&nbsp;&nbsp;<?php echo $_SESSION["user_name"];?></p>
+                                    <p style="text-align:left;"><b>Email:</b>&nbsp;&nbsp; <?php echo $_SESSION["email"];?></p>
+                                    <p style="text-align:left;"><b>Company Name:</b>&nbsp;&nbsp;<?php echo $row['CompanyName'];?></p>
+                                    <p style="text-align:left;"><b>Designation:</b>&nbsp;&nbsp;<?php echo $row['Designation'];?></p>
+                                    <p style="text-align:left;"><b>Type of company:</b>&nbsp;&nbsp;<?php echo $row['Type'];?></p>
 
-            $GetInfo=$conn->prepare("SELECT * FROM users  WHERE Email= ? LIMIT 1");
-            $GetInfo->bindValue(1,$email);
-            $GetInfo->execute();
-            if($GetInfo->rowCount()>0)  //email found
-            {
-                while($row = $GetInfo->fetch())
-                {
-                    $user_id=$row['user_id'];
-                    $hashed_password=$row['password'];
-                    echo $BrandName=$row['CompanyName'];
-                    $FirstName=$row['First name'];
-                    $LastName=$row['Last name'];
+                                    <button onclick="document.location='index.html'" class="btn btn-primary">Home Page</button>
+                                  </div>
+                                </div>
+                    
+                      
+                      
+                    </div>
+                  
+                
+                 
+                  <hr>
+                  
+                
+              </div>
+            </div><?php }
+              ?>
 
+</div>
+        <!-- /.container-fluid -->
 
-                    $_SESSION["loggedin"] = true;
-                    $_SESSION["user_id"] = $user_id;
-                    echo $_SESSION["email"] = $email;
-                    echo $_SESSION["user_name"];
-                    echo $BrandName;
-                }
-            }
-            
-          
-          
-          
-          ?>
-           <!-- Footer -->
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
@@ -218,4 +246,3 @@ include('UserLogin.php');
 </body>
 
 </html>
-

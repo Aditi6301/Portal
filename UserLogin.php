@@ -26,14 +26,17 @@ if(isset($_POST['Login']))
                 $BrandName=$row['CompanyName'];
                 $FirstName=$row['First name'];
                 $LastName=$row['Last name'];
+                $Designation=$row['Designation'];
+                $Type=$row['Type'];
 
                 $_SESSION["loggedin"] = true;
                 $_SESSION["user_id"] = $user_id;
                 $_SESSION["email"] = $email;
                 echo $_SESSION["user_name"]=$FirstName.' '.$LastName;
-
                 $user_status='Active';
                 echo $BrandName;
+                echo $Designation;
+                echo $Type;
                 $getType=$conn->prepare("SELECT * FROM users WHERE Email= ? LIMIT 1");
                 $getType->bindValue(1,$email);
                 $getType->execute();
