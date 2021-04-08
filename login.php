@@ -97,7 +97,7 @@ include('UserLogin.php');
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="forgotpassword.html">Forgot Password?</a>
+                    <a class="small" href="forgotpassword.php">Forgot Password?</a>
                   </div>
                   <div class="text-center">
                     <p class="small">Create an account: <a href="brandregister.html">Brand</a> or <a href="phregister.html">Production House</a>

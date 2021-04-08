@@ -18,7 +18,7 @@ if(isset($_POST['SetPassword']))
         else
         {
             $hashed_password = password_hash($password1, PASSWORD_DEFAULT);
-            $user_status='Active';
+            // $user_status='Active';
 
            
             // var_dump($hashed_password);
@@ -32,9 +32,9 @@ if(isset($_POST['SetPassword']))
                 $user_id=$UserId['user_id'];
                 }
             }
-            $_SESSION["loggedin"] = true;
-            $_SESSION["user_id"] = $user_id;
-            $_SESSION["email"] = $email; 
+            // $_SESSION["loggedin"] = true;
+            // $_SESSION["user_id"] = $user_id;
+            // $_SESSION["email"] = $email; 
             
             $sql = "UPDATE users SET password=?  WHERE email=?";
             $stmt= $conn->prepare($sql);
@@ -43,7 +43,7 @@ if(isset($_POST['SetPassword']))
             // $result=$sql->execute() or die($conn->error);
             if($result)
             {
-                echo "<script>alert('Password set successfully!!'); window.location='tables.php'</script>";
+                echo "<script>alert('Password set successfully!Login here.'); window.location='login.php'</script>";
             }
             else
             {
@@ -51,7 +51,7 @@ if(isset($_POST['SetPassword']))
             }
         }
 }
-if(isset($_POST['ResetPassword']))
+if(isset($_POST['ResetMail']))
 {
     $email=$_POST['email'];
     $getId=$conn->prepare("SELECT * FROM users WHERE Email= ?");
@@ -68,6 +68,58 @@ if(isset($_POST['ResetPassword']))
         
     }
 
+}
+
+
+if(isset($_POST['ResetPassword']))
+{
+
+    $email=$_POST['email'];
+    $password1=$_POST['password1'];
+    $password2=$_POST['password2'];
+    
+    
+
+    if ($_POST['password1']!=$_POST['password2'])
+        {
+            //header('location:UserLogin.php');
+            echo("Oops! Password does not match! Try again. ");
+        }
+        else
+        {
+            $hashed_password = password_hash($password1, PASSWORD_DEFAULT);
+            // $user_status='Active';
+
+           
+            // var_dump($hashed_password);
+            $getId=$conn->prepare("SELECT * FROM users WHERE Email= ?");
+            $getId->bindValue(1,$email);
+            $getId->execute();
+            if($getId->rowCount()>0)  //email found
+            {
+                while($UserId = $getId->fetch())
+                {
+                $user_id=$UserId['user_id'];
+                }
+            }
+            // $_SESSION["loggedin"] = true;
+            // $_SESSION["user_id"] = $user_id;
+            // $_SESSION["email"] = $email; 
+            
+            $sql = "UPDATE users SET password=?  WHERE email=?";
+            $stmt= $conn->prepare($sql);
+            $result=$stmt->execute([$hashed_password,$email]) or die($conn->error);
+            // $sql=$conn->prepare("INSERT INTO `login`(`user_id`, `Email`, `password`,`login_time`,`user_status`) VALUES ('$user_id','$email','$hashed_password',CURRENT_TIMESTAMP,$user_status)");
+            // $result=$sql->execute() or die($conn->error);
+            if($result)
+            {
+                echo "<script>alert('Password changed successfully!Login here'); window.location='login.php'</script>";
+            }
+            else
+            {
+                echo "errorrr";
+            }
+        }
 }
 
 ?>

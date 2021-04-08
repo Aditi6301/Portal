@@ -1,5 +1,6 @@
 <?php
-include('UserSetPassword.php');
+include('UserSetPassword.php'); 
+$email=$_GET['Email'];   
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@ include('UserSetPassword.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Homerun Media - Forgot Password</title>
+  <title>Homerun Brand Login</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,6 +26,7 @@ include('UserSetPassword.php');
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  
 
 </head>
 
@@ -50,7 +52,7 @@ include('UserSetPassword.php');
 		</div>
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
+            <i class="fa fa-bars" style="color:#fed136"></i>
           </button>
 
         
@@ -77,19 +79,37 @@ include('UserSetPassword.php');
               
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-2">Forgot Password?</h1>
-                    <p class="mb-4">We get it, stuff happens. Just enter your email address below and we'll send you a link to reset your password!</p>
+                    <h1 class="h4 text-gray-900 mb-4" class='hideForm'>Set Password</h1>
                   </div>
-                  <form class="user" method="post">
-                    <div class="form-group">
-                      <input type="email" name="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Enter your registered Email Address">
+
+                  <div >
+                  <form class="user" method="post"  id="setUserPassword" >
+                  <div class="form-group">
+                      <input type="text" name="email" class="form-control form-control-user" id="email" value="<?php echo $email;?>" disable>
                     </div>
-                   
-                    <!-- <a href='./mail/contact_me.php?user_id=$user_id'><button style='display: block; margin: auto' type='button' class='btn btn-warning'>Reset Password</button></a> -->
-                    <button class="btn btn-primary btn-block" id="submit" name="ResetMail" type="submit">Reset</button>
+                    <div class="form-group">
+                      <input type="password" name="password1" class="form-control form-control-user" id="password1" placeholder="Password" onkeyup='check();'>
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="password2" class="form-control form-control-user" id="password2" placeholder="Confirm Password" onkeyup='check();'>
+                    </div>
+                    <span id='message'></span><br>
+                    <button class="btn btn-primary btn-block" id="submit" name="ResetPassword" type="submit"> Set Password</button>
+                
                   </form>
-                 
-                 
+
+  </div>
+                  <!-- <hr>
+                  <div class="text-center">
+                    <p class="small">Create an account: <a href="brandregister.php">Brand</a> or <a href="phregister.php">Production House</a></P>
+                  </div> -->
+
+                  <!-- <div id="password_already_set" class="password_already_set">
+                    <p class="small">Your password is already set!<a href="forgotpassword.html">Forgot Password?</a></p>
+                  </div> -->
+                <!-- <div>
+                <p class="small"><a href="login.php">Login Here!</a></p>
+                </div> -->
               </div>
             </div>
           </div>
@@ -100,21 +120,6 @@ include('UserSetPassword.php');
     </div>
 
   </div>
-
-     
-     
-  
-      
-    
-
-         
-         
-         
-         
-         
-
-
-     
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -140,6 +145,7 @@ include('UserSetPassword.php');
   
 
   <!-- Bootstrap core JavaScript-->
+  
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -159,3 +165,20 @@ include('UserSetPassword.php');
 </body>
 
 </html>
+<script type="text/javascript">
+
+var check = function() {
+  if (document.getElementById('password1').value ==
+    document.getElementById('password2').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'Passwords match';
+    document.getElementById('submit').disabled = false;
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'Passwords do not match';
+    document.getElementById('submit').disabled = true;
+  }
+}
+
+
+</script>
