@@ -117,7 +117,7 @@ else
                   </div> -->
 
                   <div id="password_already_set" class="password_already_set">
-                    <p class="small">Your password is already set!<a href="forgotpassword.html">Forgot Password?</a></p>
+                    <p class="small">Your password is already set!<a href="forgotpassword.php">Forgot Password?</a></p>
                   </div>
                 <div>
                 <p class="small"><a href="login.php">Login Here!</a></p>

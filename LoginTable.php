@@ -105,7 +105,7 @@ include('UserLogin.php');
                       <th>Email</th>
                       <th>Company Name</th>
                       <th>Login Time</th>
-                      <th>User Status</th>
+                      <!-- <th>User Status</th> -->
                     </tr>
                   </thead>
                                     <tbody>
@@ -123,7 +123,7 @@ include('UserLogin.php');
                   echo '<td>'.$row['Email'].'</td>';
                   echo '<td>'.$row['CompanyName'].'</td>';
                   echo '<td>'.$row['login_time'].'</td>';
-                  echo '<td>'.$row['user_status'].'</td>';
+                  // echo '<td>'.$row['user_status'].'</td>';
                 echo '</tr>';
                 
              } 
