@@ -1,6 +1,5 @@
 <?php
-include('UserLogin.php');
-
+include('addTitle.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -163,7 +162,7 @@ include('UserLogin.php');
         </div>
       </footer>
       <!-- End of Footer -->
-
+<form method="post">
 
  <div class="portfolio-modal-lg modal fade" id="AddNewModal" tabindex="-1" role="dialog" aria-hidden="true">
  
@@ -184,45 +183,42 @@ include('UserLogin.php');
                 <ul class="list-inline">
                     
                     <div class="form-group">
-                     <select class="form-control custom-select" name="type" data-toggle="tooltip" data-placement="top" title="Production Type">
-                        <option value="" selected disabled>Type of Opportunity</option>
-                        <option value="In_Film">In Film</option>
-                        <option value="cobrand_with_movie">Cobranding with a Movie</option>
-                        <option value="In_Series">In Series</option>
-                        <option value="cobrand_with_series">Cobranding with a Series</option>
-                        <option value="Other">Other</option>
+                     <select name="Type" class="form-control custom-select" data-toggle="tooltip" data-placement="top" title="Production Type">
+                        <label>Type of Opportunity</label>
+                        <option name="In_Film" value="In_Film">In Film</option>
+                        <option name="Out_Film" value="Out_Film">Out Film</option>
                     </select>
                     </div>
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Movie/Series Title">
+                      <input name="Title" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Movie/Series Title">
                     </div>
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Genre">
+                      <input name="genre" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Genre">
                     </div>
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Starcast">
+                      <input name="starcast" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Starcast">
                     </div>
                     <div class="form-group">
-                      <textarea type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Synopsis"></textarea>
+                      <textarea name="synopsis" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Synopsis"></textarea>
                     </div>
                     
                      <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Release Date">
+                      <input name="Release_date" type="date" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Release Date">
                     </div>
                  	
                  	 <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Min Association Cost">
+                      <input name="min_cost" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Min Association Cost">
                     </div>
                      <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Max Association Cost">
+                      <input name="max_cost" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Max Association Cost">
                     </div>
                     
                 	<div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Trailer Link">
+                      <input name="link" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Trailer Link">
                     </div>
                 	
                 	 <div class="custom-file">
-                        <input type="file" class="custom-file-input"name="movie_image" id="customFile" data-toggle="tooltip" data-placement="top">
+                        <input name="poster" type="file" class="custom-file-input"name="movie_image" id="customFile" data-toggle="tooltip" data-placement="top">
                         <label align="left" class="custom-file-label" for="customFile">Poster Image</label>
                      </div>
                 
@@ -232,7 +228,7 @@ include('UserLogin.php');
                 
                     
                     
-                <button class="btn btn-primary" data-dismiss="modal" type="button">Add New Title</button>
+                <button value="Add_title" class="btn btn-primary" name="Add_title" type="submit">Add New Title</button>
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
                   Close Project</button>
@@ -243,7 +239,7 @@ include('UserLogin.php');
       </div>
     </div>
   </div>
-
+</form>
 
 
     </div>
