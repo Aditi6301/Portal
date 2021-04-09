@@ -162,7 +162,7 @@ include('addTitle.php');
         </div>
       </footer>
       <!-- End of Footer -->
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 
  <div class="portfolio-modal-lg modal fade" id="AddNewModal" tabindex="-1" role="dialog" aria-hidden="true">
  
@@ -218,7 +218,7 @@ include('addTitle.php');
                     </div>
                 	
                 	 <div class="custom-file">
-                        <input name="poster" type="file" class="custom-file-input"name="movie_image" id="customFile" data-toggle="tooltip" data-placement="top">
+                        <input name="image" type="file" class="custom-file-input"name="movie_image" id="customFile" data-toggle="tooltip" data-placement="top">
                         <label align="left" class="custom-file-label" for="customFile">Poster Image</label>
                      </div>
                 
@@ -240,6 +240,7 @@ include('addTitle.php');
     </div>
   </div>
 </form>
+<a href="select.php">See Image</a>
 
 
     </div>
@@ -271,7 +272,6 @@ include('addTitle.php');
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
-
 </body>
 
 </html>
