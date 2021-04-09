@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2021 at 09:14 AM
+-- Generation Time: Apr 09, 2021 at 04:01 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -41,6 +41,15 @@ CREATE TABLE `listing` (
   `link` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `listing`
+--
+
+INSERT INTO `listing` (`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starcast`, `synopsis`, `Release_date`, `min_cost`, `max_cost`, `link`) VALUES
+(7, 2, 'Out_Film', 'mj', 'nn', 'nn', 'nn', '2021-04-10', 'n', 'nn', 'w'),
+(8, 2, 'In_Film', 'mj', 'nn', 'nn', 'nn', '2021-04-10', 'n', 'nn', 'wuu'),
+(9, 2, 'In_Film', 'mj', 'nn', 'nn', 'nn', '2021-04-10', 'n', 'nn', 'wuu');
+
 -- --------------------------------------------------------
 
 --
@@ -64,7 +73,8 @@ INSERT INTO `login` (`user_id`, `Email`, `CompanyName`, `login_time`, `user_stat
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-08 16:44:01', 'Active'),
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-09 05:49:09', 'Active'),
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-09 06:37:17', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-09 07:08:13', 'Active');
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-09 07:08:13', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-09 07:24:06', 'Active');
 
 -- --------------------------------------------------------
 
@@ -125,7 +135,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `listing`
 --
 ALTER TABLE `listing`
-  MODIFY `listing_no` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `listing_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
