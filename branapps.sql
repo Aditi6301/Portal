@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2021 at 04:44 PM
+-- Generation Time: Apr 09, 2021 at 09:14 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -24,6 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `listing`
+--
+
+CREATE TABLE `listing` (
+  `listing_no` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `Type` varchar(10) DEFAULT NULL,
+  `Title` varchar(30) DEFAULT NULL,
+  `genre` varchar(20) DEFAULT NULL,
+  `starcast` varchar(30) DEFAULT NULL,
+  `synopsis` varchar(200) DEFAULT NULL,
+  `Release_date` date DEFAULT NULL,
+  `min_cost` varchar(30) DEFAULT NULL,
+  `max_cost` varchar(30) DEFAULT NULL,
+  `link` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `login`
 --
 
@@ -34,6 +54,17 @@ CREATE TABLE `login` (
   `login_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `user_status` enum('Active','Unactive') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`user_id`, `Email`, `CompanyName`, `login_time`, `user_status`) VALUES
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-08 14:52:18', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-08 16:44:01', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-09 05:49:09', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-09 06:37:17', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-09 07:08:13', 'Active');
 
 -- --------------------------------------------------------
 
@@ -60,12 +91,19 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`, `Designation`, `Email`, `password`, `Phone`, `Verified`) VALUES
 (1, 'Brand', 'Nidhi', 'Abhyankar', 'Puma', 'abc', 'nidhiabhyankar@gmail.com', NULL, 123344, 'Yes'),
-(2, 'Brand', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', NULL, 2, 'No'),
+(2, 'Brand', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'No'),
 (3, 'Brand', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia149@gmail.com', '$2y$10$Ikdejj/6W70kRxIOWYLNm.aRKb781qOZq9C7zsy3WRbF6zUmQOBji', 69, 'Yes');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `listing`
+--
+ALTER TABLE `listing`
+  ADD PRIMARY KEY (`listing_no`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `login`
@@ -84,6 +122,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `listing`
+--
+ALTER TABLE `listing`
+  MODIFY `listing_no` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -92,6 +136,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `listing`
+--
+ALTER TABLE `listing`
+  ADD CONSTRAINT `listing_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `login`
