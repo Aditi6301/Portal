@@ -111,22 +111,21 @@ include('UserLogin.php');
                                     <tbody>
         <?php
              
-             $db = mysqli_connect('localhost', 'root', '', 'branapps');
+             
+             include('dbConn.php');
+            
+             $data = $conn->query("SELECT * FROM login ORDER BY Email")->fetchAll();
+            foreach ($data as $row) 
+                      
+                    {
+                      echo '<tr>';
+                      echo '<td>'.$row['user_id'].'</td>';
+                      echo '<td>'.$row['Email'].'</td>';
+                      echo '<td>'.$row['CompanyName'].'</td>';
+                      echo '<td>'.$row['login_time'].'</td>';
+                    echo '</tr>';
+                    }
 
-             $strSQL="SELECT * from login";   
-
-             $rs = mysqli_query($db, $strSQL);
-             while( $row = mysqli_fetch_assoc($rs) ) 
-             {
-                  echo '<tr>';
-                  echo '<td>'.$row['user_id'].'</td>';
-                  echo '<td>'.$row['Email'].'</td>';
-                  echo '<td>'.$row['CompanyName'].'</td>';
-                  echo '<td>'.$row['login_time'].'</td>';
-                  // echo '<td>'.$row['user_status'].'</td>';
-                echo '</tr>';
-                
-             } 
            ?>
                                         
                                     </tbody>

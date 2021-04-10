@@ -13,8 +13,10 @@ if(isset($_POST['Add_title']))
     $Release_date=$_POST['Release_date'];
     $min_cost=$_POST["min_cost"];
     $max_cost=$_POST["max_cost"];
+    $deliverables=$_POST["tentative_deliverables"];
     $link=$_POST["link"];
-
+    parse_str(parse_url($link, PHP_URL_QUERY), $variables);
+    $store_link= $variables['v'];
     $folder ="uploads/"; 
 
 $image = $_FILES['image']['name']; 
@@ -41,7 +43,7 @@ if(!in_array($ext,$allowed) )
 else{
     move_uploaded_file( $_FILES['image'] ['tmp_name'], $path); 
 
-    $sql=$conn->prepare("INSERT INTO `listing`(`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starcast`, `synopsis`, `Release_date`, `min_cost`, `max_cost`, `link`,`image`) VALUES (NULL,'$user_id','$Type','$Title','$genre','$starcast','$synopsis','$Release_date','$min_cost','$max_cost','$link','$image')");
+    $sql=$conn->prepare("INSERT INTO `listing`(`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starcast`, `synopsis`, `Release_date`, `min_cost`, `max_cost`,`deliverables`, `link`,`image`) VALUES (NULL,'$user_id','$Type','$Title','$genre','$starcast','$synopsis','$Release_date','$min_cost','$max_cost','$deliverables','$store_link','$image')");
     $result=$sql->execute() or die($conn->error);
     if($result)
     {

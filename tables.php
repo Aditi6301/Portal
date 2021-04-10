@@ -1,6 +1,6 @@
 <?php
 include('UserLogin.php');
-
+//include('dbConn.php');
 ?>
 
 <!DOCTYPE html>
@@ -115,81 +115,84 @@ include('UserLogin.php');
                   </thead>
                   
                   <tbody>
-                    <tr>
-                      <td>Co-Branding</td>
-                      <td>Tiger Zinda Hai</td>
-                      <td>Action, Drama </td>
-                      <td>Salman Khan, Katrina Kaif</td>
-                      <td>2019/15/08</td>
-                      <td>10,00,000 to 1,00,00,000</td>
-                      <td>
-                      <a class="btn btn-warning btn-icon-split btn-sm" data-toggle="modal" href="#portfolioModal1"> <span class="text">View More</span></a>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">Request Details</span></a>
-                      </td>
-                    </tr>
-                
-                    <tr>
-                      <td>In-Film</td>
-                      <td>Cara Stevens</td>
-                      <td>Sales Assistant</td>
-                      <td>New York</td>
-                      <td>2011/12/06</td>
-                      <td>10,000 to 1,00,000</td>   
-                     <td>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">View More</span></a>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">Request Details</span></a>
-                      </td>
-                    </tr>
+
+                  <?php
                    
-                    <tr>
-                      <td>In-Film</td>
-                      <td>Cara Stevens</td>
-                      <td>Sales Assistant</td>
-                      <td>New York</td>
-                      <td>2011/12/06</td>
-                      <td>10,000 to 1,00,000</td>   
-                     <td>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">View More</span></a>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">Request Details</span></a>
-                      </td>
-                    </tr>
                     
-                     <tr>
-                      <td>In-Film</td>
-                      <td>Cara Stevens</td>
-                      <td>Sales Assistant</td>
-                      <td>New York</td>
-                      <td>2011/12/06</td>
-                      <td>10,000 to 1,00,000</td>   
-                     <td>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">View More</span></a>
+                    $data = $conn->query("SELECT * FROM listing")->fetchAll();
+                    foreach ($data as $row) 
+                    {
+                      ?>
+                    
+                      <tr>
+                      <td><?php echo $row['Type']; ?></td>
+                      <td><?php echo $row['Title']; ?></td>
+                      <td><?php echo $row['genre']; ?></td>
+                      <td><?php echo $row['starcast']; ?></td>
+                      <td><?php echo $row['Release_date']; ?></td>
+                      <td>₹<?php echo $row['min_cost']; ?> to ₹<?php echo $row['max_cost']; ?> </td>
+                      <td>
+                      <a class="btn btn-warning btn-icon-split btn-sm" data-toggle="modal" href="#portfolioModal1<?php echo $row['listing_no']; ?>"> <span class="text">View More</span></a>
                       <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">Request Details</span></a>
                       </td>
                     </tr>
-                    <tr>
-                      <td>In-Film</td>
-                      <td>Cara Stevens</td>
-                      <td>Sales Assistant</td>
-                      <td>New York</td>
-                      <td>2011/12/06</td>
-                      <td>10,000 to 1,00,000</td>   
-                     <td>
-                      <a href="" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">View More</span></a>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">Request Details</span></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>In-Film</td>
-                      <td>Cara Stevens</td>
-                      <td>Sales Assistant</td>
-                      <td>New York</td>
-                      <td>2011/12/06</td>
-                      <td>10,000 to 1,00,000</td>   
-                     <td>
-                      <a class="btn btn-warning btn-icon-split btn-sm" data-toggle="modal" href="#portfolioModal1"> <span class="text">View More</span></a>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">Request Details</span></a>
-                      </td>
-                    </tr>
+
+
+    <div class="portfolio-modal modal fade" id="portfolioModal1<?php echo $row['listing_no']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+        <center>
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                
+                
+                <h2 class="text-uppercase"><?php echo $row['Title']; ?></h2>
+                <p class="item-intro text-muted"><b>Genre:</b><?php echo $row['genre']; ?></p>
+                 <img class="img-fluid d-block mx-auto" src="./uploads/<?php echo $row['image']; ?>" alt="">
+                  <p></p>
+                  <div class="iframe-container">
+                  <iframe src="http://www.youtube.com/embed/<?php echo $row['link']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                   </div>
+                   <p></p>
+                <ul class="list-inline">
+                  <li><b>Cast:</b> <?php echo $row['starcast']; ?></li>
+                  <p></p>
+                
+                  <li align="left"><b>Synopsis:</b> <?php echo $row['synopsis']; ?></li>
+                  <p></p>
+               
+                  <li><b>Release Date:</b><?php echo $row['Release_date']; ?></li>
+                  <p></p>
+                  <li><b>Budget Range:</b> INR <?php echo $row['min_cost']; ?> to <?php echo $row['max_cost']; ?></li>
+                  <p></p>
+                  <li><b>Tentative Deliverables:</b><br><?php echo $row['deliverables']; ?></li>
+                 
+                </ul>
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+                    <?php
+                    }
+                    ?>
+                    
                     
                   </tbody>
                 </table>
@@ -219,54 +222,7 @@ include('UserLogin.php');
   </div>
 
 
- <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-          <div class="lr">
-            <div class="rl"></div>
-          </div>
-        </div>
-        <div class="container">
-        <center>
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="modal-body">
-                <!-- Project Details Go Here -->
-                <h2 class="text-uppercase">Tiger Zinda Hai</h2>
-                <p class="item-intro text-muted"><b>Genre:</b> Action, Drama</p>
-                 <img class="img-fluid d-block mx-auto" src="img/portfolio/tzh.jpg" alt="">
-                  <p></p>
-                  <div class="iframe-container">
-                  <iframe src="https://www.youtube.com/embed/ePO5M5DE01I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                   </div>
-                   <p></p>
-                <ul class="list-inline">
-                  <li><b>Cast:</b> Salman Khan, Katrina Kaif</li>
-                  <p></p>
-                
-                  <li align="left"><b>Synopsis:</b> Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</li>
-                  <p></p>
-               
-                  <li><b>Release Date:</b> 15/08/2019</li>
-                  <p></p>
-                  <li><b>Budget Range:</b> INR 10,00,000 to INR 1,00,00,000</li>
-                  <p></p>
-                  <li><b>Tentative Deliverables:</b><br>Active/Passive Scenes<br>Logo Presence on movie opening slate<br>Digital bytes from actors</li>
-                 
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
+ 
 
   
   <!-- End of Page Wrapper -->
