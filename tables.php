@@ -98,7 +98,8 @@ include('UserLogin.php');
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
-            
+
+         
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table" id="dataTable" width="100%" cellspacing="0">
@@ -125,18 +126,22 @@ include('UserLogin.php');
                       ?>
                     
                       <tr>
+                      
                       <td><?php echo $row['Type']; ?></td>
-                      <td><?php echo $row['Title']; ?></td>
+                      <td><?php echo $row['Title'] ?></td>
                       <td><?php echo $row['genre']; ?></td>
                       <td><?php echo $row['starcast']; ?></td>
                       <td><?php echo $row['Release_date']; ?></td>
                       <td>₹<?php echo $row['min_cost']; ?> to ₹<?php echo $row['max_cost']; ?> </td>
                       <td>
+                <?php
+                $title=$row['Title'];
+                ?>
                       <a class="btn btn-warning btn-icon-split btn-sm" data-toggle="modal" href="#portfolioModal1<?php echo $row['listing_no']; ?>"> <span class="text">View More</span></a>
-                      <a href="#" class="btn btn-warning btn-icon-split btn-sm"> <span class="text">Request Details</span></a>
+                      <a href="./mail/RequestDetails.php?Title=<?php echo $title;?>"class="btn btn-warning btn-icon-split btn-sm"><span class="text">Request Details</span></a>
+        
                       </td>
                     </tr>
-
 
     <div class="portfolio-modal modal fade" id="portfolioModal1<?php echo $row['listing_no']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
@@ -176,6 +181,7 @@ include('UserLogin.php');
                   <li><b>Tentative Deliverables:</b><br><?php echo $row['deliverables']; ?></li>
                  
                 </ul>
+                
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
                   Close Project</button>
