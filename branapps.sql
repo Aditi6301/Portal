@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2021 at 12:27 PM
+-- Generation Time: Apr 13, 2021 at 01:23 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -57,8 +57,6 @@ INSERT INTO `listing` (`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starc
 (13, 2, 'In_Film', '', '', '', '', '0000-00-00', 0, 0, '', '', 'WIN_20201106_16_54_31_Pro.jpg'),
 (14, 2, 'Out_Film', 'abcs', 'thriller', 'srk', '123', '2021-04-22', 123, 123, '', 'abc.com', 'Screenshot 2020-11-10 105722.p'),
 (15, 2, 'Out_Film', 'mj', 'nn', 'srk', 'abc', '2021-04-29', 123, 123, '', 'www.abc.com', 'header-bg21132.jpg'),
-(16, 3, 'Out_Film', 'friends', 'comedy', 'jennifer aniston', 'abcd', '2021-04-16', 123, 455, '', 'abc.com', 'Blue-Background-With-Hand-Draw'),
-(17, 3, 'Out_Film', 'amj', 'thriller', 'jennifer aniston', '123', '2021-04-24', 123, 123, '', 'www.', 'Blue-Background-With-Hand-Draw'),
 (18, 2, 'In_Film', 'main hoo na', 'romance,drama', 'shahrukh khan', 'something something blah blah', '2021-04-30', 900000, 10000000, '', 'https://www.youtube.com/watch?', 'julycollage .png'),
 (19, 2, 'Out_Film', 'Roohi', 'Thirller', 'Rajkumar Rao', 'blaaaaah', '2021-04-21', 334444, 555666, '', 'https://www.youtube.com/watch?v=BDBpX6P7u9E', 'beagul.jpg'),
 (20, 2, 'Out_Film', 'aaaaa', 'bad', 'you', 'la la la', '2021-04-24', 1, 2, '', 'https://www.youtube.com/v/BDBpX6P7u9E', 'cat.jpg'),
@@ -67,7 +65,8 @@ INSERT INTO `listing` (`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starc
 (23, 2, 'Out_Film', 'Roohi 2', 'romance,drama', 'Rajkumar Rao', 'fjtrkftk', '2021-04-21', 7, 90, '', 'https://www.youtube.com/embed/watch?v=mTT_V0t89MI', 'labrador.jpg'),
 (24, 2, 'Out_Film', 'ROOOHI', 'Thirller', 'Rajkumar Rao', 'BSFFAA', '2021-04-25', 444, 66666, '', '', 'image.jpg'),
 (25, 2, 'In_Film', 'film', 'bad', 'you', 'fgreheawb', '2021-04-23', 7, 90, '', 'mTT_V0t89MI', 'beagul.jpg'),
-(26, 2, 'Out_Film', 'Stree', 'Horror,Comedy', 'Rajkumar Rao,Kriti Sanon', 'synopsis', '2021-04-29', 88, 99, 'some deliverables', 'PkgStlsVaqw', 'pug.jpg');
+(26, 2, 'Out_Film', 'Stree', 'Horror,Comedy', 'Rajkumar Rao,Kriti Sanon', 'synopsis', '2021-04-29', 88, 99, 'some deliverables', 'PkgStlsVaqw', 'pug.jpg'),
+(36, 3, 'In_Film', 'birdman', 'Drama/Romance', 'Edward Norton', 'gbgfbd', '2021-04-15', 334444, 10000000, 'fgfszd', 'uJfLoE6hanc', 'img.jpg');
 
 -- --------------------------------------------------------
 
@@ -101,7 +100,11 @@ INSERT INTO `login` (`user_id`, `Email`, `CompanyName`, `login_time`, `user_stat
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-09 16:28:07', 'Active'),
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-10 07:19:59', 'Active'),
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-10 07:21:20', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-10 08:25:02', 'Active');
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-10 08:25:02', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-12 07:18:49', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-13 07:48:03', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-13 09:34:11', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-13 09:37:18', 'Active');
 
 -- --------------------------------------------------------
 
@@ -129,7 +132,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`, `Designation`, `Email`, `password`, `Phone`, `Verified`) VALUES
 (1, 'Brand', 'Nidhi', 'Abhyankar', 'Puma', 'abc', 'nidhiabhyankar@gmail.com', NULL, 123344, 'Yes'),
 (2, 'Production', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'No'),
-(3, 'Brand', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia149@gmail.com', '$2y$10$Ikdejj/6W70kRxIOWYLNm.aRKb781qOZq9C7zsy3WRbF6zUmQOBji', 69, 'Yes');
+(3, 'Brand', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia149@gmail.com', '$2y$10$Ikdejj/6W70kRxIOWYLNm.aRKb781qOZq9C7zsy3WRbF6zUmQOBji', 69, 'Yes'),
+(4, 'Brand', 'Nishant', 'B', 'shalimar', 'dick', 'nishantbhavsar1503@gmail.com', NULL, 9271630705, 'Yes');
 
 --
 -- Indexes for dumped tables
@@ -162,13 +166,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `listing`
 --
 ALTER TABLE `listing`
-  MODIFY `listing_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `listing_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
