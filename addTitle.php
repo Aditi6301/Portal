@@ -20,14 +20,23 @@ if(isset($_POST['Add_title']))
     $folder ="uploads/"; 
 
 $image = $_FILES['image']['name']; 
-
+echo '<br>'; 
+echo "image:";
+echo $image;
 $path = $folder . $image ; 
-
+echo '<br>'; 
+echo "path:";
+echo $path;
 $target_file=$folder.basename($_FILES["image"]["name"]);
-
+echo '<br>'; 
+echo "target_file:";
+echo $target_file;
 
 $imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
-
+echo '<br>'; 
+    echo "imageFileType";
+    echo $imageFileType;
+    
 
 $allowed=array('jpeg','png' ,'jpg'); $filename=$_FILES['image']['name']; 
 
@@ -47,7 +56,7 @@ else{
     $result=$sql->execute() or die($conn->error);
     if($result)
     {
-        echo "<script>alert('Movie successfully inserted!'); window.location='tables2.php'</script>";
+        // echo "<script>alert('Movie successfully inserted!'); window.location='tables2.php'</script>";
     }
     else
     {

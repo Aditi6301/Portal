@@ -1,6 +1,51 @@
 <?php
 include('addTitle.php');
+include('editTitle.php');
+$stmt = $conn->prepare("DELETE FROM listing WHERE Release_date = CURRENT_DATE()"); 
+$result=$stmt->execute() or die($conn->error);
+
+// session_start();
+
+$idletime=60;//after 60 seconds the user gets logged out
+
+if (time()-$_SESSION['timestamp']>$idletime){
+    // session_destroy();
+    // session_unset();
+    Header( 'Location:logout.php' );
+}else{
+    $_SESSION['timestamp']=time();
+}
+
+
+
+if ( isset($_GET['deletesuccess']) && $_GET['deletesuccess'] == 1 )
+
+{
+  unset($_GET['deletesuccess']);
+  ?>
+     
+     <div class="alert alert-success" id="success-alert">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong>Deleted SuccessFully! </strong> 
+    </div>
+    
+<?php
+}
+
+
+if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 1 )
+{
+  unset($_GET['updatesuccess']);
 ?>
+    <div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Title Updated</strong>
+    </div>
+<?php
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -130,12 +175,16 @@ include('addTitle.php');
                       <td><?php echo $row['Release_date']; ?></td>
                       <td>₹<?php echo $row['min_cost']; ?> to ₹<?php echo $row['max_cost']; ?> </td>
                       <td>
-                      <a class="btn btn-warning btn-icon-split btn-sm" data-toggle="modal" href="#portfolioModal1<?php echo $row['listing_no']; ?>"> <span class="text">Edit</span></a>
-                      <a class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" href="#"> <span class="text">Delete</span></a>
+                      <a class="btn btn-warning btn-icon-split btn-sm" data-toggle="modal" href="#editModal<?php echo $row['listing_no']; ?>"> <span class="text">Edit</span></a>
+                      <a class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" href="#deleteModal<?php echo $row['listing_no']; ?>"> <span class="text">Delete</span></a>
                       </td>
                     </tr>
- 
-                    <div class="portfolio-modal modal fade" id="portfolioModal1<?php echo $row['listing_no']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                     <!-- Edit details modal -->
+
+
+    
+             <!-- delete confirmation madal -->
+             <div class="portfolio-modal modal fade" id="deleteModal<?php echo $row['listing_no']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
@@ -149,33 +198,12 @@ include('addTitle.php');
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
                 <!-- Project Details Go Here -->
-                
-                
-                <h2 class="text-uppercase"><?php echo $row['Title']; ?></h2>
-                <p class="item-intro text-muted"><b>Genre:</b><?php echo $row['genre']; ?></p>
-                 <img class="img-fluid d-block mx-auto" src="./uploads/<?php echo $row['image']; ?>" alt="">
-                  <p></p>
-                  <div class="iframe-container">
-                  <iframe src="http://www.youtube.com/embed/<?php echo $row['link']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                   </div>
-                   <p></p>
-                <ul class="list-inline">
-                  <li><b>Cast:</b> <?php echo $row['starcast']; ?></li>
-                  <p></p>
-                
-                  <li align="left"><b>Synopsis:</b> <?php echo $row['synopsis']; ?></li>
-                  <p></p>
-               
-                  <li><b>Release Date:</b><?php echo $row['Release_date']; ?></li>
-                  <p></p>
-                  <li><b>Budget Range:</b> INR <?php echo $row['min_cost']; ?> to <?php echo $row['max_cost']; ?></li>
-                  <p></p>
-                  <li><b>Tentative Deliverables:</b><br>Active/Passive Scenes<br>Logo Presence on movie opening slate<br>Digital bytes from actors</li>
-                 
-                </ul>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close Project</button>
+                <form method='post'>
+                  <h1>Delete Title</h1>
+                  <p>Are you sure you want to delete this title?</p>
+                  <a class="btn btn-light btn-icon-split btn-lg" href="tables2.php"><span class="text">Cancel</span></a>
+                  <a class="btn btn-danger btn-icon-split btn-lg" href="deleteTitle.php?listing_no=<?php echo $row['listing_no']; ?>"><span class="text">Delete</span></a>
+                  </form>
               </div>
             </div>
           </div>
@@ -183,25 +211,16 @@ include('addTitle.php');
       </div>
     </div>
   </div>
+  
+               
+
 
 
 
                     <?php
                     }
                     ?>
-                    <!-- <tr>
-                      <td>Co-Branding</td>
-                      <td>Tiger Zinda Hai</td>
-                      <td>Action, Drama </td>
-                      <td>Salman Khan, Katrina Kaif</td>
-                      <td>2019/15/08</td>
-                      <td>10,00,000 to 1,00,00,000</td>
-                      <td>
-                      <a class="btn btn-warning btn-icon-split btn-sm" data-toggle="modal" href="#portfolioModal1"> <span class="text">Edit</span></a>
-                      <a class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" href="#"> <span class="text">Delete</span></a>
-                      </td>
-                    </tr>
-                 -->
+                   
                    
                    
                     
@@ -307,6 +326,104 @@ include('addTitle.php');
     </div>
   </div>
 </form>
+
+<!-- edit modal -->
+<?php
+                   
+                    $user_id=$_SESSION["user_id"];
+                    $data = $conn->query("SELECT * FROM listing where user_id =$user_id")->fetchAll();
+                    foreach ($data as $row) 
+                    {
+                      ?>
+
+
+        <form  method="post" enctype="multipart/form-data">
+        <div class="portfolio-modal-lg modal fade" id="editModal<?php echo $row['listing_no']; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+            
+        <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                  <div class="lr">
+                    <div class="rl"></div>
+                  </div>
+                </div>
+                <div class="container">
+                <center>
+                  <div class="row">
+                    <div class="col-lg-10 mx-auto">
+                      <div class="modal-body">
+                      
+                      
+                        <ul class="list-inline">
+                        <div class="form-group">
+                              <input name="listing_no" type="hidden" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Movie/Series Title" value="<?php echo $row['listing_no']; ?>">
+                            </div>
+                            <div class="form-group">
+                            <select name="Type" class="form-control custom-select" data-toggle="tooltip" data-placement="top" title="Production Type">
+                                <label>Type of Opportunity</label>
+                                <option name="In_Film" value="In_Film">In Film</option>
+                                <option name="Out_Film" value="Out_Film">Out Film</option>
+                            </select>
+                            </div>
+
+                            <div class="form-group">
+                              <input name="Title" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Movie/Series Title" value="<?php echo $row['Title']; ?>">
+                            </div>
+                            <div class="form-group">
+                              <input name="genre" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Genre" value="<?php echo $row['genre']; ?>">
+                            </div>
+                            <div class="form-group">
+                              <input name="starcast" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Starcast" value="<?php echo $row['starcast']; ?>">
+                            </div>
+                            <div class="form-group">
+                              <textarea name="synopsis" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Synopsis"><?php echo $row['synopsis']; ?></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                              <input name="Release_date" type="date" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Release Date" value="<?php echo $row['Release_date']; ?>">
+                            </div>
+                          
+                          <div class="form-group">
+                              <input name="min_cost" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Min Association Cost" value="<?php echo $row['min_cost']; ?>">
+                            </div>
+                            <div class="form-group">
+                              <input name="max_cost" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Max Association Cost" value="<?php echo $row['max_cost']; ?>">
+                            </div>
+                            <div class="form-group">
+                              <textarea name="tentative_deliverables" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Tentative deliverables"><?php echo $row['deliverables']; ?></textarea>
+                            </div>
+                            
+                          <div class="form-group">
+                              <input name="link" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Trailer Link" value="http://www.youtube.com/embed/<?php echo $row['link']; ?>">
+                            </div>
+                          
+                          <div class="custom-file">
+                                <input name="image" type="file" class="custom-file-input"name="movie_image" id="customFile" data-toggle="tooltip" data-placement="top">
+                                <label align="left" class="custom-file-label" for="customFile"><?php echo $row['image']; ?></label>
+                            </div>
+                        
+                            
+                            </ul> 
+                        <button type="submit" name="Edit_title"  class="btn btn-primary" >Add New Title</button>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
+                          <i class="fas fa-times"></i>
+                          Close Project</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+                              <?php
+                    }
+                    ?>
+
+
+
+
 <a href="select.php">See Image</a>
 
 
@@ -390,6 +507,22 @@ include('addTitle.php');
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
+
+  
 </body>
 
 </html>
+
+<script>
+$(document).ready(function() {
+    // show the alert
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
+});
+</script>
+
+      <!-- $(".alert").first().hide().slideDown(500).delay(4000).slideUp(500, function () {
+         $(this).remove(); 
+      });
+  }); -->

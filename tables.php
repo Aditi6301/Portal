@@ -1,6 +1,19 @@
 <?php
 include('UserLogin.php');
-//include('dbConn.php');
+$stmt = $conn->prepare("DELETE FROM listing WHERE Release_date = CURRENT_DATE()"); 
+$result=$stmt->execute() or die($conn->error);
+
+// session_start();
+
+$idletime=60;//after 60 seconds the user gets logged out
+
+if (time()-$_SESSION['timestamp']>$idletime){
+    // session_destroy();
+    // session_unset();
+    Header( 'Location:logout.php' );
+}else{
+    $_SESSION['timestamp']=time();
+}
 ?>
 
 <!DOCTYPE html>
@@ -166,7 +179,7 @@ include('UserLogin.php');
                   <div class="iframe-container">
                   <iframe src="http://www.youtube.com/embed/<?php echo $row['link']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                    </div>
-                   <p></p>
+                   <p>http://www.youtube.com/embed/<?php echo $row['link']; ?> </p>
                 <ul class="list-inline">
                   <li><b>Cast:</b> <?php echo $row['starcast']; ?></li>
                   <p></p>

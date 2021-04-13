@@ -32,6 +32,8 @@ if(isset($_POST['Login']))
                 $_SESSION["loggedin"] = true;
                 $_SESSION["user_id"] = $user_id;
                 $_SESSION["email"] = $email;
+                //on session creation
+                $_SESSION['timestamp']=time();
                 echo $_SESSION["user_name"]=$FirstName.' '.$LastName;
                 $user_status='Active';
                 echo $BrandName;
