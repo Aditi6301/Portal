@@ -1,6 +1,24 @@
 <?php
 include('brandRegistration.php');
 ?>
+
+<?php
+
+
+
+if ( isset($_GET['accountsuccess']) && $_GET['accountsuccess'] == 1 )
+{
+  unset($_GET['accountsuccess']);
+?>
+    <div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Account added successfully!</strong>
+    </div>
+<?php
+}
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">

@@ -2,6 +2,24 @@
 include('UserLogin.php');
 ?>
 
+<?php
+
+
+
+if ( isset($_GET['loginsuccess']) && $_GET['loginsuccess'] == 1 )
+{
+  unset($_GET['loginsuccess']);
+?>
+    <div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>login successful! We will get back to you soon!</strong>
+    </div>
+<?php
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -28,7 +28,8 @@ else
     $result=$sql->execute() or die($conn->error);
     if($result)
     {
-        echo "<script>alert('Account successfully added!'); window.location='brandregister.php'</script>";
+        Header( 'Location: brandregister.php?accountsuccess=1' );
+
     }
     else
     {

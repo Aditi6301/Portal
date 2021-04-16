@@ -43,7 +43,7 @@ if(isset($_POST['SetPassword']))
             // $result=$sql->execute() or die($conn->error);
             if($result)
             {
-                echo "<script>alert('Password set successfully!Login here.'); window.location='login.php'</script>";
+                Header('Location: login.php?passwordsuccess=1' );
             }
             else
             {

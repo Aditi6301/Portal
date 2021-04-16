@@ -38,7 +38,7 @@ else
         $result=$sql->execute() or die($conn->error);
         if($result)
             {
-                echo "<script>alert('Account successfully added!'); window.location='login.php'</script>";
+                Header( 'Location: admin_register.php?accountsuccess=1');
             }
             else
             {

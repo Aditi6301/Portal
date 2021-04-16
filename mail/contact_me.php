@@ -32,8 +32,7 @@ if($getEmail->rowCount()>0)  //email found
    $headers .= "Reply-To: shreyakedia149@gmail.com\n";   
    if(mail($to,$email_subject,$email_body,$headers))
    {
-      echo "Your Mail is sent successfully.";
-      header("Location:../adminpage.php"); 
+      Header('Location: ../adminpage.php?mailsuccess=1' );
    }
    else
    {

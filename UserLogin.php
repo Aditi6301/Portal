@@ -52,16 +52,16 @@ if(isset($_POST['Login']))
                         
                         if($Trow['Type']=='Production')
                         {
-                             echo "<script>alert('Login Successful!!'); window.location='tables2.php'</script>";
+                            Header('Location: /tables2.php?loginsuccess=1' );
                         }
                         elseif($Trow['Type'] =='Brand')
                         {
-                             echo "<script>alert('Login Successful!!'); window.location='tables.php'</script>";
+                            Header('Location: tables.php?loginsuccess=1' );
                         }
                         elseif($Trow['Type'] =='Admin')
                         {
 
-                             echo "<script>alert('Login Successful!!'); window.location='adminpage.php'</script>";
+                            Header('Location: adminpage.php?loginsuccess=1' );
                         }
                         
                     }

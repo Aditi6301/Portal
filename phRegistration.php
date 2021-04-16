@@ -28,7 +28,7 @@ if(isset($_POST['RegisterProduction']))
         $result=$sql->execute() or die($conn->error);
         if($result)
         {
-            echo "<script>alert('Account successfully added!'); window.location='phregister.php'</script>";
+            Header( 'Location: phregister.php?accountsuccess=1');
         }
         else
         {

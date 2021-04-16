@@ -56,7 +56,7 @@ else{
     $result=$sql->execute() or die($conn->error);
     if($result)
     {
-        // echo "<script>alert('Movie successfully inserted!'); window.location='tables2.php'</script>";
+        Header( 'Location: tables2.php?titlesuccess=1');
     }
     else
     {

@@ -43,7 +43,16 @@ if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 1 )
     </div>
 <?php
 }
-
+if ( isset($_GET['titlesuccess']) && $_GET['titlesuccess'] == 1 )
+{
+  unset($_GET['titlesuccess']);
+?>
+    <div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Title sucessfully added!</strong>
+    </div>
+<?php
+}
 ?>
 
 <!DOCTYPE html>
