@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2021 at 09:12 AM
+-- Generation Time: Apr 16, 2021 at 03:22 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -59,9 +59,9 @@ INSERT INTO `listing` (`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starc
 (15, 2, 'Out_Film', 'mj', 'nn', 'srk', 'abc', '2021-04-29', 123, 123, '', 'www.abc.com', 'header-bg21132.jpg'),
 (17, 3, 'Out_Film', 'amj', 'thriller', 'jennifer aniston', '123', '2021-04-24', 123, 123, '', 'www.', 'Blue-Background-With-Hand-Draw'),
 (18, 2, 'In_Film', 'main hoo na', 'romance,drama', 'shahrukh khan', 'something something blah blah', '2021-04-30', 900000, 10000000, '', 'https://www.youtube.com/watch?', 'julycollage .png'),
-(19, 2, 'Out_Film', 'Roohi', 'Thirller', 'Rajkumar Rao', 'blaaaaah', '2021-04-21', 334444, 555666, '', 'https://www.youtube.com/watch?v=BDBpX6P7u9E', 'beagul.jpg'),
+(19, 2, 'In_Film', 'Roohi', 'Thirller', 'Rajkumar Rao', 'blaaaaah', '2021-04-21', 334444, 555666, '', 'https://www.youtube.com/watch?v=BDBpX6P7u9E', 'Blue-Background-With-Hand-Drawn-Cinema-Items.jpg'),
 (20, 2, 'Out_Film', 'aaaaa', 'bad', 'you', 'la la la', '2021-04-24', 1, 2, '', 'https://www.youtube.com/v/BDBpX6P7u9E', 'cat.jpg'),
-(21, 2, 'In_Film', 'bbbb', 'romance,drama', 'shahrukh khan', 'bbbbbb', '2021-04-23', 3, 4, '', 'https://www.youtube.comembed//watch?v=BDBpX6P7u9E', 'img.jpg'),
+(21, 2, 'In_Film', 'bbbb', 'romance,drama', 'shahrukh khan', 'bbbbbb', '2021-04-23', 3, 4, '', 'https://www.youtube.com', 'image.jpg'),
 (22, 2, 'In_Film', 'gggggg', 'Thirller', 'Rajkumar Rao', 'gggggg', '2021-04-23', 777, 888, '', 'https://www.youtube.com/embed/watch?v=BDBpX6P7u9E', 'image.jpg'),
 (23, 2, 'Out_Film', 'Roohi 2', 'romance,drama', 'Rajkumar Rao', 'fjtrkftk', '2021-04-21', 7, 90, '', 'https://www.youtube.com/embed/watch?v=mTT_V0t89MI', 'labrador.jpg'),
 (24, 2, 'Out_Film', 'ROOOHI', 'Thirller', 'Rajkumar Rao', 'BSFFAA', '2021-04-25', 444, 66666, '', '', 'image.jpg'),
@@ -187,7 +187,10 @@ INSERT INTO `login` (`user_id`, `Email`, `CompanyName`, `login_time`, `user_stat
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-16 06:58:13', 'Active'),
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-16 06:58:26', 'Active'),
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-16 07:03:58', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-16 07:06:22', 'Active');
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-16 07:06:22', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-16 08:57:16', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-16 13:09:01', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-16 13:11:20', 'Active');
 
 -- --------------------------------------------------------
 
@@ -214,7 +217,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`, `Designation`, `Email`, `password`, `Phone`, `Verified`) VALUES
 (1, 'Brand', 'Nidhi', 'Abhyankar', 'Puma', 'abc', 'nidhiabhyankar@gmail.com', NULL, 123344, 'Yes'),
-(2, 'Production', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'No'),
+(2, 'Brand', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'No'),
 (3, 'Admin', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia149@gmail.com', '$2y$10$Ikdejj/6W70kRxIOWYLNm.aRKb781qOZq9C7zsy3WRbF6zUmQOBji', 69, 'Yes'),
 (4, 'Brand', '', '', '', '', '', NULL, 0, 'No'),
 (5, 'Brand', '', '', '', '', '', 'radha', 0, 'No'),
@@ -222,8 +225,10 @@ INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`
 (7, 'Brand', '', '', '', '', '', '$2y$10$Um4AXRnQLHSDMV1uR2Vmhen9wQNz2P4AEKoXjVkBMutF/SJzNUDK2', 0, 'No'),
 (8, 'Admin', '', '', '', '', 'radhamujumdar@gmail.com', '$2y$10$NgEyYsGuPxhI9zgxvaIEPOFoBGXhMgfydJN598yYhCf1mAsr1v1UO', 0, 'No'),
 (9, 'Admin', '', '', '', '', '', '$2y$10$9y2iEZaAbrjGCfebP.26E.pQpSC3MzxK/aXldUnb4KnFqQUEhQZ8e', 0, 'No'),
-(10, 'Admin', '', '', '', '', 'viditbapat@gmail.com', '$2y$10$nAqKJZhkWOBK1/iEznITd.oOUqYG/U.UTk9QaLTxMHN/Lx.T3FxWS', 0, 'No'),
-(11, 'Admin', 'Nidhi', 'Abhyankar', '', '', 'nidhiabhyankar1@gmail.com', '$2y$10$FER7FVnx2EDnZ3JAfPNJC.qEg7Fof/uvfwCwNEsL1HSYU2iYWsUqm', 0, 'No');
+(10, 'Admin', '', '', '', '', 'viditbapat@gmail.com', '$2y$10$nAqKJZhkWOBK1/iEznITd.oOUqYG/U.UTk9QaLTxMHN/Lx.T3FxWS', 0, 'Yes'),
+(11, 'Admin', 'Nidhi', 'Abhyankar', '', '', 'nidhiabhyankar1@gmail.com', '$2y$10$FER7FVnx2EDnZ3JAfPNJC.qEg7Fof/uvfwCwNEsL1HSYU2iYWsUqm', 0, 'No'),
+(12, 'Brand', 'Aditya', 'Gade', 'Reebok', 'abc', 'adityagade@gmail.com', NULL, 123, 'No'),
+(13, 'Brand', 'd', 'd', 'dd', 'd', 'abc@gmail.com', NULL, 123, 'No');
 
 --
 -- Indexes for dumped tables
@@ -262,7 +267,7 @@ ALTER TABLE `listing`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
