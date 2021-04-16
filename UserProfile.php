@@ -78,8 +78,15 @@ include('UserLogin.php');
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a> -->
+                <a href="login.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Admin</a>
+                <div class="dropdown-divider"></div>
+                <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a> -->
                 <a href="logout.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</a>
               </div>
+              
             </li>
 
           </ul>
@@ -125,7 +132,7 @@ include('UserLogin.php');
                                     <p style="text-align:left;"><b>Email:</b>&nbsp;&nbsp; <?php echo $_SESSION["email"];?></p>
                                     <p style="text-align:left;"><b>Company Name:</b>&nbsp;&nbsp;<?php echo $row['CompanyName'];?></p>
                                     <p style="text-align:left;"><b>Designation:</b>&nbsp;&nbsp;<?php echo $row['Designation'];?></p>
-                                    <p style="text-align:left;"><b>Type of company:</b>&nbsp;&nbsp;<?php echo $row['Type'];?></p>
+                                    <p style="text-align:left;"><b>Type of company:</b>&nbsp;&nbsp;<?php echo $_SESSION["Type"];?></p>
 
                                     <button onclick="document.location='index.html'" class="btn btn-primary">Home Page</button>
                                   </div>

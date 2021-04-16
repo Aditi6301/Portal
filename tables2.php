@@ -69,7 +69,6 @@ if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 1 )
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
@@ -123,6 +122,12 @@ if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 1 )
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a> -->
+                <a href="login.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Admin</a>
+                <div class="dropdown-divider"></div>
+                <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a> -->
                 <a href="logout.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</a>
               </div>
             </li>
@@ -160,11 +165,13 @@ if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 1 )
                   <tbody>
 
                   <?php
-                   
+                    $Type=$_SESSION["Type"];
                     $user_id=$_SESSION["user_id"];
+                    
                     $data = $conn->query("SELECT * FROM listing where user_id =$user_id")->fetchAll();
                     foreach ($data as $row) 
                     {
+                      
                       ?>
                     
                       <tr>
@@ -221,7 +228,7 @@ if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 1 )
                     }
                     ?>
                    
-                   
+                
                    
                     
                   </tbody>
@@ -304,8 +311,8 @@ if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 1 )
                     </div>
                 	
                 	 <div class="custom-file">
-                        <input name="image" type="file" class="custom-file-input"name="movie_image" id="customFile" data-toggle="tooltip" data-placement="top">
-                        <label align="left" class="custom-file-label" for="customFile">Poster Image</label>
+                   <input name="image" class="custom-file-input" type="file" id="file-upload" name="movie_image" multiple required />
+                              <label class="custom-file-label" for="file-upload" id="file-upload-filename">Poster Image</label>
                      </div>
                 
                     
@@ -397,14 +404,15 @@ if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 1 )
                               <input name="link" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Trailer Link" value="http://www.youtube.com/embed/<?php echo $row['link']; ?>">
                             </div>
                           
-                          <div class="custom-file">
-                                <input name="image" type="file" class="custom-file-input"name="movie_image" id="customFile" data-toggle="tooltip" data-placement="top">
-                                <label align="left" class="custom-file-label" for="customFile"><?php echo $row['image']; ?></label>
+                            <div class="custom-file">
+                              <input name="image" class="custom-file-input" type="file" id="file-upload" name="movie_image" multiple required />
+                              <label class="custom-file-label" for="file-upload"><?php echo $row['image']; ?></label>
+                              <div id="file-upload-filename"></div>
+                
                             </div>
-                        
-                            
+
                             </ul> 
-                        <button type="submit" name="Edit_title"  class="btn btn-primary" >Add New Title</button>
+                        <button type="submit" name="Edit_title" class="btn btn-primary" id="customFileInput" >Add New Title</button>
                         <button class="btn btn-primary" data-dismiss="modal" type="button">
                           <i class="fas fa-times"></i>
                           Close Project</button>
@@ -507,7 +515,13 @@ if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 1 )
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
-
+  <script>
+  $(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+  </script>
+ 
   
 </body>
 
@@ -520,6 +534,14 @@ $(document).ready(function() {
         $(".alert").alert('close');
     }, 3000);
 });
+</script>
+<script>
+$('#inputGroupFile02').on('change',function(){
+    //get the file name
+    var fileName = $(this).val();
+    //replace the "Choose a file" label
+    $(this).next('.custom-file-label').html(fileName);
+})
 </script>
 
       <!-- $(".alert").first().hide().slideDown(500).delay(4000).slideUp(500, function () {

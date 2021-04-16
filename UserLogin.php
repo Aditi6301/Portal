@@ -32,6 +32,7 @@ if(isset($_POST['Login']))
                 $_SESSION["loggedin"] = true;
                 $_SESSION["user_id"] = $user_id;
                 $_SESSION["email"] = $email;
+                $_SESSION["Type"] = $Type;
                 //on session creation
                 $_SESSION['timestamp']=time();
                 echo $_SESSION["user_name"]=$FirstName.' '.$LastName;
@@ -57,10 +58,10 @@ if(isset($_POST['Login']))
                         {
                              echo "<script>alert('Login Successful!!'); window.location='tables.php'</script>";
                         }
-                        else
+                        elseif($Trow['Type'] =='Admin')
                         {
 
-                             echo "<script>alert('Login Successful!!'); window.location='adminpage.html'</script>";
+                             echo "<script>alert('Login Successful!!'); window.location='adminpage.php'</script>";
                         }
                         
                     }
