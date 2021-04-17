@@ -37,7 +37,7 @@ if ( isset($_GET['nouser']) && $_GET['nouser'] == 1 )
     </div>
 <?php
 }
-if ( isset($_GET['BlockedUser']) && $_GET['BlockedUser'] == 1 )
+if (isset($_GET['BlockedUser']) && $_GET['BlockedUser'] == 1 )
 {
   unset($_GET['BlockedUser']);
 
@@ -48,7 +48,20 @@ if ( isset($_GET['BlockedUser']) && $_GET['BlockedUser'] == 1 )
     </div>
 <?php
 }
+if (isset($_GET['illegalaccess']) && $_GET['illegalaccess'] == 1 )
+{
+  unset($_GET['illegalaccess']);
+
 ?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Please register to access this site.</strong>
+    </div>
+<?php 
+}
+?>
+
+
 
 
 

@@ -50,7 +50,7 @@ if($getEmail->rowCount()>0)  //email found
    }
    else
    {
-      echo "Your Mail is not sent. Try Again."; 
+      Header('Location: ../tables.php?mailsuccess=0' );
    }
    echo " hi there";
 

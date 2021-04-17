@@ -1,5 +1,17 @@
 <?php
 include('UserLogin.php');
+if(!isset($_SESSION['loggedin']))
+{
+  Header('Location:login.php?illegalaccess=1' );
+}
+if($_SESSION["Type"]=='Brand')
+{
+  Header('Location:tables.php?Brand_access=1' );
+}
+if($_SESSION["Type"]=='Production')
+{
+  Header('Location:tables2.php?Production_access=1' );
+}
 ?>
 <?php
 if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 1 )

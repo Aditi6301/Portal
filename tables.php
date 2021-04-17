@@ -1,10 +1,15 @@
 <?php
 include('UserLogin.php');
+if(!isset($_SESSION['loggedin']))
+{
+  Header('Location:login.php?illegalaccess=1' );
+}
 $stmt = $conn->prepare("DELETE FROM listing WHERE Release_date = CURRENT_DATE()"); 
 $result=$stmt->execute() or die($conn->error);
-
-
-
+if($_SESSION["Type"]=='Production')
+{
+  Header('Location:tables2.php?Production_access=1' );
+}
 // session_start();
 
 $idletime=3600;//after 60 seconds the user gets logged out
@@ -24,8 +29,26 @@ if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 1 )
     <button type="button" class="close" data-dismiss="alert">x</button>
     <strong>You will be mailed the details soon!</strong>
     </div>
-
-
+<?php
+}
+if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 0 )
+{
+  unset($_GET['mailsuccess']);
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Error occured.Please try again.</strong>
+    </div>
+<?php 
+}
+if ( isset($_GET['Brand_access']) && $_GET['Brand_access'] == 1 )
+{
+  unset($_GET['Brand_access']);
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Page not accessible.</strong>
+    </div>
 <?php
 }
 ?>
@@ -355,3 +378,11 @@ else
 </body>
 
 </html>
+<script>
+$(document).ready(function() {
+    // show the alert
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
+});
+</script>

@@ -33,13 +33,14 @@ if(isset($_POST['Login']))
                 $FirstName=$row['First name'];
                 $LastName=$row['Last name'];
                 $Designation=$row['Designation'];
-                //$UserBlocked=$row['Verified'];
+                
                 $Type=$row['Type'];
 
                 $_SESSION["loggedin"] = true;
                 $_SESSION["user_id"] = $user_id;
                 $_SESSION["email"] = $email;
                 $_SESSION["Type"] = $Type;
+                $_SESSION["Status"] =$row['Verified'] ;	
                 //on session creation
                 $_SESSION['timestamp']=time();
                 echo $_SESSION["user_name"]=$FirstName.' '.$LastName;
@@ -59,7 +60,7 @@ if(isset($_POST['Login']))
                         
                         if($Trow['Type']=='Production')
                         {
-                            Header('Location: /tables2.php?loginsuccess=1' );
+                            Header('Location: tables2.php?loginsuccess=1' );
                         }
                         elseif($Trow['Type'] =='Brand')
                         {

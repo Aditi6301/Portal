@@ -3,6 +3,18 @@ include('addTitle.php');
 include('editTitle.php');
 $stmt = $conn->prepare("DELETE FROM listing WHERE Release_date = CURRENT_DATE()"); 
 $result=$stmt->execute() or die($conn->error);
+if(!isset($_SESSION['loggedin']))
+{
+  Header('Location:login.php?illegalaccess=1' );
+}
+if($_SESSION["Type"]=='Brand')
+{
+  Header('Location:tables.php?Brand_access=1' );
+}
+if($_SESSION["Status"]=='Blocked')
+{
+  Header('Location:login.php?illegalaccess=1' );
+}
 
 // session_start();
 
@@ -52,6 +64,17 @@ if ( isset($_GET['titlesuccess']) && $_GET['titlesuccess'] == 1 )
     <strong>Title sucessfully added!</strong>
     </div>
 <?php
+}
+if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
+{
+  unset($_GET['Production_access']);
+
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Page not accessible.</strong>
+    </div>
+<?php 
 }
 ?>
 

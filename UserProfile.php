@@ -1,5 +1,9 @@
 <?php
 include('UserLogin.php');
+if(!isset($_SESSION['loggedin']))
+{
+  Header('Location:login.php?illegalaccess=1' );
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
