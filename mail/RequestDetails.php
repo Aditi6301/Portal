@@ -8,8 +8,9 @@ $user_id=$_SESSION["user_id"];
 $verified='Yes';
 $title=$_GET['Title'];
 echo $title;
-
-$getAdminEmail=$conn->prepare("SELECT * FROM users  WHERE Type= 'Admin'");
+$type='Admin';
+$getAdminEmail=$conn->prepare("SELECT * FROM users  WHERE Type= ? LIMIT 1");
+$getAdminEmail->bindValue(1,$type);
 $getAdminEmail->execute();
 if($getAdminEmail->rowCount()>0)  //email found
 {

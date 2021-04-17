@@ -16,7 +16,20 @@ if (time()-$_SESSION['timestamp']>$idletime){
 }else{
     $_SESSION['timestamp']=time();
 }
+if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 1 )
+{
+  unset($_GET['mailsuccess']);
 ?>
+<div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>You will be mailed the details soon!</strong>
+    </div>
+
+
+<?php
+}
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
