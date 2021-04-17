@@ -1,6 +1,7 @@
 <?php
 // include('UserLogin.php');
-
+$store_link="";
+$image="";
 if(isset($_POST['Edit_title']))
     {
         echo "hi there";
@@ -53,7 +54,7 @@ if(isset($_POST['Edit_title']))
     echo "imageFileType";
     echo $imageFileType;
     
-    $allowed=array('jpeg','png' ,'jpg');
+    $allowed=array('jpeg','png' ,'jpg',NULL);
     $filename=$_FILES['image']['name']; 
     
     $ext=pathinfo($filename, PATHINFO_EXTENSION);

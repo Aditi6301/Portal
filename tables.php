@@ -27,7 +27,7 @@ if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 1 )
 ?>
 <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>You will be mailed the details soon!</strong>
+    <strong>Mail successfully sent! We will get back to you soon!</strong>
     </div>
 <?php
 }

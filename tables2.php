@@ -405,7 +405,8 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
                     </div>
                 	
                 	 <div class="custom-file">
-                   <input name="image" class="custom-file-input" type="file" id="file-upload" name="movie_image" multiple required />
+                   <input name="image" class="custom-file-input" type="file" id="file-upload" name="movie_image"
+                   />
                               <label class="custom-file-label" for="file-upload" id="file-upload-filename">Poster Image</label>
                      </div>
                 
@@ -506,7 +507,7 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
                             </div>
                           
                             <div class="custom-file">
-                              <input name="image" class="custom-file-input" type="file" id="file-upload" name="movie_image" multiple required />
+                              <input name="image" class="custom-file-input" type="file" id="file-upload" name="movie_image"/>
                               <label class="custom-file-label" for="file-upload"><?php echo $row['image']; ?></label>
                               <div id="file-upload-filename"></div>
                 
