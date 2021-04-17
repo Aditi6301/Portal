@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2021 at 03:22 PM
+-- Generation Time: Apr 17, 2021 at 02:03 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -190,7 +190,22 @@ INSERT INTO `login` (`user_id`, `Email`, `CompanyName`, `login_time`, `user_stat
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-16 07:06:22', 'Active'),
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-16 08:57:16', 'Active'),
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-16 13:09:01', 'Active'),
-(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-16 13:11:20', 'Active');
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-16 13:11:20', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 07:57:37', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 08:01:12', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 08:06:41', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 08:07:22', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 09:45:38', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 09:45:57', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 09:48:15', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 09:48:35', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 09:54:26', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 11:09:06', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 11:12:09', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 11:37:59', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 11:39:27', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 11:47:35', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 11:55:02', 'Active');
 
 -- --------------------------------------------------------
 
@@ -208,7 +223,7 @@ CREATE TABLE `users` (
   `Email` varchar(50) NOT NULL,
   `password` varchar(100) DEFAULT NULL,
   `Phone` bigint(20) DEFAULT NULL,
-  `Verified` varchar(5) NOT NULL DEFAULT 'No'
+  `Verified` varchar(10) NOT NULL DEFAULT 'No'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -216,8 +231,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`, `Designation`, `Email`, `password`, `Phone`, `Verified`) VALUES
-(1, 'Brand', 'Nidhi', 'Abhyankar', 'Puma', 'abc', 'nidhiabhyankar@gmail.com', NULL, 123344, 'Yes'),
-(2, 'Brand', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'No'),
+(1, 'Brand', 'Nidhi', 'Abhyankar', 'Puma', 'abc', 'nidhiabhyankar@gmail.com', NULL, 123344, 'Blocked'),
+(2, 'Brand', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'Blocked'),
 (3, 'Admin', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia149@gmail.com', '$2y$10$Ikdejj/6W70kRxIOWYLNm.aRKb781qOZq9C7zsy3WRbF6zUmQOBji', 69, 'Yes'),
 (4, 'Brand', '', '', '', '', '', NULL, 0, 'No'),
 (5, 'Brand', '', '', '', '', '', 'radha', 0, 'No'),
@@ -226,9 +241,9 @@ INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`
 (8, 'Admin', '', '', '', '', 'radhamujumdar@gmail.com', '$2y$10$NgEyYsGuPxhI9zgxvaIEPOFoBGXhMgfydJN598yYhCf1mAsr1v1UO', 0, 'No'),
 (9, 'Admin', '', '', '', '', '', '$2y$10$9y2iEZaAbrjGCfebP.26E.pQpSC3MzxK/aXldUnb4KnFqQUEhQZ8e', 0, 'No'),
 (10, 'Admin', '', '', '', '', 'viditbapat@gmail.com', '$2y$10$nAqKJZhkWOBK1/iEznITd.oOUqYG/U.UTk9QaLTxMHN/Lx.T3FxWS', 0, 'Yes'),
-(11, 'Admin', 'Nidhi', 'Abhyankar', '', '', 'nidhiabhyankar1@gmail.com', '$2y$10$FER7FVnx2EDnZ3JAfPNJC.qEg7Fof/uvfwCwNEsL1HSYU2iYWsUqm', 0, 'No'),
-(12, 'Brand', 'Aditya', 'Gade', 'Reebok', 'abc', 'adityagade@gmail.com', NULL, 123, 'No'),
-(13, 'Brand', 'd', 'd', 'dd', 'd', 'abc@gmail.com', NULL, 123, 'No');
+(11, 'Admin', 'Nidhi', 'Abhyankar', '', '', 'nidhiabhyankar1@gmail.com', '$2y$10$FER7FVnx2EDnZ3JAfPNJC.qEg7Fof/uvfwCwNEsL1HSYU2iYWsUqm', 0, 'Blocked'),
+(12, 'Brand', 'Aditya', 'Gade', 'Reebok', 'abc', 'adityagade@gmail.com', NULL, 123, 'Blocked'),
+(13, 'Brand', 'd', 'd', 'dd', 'd', 'abc@gmail.com', NULL, 123, 'Blocked');
 
 --
 -- Indexes for dumped tables
