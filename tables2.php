@@ -6,7 +6,7 @@ $result=$stmt->execute() or die($conn->error);
 
 // session_start();
 
-$idletime=300;//after 300 seconds the user gets logged out
+$idletime=3600;//after 300 seconds the user gets logged out
 
 if (time()-$_SESSION['timestamp']>$idletime){
     // session_destroy();
