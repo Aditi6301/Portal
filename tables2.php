@@ -6,7 +6,7 @@ $result=$stmt->execute() or die($conn->error);
 
 // session_start();
 
-$idletime=3600;//after 300 seconds the user gets logged out
+$idletime=300;//after 300 seconds the user gets logged out
 
 if (time()-$_SESSION['timestamp']>$idletime){
     // session_destroy();
@@ -145,8 +145,6 @@ if ( isset($_GET['titlesuccess']) && $_GET['titlesuccess'] == 1 )
                 <!-- <a href="login.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Admin</a> -->
               
                 <a href="LoginTable.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Login Records</a>
-                <div class="dropdown-divider"></div>
-                <a href="adminpage.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Verify Users</a>
                 
                 <div class="dropdown-divider"></div>
                 <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
@@ -411,7 +409,14 @@ if ( isset($_GET['titlesuccess']) && $_GET['titlesuccess'] == 1 )
 <?php
                    
                     $user_id=$_SESSION["user_id"];
-                    $data = $conn->query("SELECT * FROM listing where user_id =$user_id")->fetchAll();
+                    if($Type =='Admin')
+                    {
+                      $data = $conn->query("SELECT * FROM listing")->fetchAll();
+                    }
+                    else
+                    {
+                      $data = $conn->query("SELECT * FROM listing where user_id =$user_id")->fetchAll();
+                    }
                     foreach ($data as $row) 
                     {
                       ?>
