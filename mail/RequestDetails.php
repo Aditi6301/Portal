@@ -10,6 +10,7 @@ $title=$_GET['Title'];
 echo $title;
 
 $getAdminEmail=$conn->prepare("SELECT * FROM users  WHERE Type= 'Admin'");
+$getAdminEmail->execute();
 if($getAdminEmail->rowCount()>0)  //email found
 {
    while($UserEmail = $getAdminEmail->fetch())
