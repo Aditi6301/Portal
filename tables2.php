@@ -174,6 +174,7 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a> -->
+                <div class="dropdown-divider"></div>
                 <a href="logout.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</a>
 </div>
               
