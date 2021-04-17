@@ -12,7 +12,7 @@ echo $title;
 $getAdminEmail=$conn->prepare("SELECT * FROM users  WHERE Type= 'Admin'");
 if($getEmail->rowCount()>0)  //email found
 {
-   while($UserEmail = $getEmail->fetch())
+   while($UserEmail = $getAdminEmail->fetch())
    {
       $AdminEmail=$UserEmail['Email'];
      
