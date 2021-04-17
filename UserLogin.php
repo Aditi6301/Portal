@@ -15,10 +15,16 @@ if(isset($_POST['Login']))
     $getPassword->execute();
     if($getPassword->rowCount()>0)  //email found
     {
+
+        
         while($row = $getPassword->fetch())
         {
+            if($row['Verified']=='Blocked')
+           {
+                Header('Location: login.php?BlockedUser=1' );
+           }
             
-            if(password_verify($password,$row['password']))
+            else if(password_verify($password,$row['password']))
             {
                 
                 $user_id=$row['user_id'];
@@ -27,6 +33,7 @@ if(isset($_POST['Login']))
                 $FirstName=$row['First name'];
                 $LastName=$row['Last name'];
                 $Designation=$row['Designation'];
+                //$UserBlocked=$row['Verified'];
                 $Type=$row['Type'];
 
                 $_SESSION["loggedin"] = true;
@@ -70,7 +77,7 @@ if(isset($_POST['Login']))
             }
             else
             {
-                echo "<script>alert('Login failed!!'); window.location='login.php'</script>";
+                Header('Location: login.php?loginsuccess=0' );
             }
         }
         
@@ -78,7 +85,7 @@ if(isset($_POST['Login']))
     else
     {
         echo "</br>";
-        echo "User does not exist.Please register first";
+        Header('Location: login.php?nouser=1' );
     }
     
 

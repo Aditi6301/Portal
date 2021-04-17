@@ -6,7 +6,7 @@ $result=$stmt->execute() or die($conn->error);
 
 // session_start();
 
-$idletime=60;//after 60 seconds the user gets logged out
+$idletime=3600;//after 300 seconds the user gets logged out
 
 if (time()-$_SESSION['timestamp']>$idletime){
     // session_destroy();
@@ -105,14 +105,71 @@ if ( isset($_GET['titlesuccess']) && $_GET['titlesuccess'] == 1 )
             <i class="fa fa-bars"></i>
           </button>
 		-->
-        
+          <?php 
+
+          if( $_SESSION["Type"]=='Admin')
+          {
+            ?>
+
+<ul class="navbar-nav ml-auto">
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["user_name"]?></span>
+                <img class="img-profile rounded-circle" src="img/dp.png">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="UserProfile.php">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a> -->
+                <a href="tables2.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Add New Title/Production records</a>
+                <div class="dropdown-divider"></div>
+                <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a> -->
+                <a href="tables.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Brand Records</a>
+              
+                <div class="dropdown-divider"></div>
+                <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a> -->
+                <!-- <a href="login.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Admin</a> -->
+              
+                <a href="LoginTable.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Login Records</a>
+                <div class="dropdown-divider"></div>
+                <a href="adminpage.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Verify Users</a>
+                
+                <div class="dropdown-divider"></div>
+                <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a> -->
+                <a href="logout.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</a>
+</div>
+              
+            </li>
+
+          </ul>
+
+          
+
+
+          <?php
+          }
+          else
+          {
+          ?>
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-       
-
-           
-
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -132,16 +189,16 @@ if ( isset($_GET['titlesuccess']) && $_GET['titlesuccess'] == 1 )
                   Logout
                 </a> -->
                 <a href="login.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Admin</a>
+                
                 <div class="dropdown-divider"></div>
-                <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a> -->
                 <a href="logout.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</a>
               </div>
             </li>
-
           </ul>
+
+          <?php
+          }
+          ?>
 
         </nav>
         <!-- End of Topbar -->
@@ -176,8 +233,15 @@ if ( isset($_GET['titlesuccess']) && $_GET['titlesuccess'] == 1 )
                   <?php
                     $Type=$_SESSION["Type"];
                     $user_id=$_SESSION["user_id"];
+                    if($Type =='Admin')
+                    {
+                      $data = $conn->query("SELECT * FROM listing")->fetchAll();
+                    }
+                    else
+                    {
+                      $data = $conn->query("SELECT * FROM listing where user_id =$user_id")->fetchAll();
+                    }
                     
-                    $data = $conn->query("SELECT * FROM listing where user_id =$user_id")->fetchAll();
                     foreach ($data as $row) 
                     {
                       

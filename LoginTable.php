@@ -1,6 +1,31 @@
 <?php
 include('UserLogin.php');
 ?>
+<?php
+if ( isset($_GET['blocksuccess']) && $_GET['blocksuccess'] == 1 )
+{
+  unset($_GET['blocksuccess']);
+?>
+<div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>User Blocked successfully!</strong>
+    </div>
+
+<?php
+}
+else if( isset($_GET['blocksuccess']) && $_GET['blocksuccess'] == 0 )
+{
+  unset($_GET['blocksuccess']);
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>User was not blocked.Please try again</strong>
+    </div>
+<?php 
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,11 +80,6 @@ include('UserLogin.php');
         
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-       
-
-           
-
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -72,20 +92,35 @@ include('UserLogin.php');
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-               
                 <div class="dropdown-divider"></div>
                 <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a> -->
-                <a href="login.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Admin</a>
+                <a href="tables2.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Add New Title/Production records</a>
+                <div class="dropdown-divider"></div>
+                <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a> -->
+                <a href="tables.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Brand Records</a>
+              
+                <div class="dropdown-divider"></div>
+                <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a> -->
+                <!-- <a href="login.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Admin</a> -->
+              <!-- <div class="dropdown-divider"></div> -->
+                <a href="adminpage.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Verify Users</a>
                 <div class="dropdown-divider"></div>
                 <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a> -->
                 <a href="logout.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</a>
-              </div>
+</div>
+              
             </li>
 
           </ul>
@@ -108,10 +143,11 @@ include('UserLogin.php');
                   <thead>
                     <tr>
                       <th>User_id</th>
+                      <th>User Name</th>
                       <th>Email</th>
                       <th>Company Name</th>
                       <th>Login Time</th>
-                      <!-- <th>User Status</th> -->
+                      <th>Block User</th>
                     </tr>
                   </thead>
                                     <tbody>
@@ -120,16 +156,68 @@ include('UserLogin.php');
              
              include('dbConn.php');
             
-             $data = $conn->query("SELECT * FROM login ORDER BY Email")->fetchAll();
+             $data = $conn->query("SELECT * FROM login JOIN users where login.user_id=users.user_id")->fetchAll();
             foreach ($data as $row) 
                       
                     {
+                      $user_id=$row['user_id'];
+                      $first_name=$row['First name'];
+                      $last_name=$row['Last name'];
+                      $user_name=$first_name.' '.$last_name;
                       echo '<tr>';
                       echo '<td>'.$row['user_id'].'</td>';
+                      echo '<td>'.$user_name.'</td>';
                       echo '<td>'.$row['Email'].'</td>';
                       echo '<td>'.$row['CompanyName'].'</td>';
                       echo '<td>'.$row['login_time'].'</td>';
-                    echo '</tr>';
+                      if($row['Verified']=='Blocked')
+                        {
+                         echo "<td ><a href=''><button style='display: block; margin: auto' type='button' class='btn btn-light '>&nbsp;Blocked</button></a></td>";
+                        }
+                        else
+                        {
+                      ?>
+                       <td>
+                        <a  style='display: block;margin:auto' class="btn btn-danger " data-toggle="modal" href="#blockModal<?php echo $user_id; ?>"> <span class="text">Block?</span></a>
+                        </td>
+                        <?php
+                        }
+                        echo '</tr>';
+
+                      ?>
+                      <div class="portfolio-modal modal fade" id="blockModal<?php echo $user_id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+        <center>
+          <div class="row">
+            <div class="col-md-4 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <form method='post'>
+                  <h1>Block User</h1>
+                  <p>Are you sure you want to block user <?php echo $user_name; ?>?</p>
+                  <a class="btn btn-light btn-icon-split btn-lg" href="adminpage.php"><span class="text">Cancel</span></a>
+                  <a class="btn btn-danger btn-icon-split btn-lg" href="blockuser.php?user_id=<?php echo $user_id; ?>&flag=1"><span class="text">Yes</span></a>
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+                   
+                      <?php
+                   
                     }
 
            ?>
@@ -242,3 +330,13 @@ include('UserLogin.php');
 </body>
 
 </html>
+<script>
+  $('form').each(function() { this.reset() });
+  $(document).ready(function() {
+    // show the alert
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
+});
+</script>
+

@@ -12,12 +12,44 @@ if ( isset($_GET['loginsuccess']) && $_GET['loginsuccess'] == 1 )
 ?>
     <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>login successful! We will get back to you soon!</strong>
+    <strong>Login successful! We will get back to you soon!</strong>
     </div>
 <?php
 }
+if ( isset($_GET['loginsuccess']) && $_GET['loginsuccess'] == 0 )
+{
+  unset($_GET['loginsuccess']);
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Login Failed!Please check your username and password</strong>
+    </div>
+<?php
+}
+if ( isset($_GET['nouser']) && $_GET['nouser'] == 1 )
+{
+  unset($_GET['nouser']);
 
 ?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Account not found.Please register first.</strong>
+    </div>
+<?php
+}
+if ( isset($_GET['BlockedUser']) && $_GET['BlockedUser'] == 1 )
+{
+  unset($_GET['BlockedUser']);
+
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>You have been blocked from this site.</strong>
+    </div>
+<?php
+}
+?>
+
 
 
 <!DOCTYPE html>
@@ -193,4 +225,10 @@ if ( isset($_GET['loginsuccess']) && $_GET['loginsuccess'] == 1 )
 </html>
 <script>
   $('form').each(function() { this.reset() });
+  $(document).ready(function() {
+    // show the alert
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
+});
 </script>
