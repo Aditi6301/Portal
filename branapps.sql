@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2021 at 02:03 PM
+-- Generation Time: Apr 17, 2021 at 06:27 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -66,7 +66,12 @@ INSERT INTO `listing` (`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starc
 (23, 2, 'Out_Film', 'Roohi 2', 'romance,drama', 'Rajkumar Rao', 'fjtrkftk', '2021-04-21', 7, 90, '', 'https://www.youtube.com/embed/watch?v=mTT_V0t89MI', 'labrador.jpg'),
 (24, 2, 'Out_Film', 'ROOOHI', 'Thirller', 'Rajkumar Rao', 'BSFFAA', '2021-04-25', 444, 66666, '', '', 'image.jpg'),
 (25, 2, 'In_Film', 'film', 'bad', 'you', 'fgreheawb', '2021-04-23', 7, 90, '', 'mTT_V0t89MI', 'image.jpg'),
-(26, 2, 'Out_Film', 'Stree', 'Horror,Comedy', 'Rajkumar Rao,Kriti Sanon', 'synopsis', '2021-04-29', 88, 99, 'some deliverables', 'PkgStlsVaqw', 'pug.jpg');
+(26, 2, 'Out_Film', 'Stree', 'Horror,Comedy', 'Rajkumar Rao,Kriti Sanon', 'synopsis', '2021-04-29', 88, 99, 'some deliverables', 'PkgStlsVaqw', 'pug.jpg'),
+(27, 3, 'Out_Film', 'Rockstar 2', 'romance,drama', 'Rajkumar Rao,Kriti Sanon', 'chjyfcu', '2021-04-23', 7, 4, 'gdcjdj', 'bD5FShPZdpw', 'beagul.jpg'),
+(28, 3, 'Out_Film', 'hi there', 'Thirller', 'Edward Norton,Michael Keaton,E', 'jbgkjfvjfhm', '2021-04-21', 777, 2, 'fvkufkf', 'PkgStlsVaqw', 'labrador.jpg'),
+(29, 2, 'Out_Film', 'Rockstar 3', 'romance,drama', 'Ranbir Kapoor', 'gmjtgj', '2021-04-24', 1, 10000000, 'nhfymhf', 'mTT_V0t89MI', 'cat.jpg'),
+(30, 3, 'Out_Film', 'try try part 5', 'Horror,Comedy', 'someone', 'sdbfdntgrm', '2021-04-23', 334444, 10000000, 'gragrar', 'uJfLoE6hanc', 'image.jpg'),
+(31, 3, 'Out_Film', 'the breakup', 'abc, abc', 'jennifer aniston', 'abc', '2021-04-30', 100000, 1000000000, 'abc', 'bD5FShPZdpw', 'img.jpg');
 
 -- --------------------------------------------------------
 
@@ -205,7 +210,22 @@ INSERT INTO `login` (`user_id`, `Email`, `CompanyName`, `login_time`, `user_stat
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 11:37:59', 'Active'),
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 11:39:27', 'Active'),
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 11:47:35', 'Active'),
-(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 11:55:02', 'Active');
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 11:55:02', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 12:59:31', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 13:12:27', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 13:19:18', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 14:33:23', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:07:50', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:27:32', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:27:43', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:28:52', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:29:21', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:29:49', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:30:30', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:35:37', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 16:15:25', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 16:24:03', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 16:25:39', 'Active');
 
 -- --------------------------------------------------------
 
@@ -232,16 +252,16 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`, `Designation`, `Email`, `password`, `Phone`, `Verified`) VALUES
 (1, 'Brand', 'Nidhi', 'Abhyankar', 'Puma', 'abc', 'nidhiabhyankar@gmail.com', NULL, 123344, 'Blocked'),
-(2, 'Brand', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'Blocked'),
+(2, 'Production', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'Yes'),
 (3, 'Admin', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia149@gmail.com', '$2y$10$Ikdejj/6W70kRxIOWYLNm.aRKb781qOZq9C7zsy3WRbF6zUmQOBji', 69, 'Yes'),
 (4, 'Brand', '', '', '', '', '', NULL, 0, 'No'),
 (5, 'Brand', '', '', '', '', '', 'radha', 0, 'No'),
 (6, 'Brand', '', '', '', '', '', 'radha1', 0, 'No'),
 (7, 'Brand', '', '', '', '', '', '$2y$10$Um4AXRnQLHSDMV1uR2Vmhen9wQNz2P4AEKoXjVkBMutF/SJzNUDK2', 0, 'No'),
-(8, 'Admin', '', '', '', '', 'radhamujumdar@gmail.com', '$2y$10$NgEyYsGuPxhI9zgxvaIEPOFoBGXhMgfydJN598yYhCf1mAsr1v1UO', 0, 'No'),
-(9, 'Admin', '', '', '', '', '', '$2y$10$9y2iEZaAbrjGCfebP.26E.pQpSC3MzxK/aXldUnb4KnFqQUEhQZ8e', 0, 'No'),
-(10, 'Admin', '', '', '', '', 'viditbapat@gmail.com', '$2y$10$nAqKJZhkWOBK1/iEznITd.oOUqYG/U.UTk9QaLTxMHN/Lx.T3FxWS', 0, 'Yes'),
-(11, 'Admin', 'Nidhi', 'Abhyankar', '', '', 'nidhiabhyankar1@gmail.com', '$2y$10$FER7FVnx2EDnZ3JAfPNJC.qEg7Fof/uvfwCwNEsL1HSYU2iYWsUqm', 0, 'Blocked'),
+(8, 'Production', '', '', '', '', 'radhamujumdar@gmail.com', '$2y$10$NgEyYsGuPxhI9zgxvaIEPOFoBGXhMgfydJN598yYhCf1mAsr1v1UO', 0, 'No'),
+(9, 'Production', '', '', '', '', '', '$2y$10$9y2iEZaAbrjGCfebP.26E.pQpSC3MzxK/aXldUnb4KnFqQUEhQZ8e', 0, 'No'),
+(10, 'Brand', '', '', '', '', 'viditbapat@gmail.com', '$2y$10$nAqKJZhkWOBK1/iEznITd.oOUqYG/U.UTk9QaLTxMHN/Lx.T3FxWS', 0, 'Yes'),
+(11, 'Production', 'Nidhi', 'Abhyankar', '', '', 'nidhiabhyankar1@gmail.com', '$2y$10$FER7FVnx2EDnZ3JAfPNJC.qEg7Fof/uvfwCwNEsL1HSYU2iYWsUqm', 0, 'Blocked'),
 (12, 'Brand', 'Aditya', 'Gade', 'Reebok', 'abc', 'adityagade@gmail.com', NULL, 123, 'Blocked'),
 (13, 'Brand', 'd', 'd', 'dd', 'd', 'abc@gmail.com', NULL, 123, 'Blocked');
 
@@ -276,7 +296,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `listing`
 --
 ALTER TABLE `listing`
-  MODIFY `listing_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `listing_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `users`
