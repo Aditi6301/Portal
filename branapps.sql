@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2021 at 06:27 PM
+-- Generation Time: Apr 18, 2021 at 11:37 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -48,30 +48,51 @@ CREATE TABLE `listing` (
 --
 
 INSERT INTO `listing` (`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starcast`, `synopsis`, `Release_date`, `min_cost`, `max_cost`, `deliverables`, `link`, `image`) VALUES
-(7, 2, 'In_Film', 'mj', 'nn', 'nn', 'nn', '2021-04-10', 0, 1000000000, '', 'w', 'labrador.jpg'),
-(8, 2, 'In_Film', 'mj', 'nn', 'nn', 'nn', '2021-04-10', 0, 0, '', 'wuu', 'Screenshot 2020-11-10 225147.png'),
-(9, 2, 'In_Film', 'mj', 'nn', 'nn', 'nn', '2021-04-10', 0, 0, '', 'wuu', 'Screenshot 2020-11-10 105722.png'),
-(10, 2, 'In_Film', 'mj', 'abc', 'abc', 'nac', '2021-05-08', 123, 123, '', 'www.', 'beagul.jpg'),
-(11, 2, 'In_Film', 'mj', 'abc', 'abc', 'nac', '2021-05-08', 123, 123, '', 'www.', 'Screenshot 2020-11-10 225147.png'),
+(7, 2, 'In_Film', 'mj', 'nn', 'nnmm', 'npMM', '2021-04-10', 0, 1000000, 'nnnn', 'w', 'abc12.jpg'),
+(8, 2, 'In_Film', 'mjmm', 'n', 'nn', 'nn', '2021-04-10', 0, 0, 'm', 'wuu', 'money heist6.jpg'),
+(9, 2, 'In_Film', 'mj', 'nn', 'nn', 'nn', '2021-04-10', 0, 10, 'nn', 'wuu', ''),
+(10, 2, 'In_Film', 'mjkk', 'abc', 'abc', 'nac', '2021-05-08', 123, 123, '', 'www.', ''),
+(11, 2, 'In_Film', 'mj', 'abc', 'abc', 'nacm', '2021-05-08', 123, 123, '', 'www.', '.'),
 (12, 2, 'In_Film', 'amj', 'thriller', 'srk', 'Rom-com', '2021-05-06', 123, 123, '', 'www.abc.com', 'cat.jpg'),
-(13, 2, 'In_Film', '', '', '', '', '0000-00-00', 0, 0, '', '', 'WIN_20201106_16_54_31_Pro.jpg'),
+(13, 2, 'In_Film', '', '', '', '', '0000-00-00', 9, 0, '', '', ''),
 (14, 2, 'Out_Film', 'abcs', 'thriller', 'srk', '123', '2021-04-22', 123, 123, '', 'abc.com', 'Screenshot 2020-11-10 105722.p'),
 (15, 2, 'Out_Film', 'mj', 'nn', 'srk', 'abc', '2021-04-29', 123, 123, '', 'www.abc.com', 'header-bg21132.jpg'),
 (17, 3, 'Out_Film', 'amj', 'thriller', 'jennifer aniston', '123', '2021-04-24', 123, 123, '', 'www.', 'Blue-Background-With-Hand-Draw'),
-(18, 2, 'In_Film', 'main hoo na', 'romance,drama', 'shahrukh khan', 'something something blah blah', '2021-04-30', 900000, 10000000, '', 'https://www.youtube.com/watch?', 'julycollage .png'),
+(18, 2, 'In_Film', 'main hoo na', 'romance,drama', 'shahrukh khan', 'something something blah blah blah', '2021-04-30', 90000, 10000000, '', 'https://www.youtube.com/watch?', 'money heist7.jpg'),
 (19, 2, 'In_Film', 'Roohi', 'Thirller', 'Rajkumar Rao', 'blaaaaah', '2021-04-21', 334444, 555666, '', 'https://www.youtube.com/watch?v=BDBpX6P7u9E', 'Blue-Background-With-Hand-Drawn-Cinema-Items.jpg'),
 (20, 2, 'Out_Film', 'aaaaa', 'bad', 'you', 'la la la', '2021-04-24', 1, 2, '', 'https://www.youtube.com/v/BDBpX6P7u9E', 'cat.jpg'),
-(21, 2, 'In_Film', 'bbbb', 'romance,drama', 'shahrukh khan', 'bbbbbb', '2021-04-23', 3, 4, '', 'https://www.youtube.com', 'image.jpg'),
+(21, 2, 'In_Film', 'bbbb', 'romance,drama', 'shahrukh khan', 'bbbbbb,', '2021-04-23', 3, 4, '', 'https://www.youtube.com', '.'),
 (22, 2, 'In_Film', 'gggggg', 'Thirller', 'Rajkumar Rao', 'gggggg', '2021-04-23', 777, 888, '', 'https://www.youtube.com/embed/watch?v=BDBpX6P7u9E', 'image.jpg'),
 (23, 2, 'Out_Film', 'Roohi 2', 'romance,drama', 'Rajkumar Rao', 'fjtrkftk', '2021-04-21', 7, 90, '', 'https://www.youtube.com/embed/watch?v=mTT_V0t89MI', 'labrador.jpg'),
 (24, 2, 'Out_Film', 'ROOOHI', 'Thirller', 'Rajkumar Rao', 'BSFFAA', '2021-04-25', 444, 66666, '', '', 'image.jpg'),
 (25, 2, 'In_Film', 'film', 'bad', 'you', 'fgreheawb', '2021-04-23', 7, 90, '', 'mTT_V0t89MI', 'image.jpg'),
-(26, 2, 'Out_Film', 'Stree', 'Horror,Comedy', 'Rajkumar Rao,Kriti Sanon', 'synopsis', '2021-04-29', 88, 99, 'some deliverables', 'PkgStlsVaqw', 'pug.jpg'),
-(27, 3, 'Out_Film', 'Rockstar 2', 'romance,drama', 'Rajkumar Rao,Kriti Sanon', 'chjyfcu', '2021-04-23', 7, 4, 'gdcjdj', 'bD5FShPZdpw', 'beagul.jpg'),
-(28, 3, 'Out_Film', 'hi there', 'Thirller', 'Edward Norton,Michael Keaton,E', 'jbgkjfvjfhm', '2021-04-21', 777, 2, 'fvkufkf', 'PkgStlsVaqw', 'labrador.jpg'),
-(29, 2, 'Out_Film', 'Rockstar 3', 'romance,drama', 'Ranbir Kapoor', 'gmjtgj', '2021-04-24', 1, 10000000, 'nhfymhf', 'mTT_V0t89MI', 'cat.jpg'),
-(30, 3, 'Out_Film', 'try try part 5', 'Horror,Comedy', 'someone', 'sdbfdntgrm', '2021-04-23', 334444, 10000000, 'gragrar', 'uJfLoE6hanc', 'image.jpg'),
-(31, 3, 'Out_Film', 'the breakup', 'abc, abc', 'jennifer aniston', 'abc', '2021-04-30', 100000, 1000000000, 'abc', 'bD5FShPZdpw', 'img.jpg');
+(26, 2, 'In_Film', 'Stree22', 'Horror,Comedy', 'Rajkumar Rao,Kriti Sanon', 'synopsis', '2021-04-29', 88, 99, 'some deliverables', 'PkgStlsVaqw', ''),
+(27, 3, 'Out_Film', 'ssytfd', 'thriller', 'jennifer aniston', 'n', '2021-05-02', 0, 0, 'nbb', '', 'beagul.jpg'),
+(28, 3, 'Out_Film', 'amjbc', 'thriller', 'jennifer aniston', 'abc', '2021-04-24', 10, 20, 'ab', '', 'header-bg21132.jpg'),
+(29, 3, 'Out_Film', 'abcd', 'romance,drama', 'jennifer aniston', 'a', '2021-04-25', 1, 2, 'ba', '', 'Blue-Background-With-Hand-Drawn-Cinema-Items.jpg'),
+(30, 3, 'Out_Film', 'friends', 'abc, abc', 'jennifer aniston', 'abc', '2021-04-30', 10000, 1000000000, 'abc', '', 'image.jpg'),
+(31, 3, 'In_Film', 'Shabaash Mithu', 'Biopic, Drama, Sport', 'Taapsee', 'Mithali Raj biopic', '2022-02-02', 1000000, 5000000, '1. Passive Branding\r\n2. Logo Presence', '', 'beagul.jpg'),
+(32, 2, 'In_Film', 'babababa', 'bababa', 'baba', 'h', '2022-02-02', 123, 455, '1.com', '', 'Blue-Background-With-Hand-Drawn-Cinema-Items.jpg'),
+(33, 2, 'In_Film', 'friends', 'thriller', 'jennifer aniston', 'abc', '2021-05-01', 1, 2, 'abc', '', ''),
+(34, 2, 'Out_Film', 'friends', 'thriller', 'jennifer aniston', 'NNN', '2021-05-09', 100, 1000000000, 'M', '', ''),
+(35, 2, 'Out_Film', 'friends', 'thriller,SUSPENSE', 'jennifer aniston', 'NNMC', '2021-05-09', 1, 1000000000, 'NM', '', ''),
+(36, 3, 'Out_Film', 'gangubai', 'suspense', 'alia bhatt', 'nn', '2021-05-02', 1, 10, 'n', '', 'abc.jpg'),
+(37, 3, 'Out_Film', 'apkgk', 'rom com', 'ranbir', 'abc', '2021-05-09', 1, 2, 'n', '', 'abc.jpg'),
+(38, 3, 'Out_Film', 'bbb', 'nnn', 'bbb', 'bbb', '2021-05-07', 1000000, 10000000, ' n', '', 'abc.jpg'),
+(39, 3, 'Out_Film', 'Shabaash Mithu', 'thriller', 'jennifer aniston', 'sb', '2021-05-09', 1, 1000000000, 's', '', 'abc.jpg'),
+(40, 3, 'Out_Film', 'friends', 'thriller', 'jennifer aniston', 'MBJ', '2021-05-06', 1000000, 1000000000, 'MBJ', '', 'abc.jpg'),
+(41, 3, 'Out_Film', 'Friends', 'comedy', 'jennifer aniston', 'c', '2021-05-07', 1, 1000000000, 'c', '', 'abc.jpg'),
+(42, 3, 'In_Film', 'amj', 'nn', 'jennifer aniston', 'm', '2021-04-30', 1, 1000000000, 'm', '', 'abc.jpg'),
+(43, 3, 'In_Film', 'FRIENDS', '', '', '', '0000-00-00', 0, 0, '', '', ''),
+(44, 3, 'In_Film', 'Money heist', 'thriller', 'Álvaro Morte', 'ABC', '2021-05-09', 1, 1000000000, 'WSN', '', 'abc.jpg'),
+(45, 3, 'Out_Film', 'abcsn', 'abc', 'srk', 'nn', '2021-05-09', 1, 2, ' m', '', 'abc.'),
+(46, 2, 'Out_Film', 'z', 'zz', 'z', 'z', '2021-05-01', 123, 1000000000, 'z', '', 'abc1.jpg'),
+(47, 2, 'Out_Film', 'c', 'c', 'c', 'c', '2021-05-09', 123, 123, 'c', '', 'abc2.jpg'),
+(48, 2, 'Out_Film', 'Money heist 5', 'nn', 'alvaro morte', 'c', '2021-05-09', 1000000, 123, 'c', '', 'money heist.jpg'),
+(49, 2, 'Out_Film', 'friends 4', 'romance,drama', 'jennifer aniston, matthew perr', ' v', '2021-05-02', 1, 2, 'v', '', 'abc3.jpg'),
+(50, 2, 'In_Film', 'himym', 'comedy', 'ted', 'd', '2021-04-24', 1000000, 1000000000, 'd b', '', 'money heist.jpg'),
+(52, 3, 'In_Film', 'the bold type', 'romance,drama,comedy', 'samuel page', 'abcde', '2021-05-08', 1000000, 2, 'n', 'https://youtu.be/q9Evo8pJTV0', 'abc13.jpg'),
+(53, 3, 'Out_Film', 'shutter island', 'mx', 'abc', 'j', '2021-05-09', 1, 10000000, 'mmm', '', 'abc14.jpg');
 
 -- --------------------------------------------------------
 
@@ -211,21 +232,23 @@ INSERT INTO `login` (`user_id`, `Email`, `CompanyName`, `login_time`, `user_stat
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 11:39:27', 'Active'),
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 11:47:35', 'Active'),
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 11:55:02', 'Active'),
-(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 12:59:31', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 13:12:27', 'Active'),
-(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 13:19:18', 'Active'),
-(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 14:33:23', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:07:50', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:27:32', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:27:43', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:28:52', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:29:21', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:29:49', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:30:30', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:35:37', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 16:15:25', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 16:24:03', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 16:25:39', 'Active');
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 13:13:56', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 13:45:10', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 14:47:55', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:00:10', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 15:10:02', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 16:05:34', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 16:08:47', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-17 16:35:15', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-17 18:58:10', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 04:00:29', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 05:51:04', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 06:25:10', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 06:27:07', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 06:30:32', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 09:22:28', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 09:23:27', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 09:24:04', 'Active');
 
 -- --------------------------------------------------------
 
@@ -258,12 +281,13 @@ INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`
 (5, 'Brand', '', '', '', '', '', 'radha', 0, 'No'),
 (6, 'Brand', '', '', '', '', '', 'radha1', 0, 'No'),
 (7, 'Brand', '', '', '', '', '', '$2y$10$Um4AXRnQLHSDMV1uR2Vmhen9wQNz2P4AEKoXjVkBMutF/SJzNUDK2', 0, 'No'),
-(8, 'Production', '', '', '', '', 'radhamujumdar@gmail.com', '$2y$10$NgEyYsGuPxhI9zgxvaIEPOFoBGXhMgfydJN598yYhCf1mAsr1v1UO', 0, 'No'),
-(9, 'Production', '', '', '', '', '', '$2y$10$9y2iEZaAbrjGCfebP.26E.pQpSC3MzxK/aXldUnb4KnFqQUEhQZ8e', 0, 'No'),
-(10, 'Brand', '', '', '', '', 'viditbapat@gmail.com', '$2y$10$nAqKJZhkWOBK1/iEznITd.oOUqYG/U.UTk9QaLTxMHN/Lx.T3FxWS', 0, 'Yes'),
-(11, 'Production', 'Nidhi', 'Abhyankar', '', '', 'nidhiabhyankar1@gmail.com', '$2y$10$FER7FVnx2EDnZ3JAfPNJC.qEg7Fof/uvfwCwNEsL1HSYU2iYWsUqm', 0, 'Blocked'),
+(8, 'Admin', '', '', '', '', 'radhamujumdar@gmail.com', '$2y$10$NgEyYsGuPxhI9zgxvaIEPOFoBGXhMgfydJN598yYhCf1mAsr1v1UO', 0, 'No'),
+(9, 'Admin', '', '', '', '', '', '$2y$10$9y2iEZaAbrjGCfebP.26E.pQpSC3MzxK/aXldUnb4KnFqQUEhQZ8e', 0, 'No'),
+(10, 'Admin', '', '', '', '', 'viditbapat@gmail.com', '$2y$10$nAqKJZhkWOBK1/iEznITd.oOUqYG/U.UTk9QaLTxMHN/Lx.T3FxWS', 0, 'Yes'),
+(11, 'Admin', 'Nidhi', 'Abhyankar', '', '', 'nidhiabhyankar1@gmail.com', '$2y$10$FER7FVnx2EDnZ3JAfPNJC.qEg7Fof/uvfwCwNEsL1HSYU2iYWsUqm', 0, 'Blocked'),
 (12, 'Brand', 'Aditya', 'Gade', 'Reebok', 'abc', 'adityagade@gmail.com', NULL, 123, 'Blocked'),
-(13, 'Brand', 'd', 'd', 'dd', 'd', 'abc@gmail.com', NULL, 123, 'Blocked');
+(13, 'Brand', 'd', 'd', 'dd', 'd', 'abc@gmail.com', NULL, 123, 'Blocked'),
+(14, 'Production', 'Radha', 'Mujumdar', 'none', 'none', 'radhamujumdar1@gmail.com', NULL, 162, 'No');
 
 --
 -- Indexes for dumped tables
@@ -296,13 +320,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `listing`
 --
 ALTER TABLE `listing`
-  MODIFY `listing_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `listing_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
