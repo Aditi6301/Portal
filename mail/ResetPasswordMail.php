@@ -2,7 +2,19 @@
 
 include('../dbConn.php');
 // echo "Mail";
+$type='Admin';
+$getAdminEmail=$conn->prepare("SELECT * FROM users  WHERE Type= ? LIMIT 1");
+$getAdminEmail->bindValue(1,$type);
+$getAdminEmail->execute();
+if($getAdminEmail->rowCount()>0)  //email found
+{
+   while($UserEmail = $getAdminEmail->fetch())
+   {
+      $AdminEmail=$UserEmail['Email'];
+     
 
+  }
+}
 $user_id=$_GET['user_id'];
 
 echo $user_id;
@@ -33,7 +45,7 @@ if($getEmail->rowCount()>0)  //email found
    $email_subject = "Website Contact Form:  $Name";
    $email_body = "You have received a new message from your website contact form.Click on the link\n\n"."Here are the details:\n\nName: $Name\n\nEmail: $Email\n\nPhone: $Phone\n\nMessage:\n$Message";
    $headers = "From: noreply@yourdomain.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-   $headers .= "Reply-To: shreyakedia149@gmail.com\n";   
+   $headers .= "Reply-To:$AdminEmail\n";    
    if(mail($to,$email_subject,$email_body,$headers))
    {
       echo "Your Mail is sent successfully.";

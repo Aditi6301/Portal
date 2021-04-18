@@ -2,7 +2,19 @@
 
 include('../dbConn.php');
 echo "Mail";
+$type='Admin';
+$getAdminEmail=$conn->prepare("SELECT * FROM users  WHERE Type= ? LIMIT 1");
+$getAdminEmail->bindValue(1,$type);
+$getAdminEmail->execute();
+if($getAdminEmail->rowCount()>0)  //email found
+{
+   while($UserEmail = $getAdminEmail->fetch())
+   {
+      $AdminEmail=$UserEmail['Email'];
+     
 
+  }
+}
 $user_id=$_GET['user_id'];
 $verified='Yes';
 $sql = "UPDATE users SET Verified=? WHERE user_id=?";
@@ -29,16 +41,16 @@ if($getEmail->rowCount()>0)  //email found
    $email_subject = "Website Contact Form:  $Name";
    $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $Name\n\nEmail: $Email\n\nPhone: $Phone\n\nMessage:\n$Message";
    $headers = "From: noreply@yourdomain.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-   $headers .= "Reply-To: shreyakedia149@gmail.com\n";   
+   $headers .= "Reply-To:$AdminEmail\n";   
    if(mail($to,$email_subject,$email_body,$headers))
    {
       Header('Location: ../adminpage.php?mailsuccess=1' );
    }
    else
    {
-      echo "Your Mail is not sent. Try Again."; 
+      Header('Location: ../adminpage.php?mailsuccess=0' );
    }
-   echo " hi there";
+   //echo " hi there";
 
    // $to = "aditi6301@gmail.com"; 
    // $sub = "Generic Mail"; 

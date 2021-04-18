@@ -43,8 +43,6 @@ if ( isset($_GET['deletesuccess']) && $_GET['deletesuccess'] == 1 )
     
 <?php
 }
-
-
 if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 1 )
 {
   unset($_GET['updatesuccess']);
@@ -76,7 +74,40 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
     </div>
 <?php 
 }
+if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 0 )
+{
+  unset($_GET['updatesuccess']);
 ?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Title not updated.Please try again.</strong>
+    </div>
+<?php
+}
+if ( isset($_GET['titlesuccess']) && $_GET['titlesuccess'] == 0 )
+{
+  unset($_GET['titlesuccess']);
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Title was not added.Please try again.</strong>
+    </div>
+<?php
+}
+if ( isset($_GET['deletesuccess']) && $_GET['deletesuccess'] == 0 )
+{
+  unset($_GET['deletesuccess']);
+
+?>
+<div class="alert alert-danger" id="success-alert">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong>Title was not deleted.Please try again </strong> 
+    </div>
+    
+<?php
+}
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">

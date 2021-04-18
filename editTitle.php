@@ -19,17 +19,19 @@ if(isset($_POST['Edit_title']))
         $deliverables=$_POST["tentative_deliverables"];
         
         $link=$_POST["link"];
-        if (strpos($link, 'embed') !== false) {
+        preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=embed/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $link, $matches);
+        $store_link=$matches[0]; 
+        // if (strpos($link, 'embed') !== false) {
            
-            $temp = explode('embed/', $link);
-            $store_link=$temp[1];
-        }
-        else
-        {
+        //     $temp = explode('embed/', $link);
+        //     $store_link=$temp[1];
+        // }
+        // else
+        // {
            
-            parse_str(parse_url($link, PHP_URL_QUERY), $variables);
-            $store_link= $variables['v'];
-        }
+        //     parse_str(parse_url($link, PHP_URL_QUERY), $variables);
+        //     $store_link= $variables['v'];
+        // }
         $image=$_POST["image"];
         
         
@@ -80,7 +82,7 @@ if(isset($_POST['Edit_title']))
         }
         else
         {
-            echo "errorrr";
+            Header( 'Location: tables2.php?updatesuccess=0' );
         }
 
     

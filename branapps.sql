@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2021 at 01:28 PM
+-- Generation Time: Apr 18, 2021 at 02:22 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -99,7 +99,8 @@ INSERT INTO `listing` (`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starc
 (57, 3, 'Out_Film', 'Thor', 'Action,Comedy', 'Chirs Hemsworth,Tom Hiddleston', 'fbfnf', '2021-05-08', 900000, 10000000, 'awesome', 'eOrNdBpGMv8', '.'),
 (58, 3, 'Out_Film', 'Thor 2', 'Action,Comedy', 'Chirs Hemsworth,Tom Hiddleston', 'dvfebf', '2021-04-30', 900000, 10000000, 'evsdrtsn', 'mTT_V0t89MI', 'beagul1.jpg'),
 (59, 3, 'Out_Film', 'Avengers Endgame', 'Action,Comedy', 'RDJ,Chris Evans,Chris Hemsworth,Scarlett Johansson', 'awesome', '2021-05-09', 777, 10000000, 'dvdsbasw', 'eOrNdBpGMv8', 'abc61.jpg'),
-(60, 3, 'Out_Film', 'last try', 'romance,drama,comedy,thriller,action,blah', 'Edward Norton,Michael Keaton,Emma Stone', 'fnfnjdfmktrsk', '2021-05-09', 3536, 54765, 'bfzrjnnfm', '', '.');
+(60, 3, 'Out_Film', 'last try', 'romance,drama,comedy,thriller,action,blah', 'Edward Norton,Michael Keaton,Emma Stone', 'fnfnjdfmktrsk', '2021-05-09', 3536, 54765, 'bfzrjnnfm', '', '.'),
+(61, 3, 'In_Film', 'Link trial 2', 'Action,Comedy', 'c ccccc', ' cbc ncxns', '2021-05-01', 900000, 10000000, 'fhbsrh', 'RPLjf6781Rs', '.');
 
 -- --------------------------------------------------------
 
@@ -256,7 +257,11 @@ INSERT INTO `login` (`user_id`, `Email`, `CompanyName`, `login_time`, `user_stat
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 09:22:28', 'Active'),
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 09:23:27', 'Active'),
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 09:24:04', 'Active'),
-(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 10:31:34', 'Active');
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 10:31:34', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 12:13:04', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 12:13:43', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 12:13:43', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 12:17:22', 'Active');
 
 -- --------------------------------------------------------
 
@@ -283,7 +288,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`, `Designation`, `Email`, `password`, `Phone`, `Verified`) VALUES
 (1, 'Brand', 'Nidhi', 'Abhyankar', 'Puma', 'abc', 'nidhiabhyankar@gmail.com', NULL, 123344, 'Blocked'),
-(2, 'Production', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'Yes'),
+(2, 'Brand', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'Yes'),
 (3, 'Admin', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia149@gmail.com', '$2y$10$Ikdejj/6W70kRxIOWYLNm.aRKb781qOZq9C7zsy3WRbF6zUmQOBji', 69, 'Yes'),
 (4, 'Brand', '', '', '', '', '', NULL, 0, 'No'),
 (5, 'Brand', '', '', '', '', '', 'radha', 0, 'No'),
@@ -328,7 +333,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `listing`
 --
 ALTER TABLE `listing`
-  MODIFY `listing_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `listing_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -11,7 +11,7 @@ $result=$stmt->execute() or die($conn->error);
     }
     else
     {
-        echo "errorrr";
+        Header( 'Location: tables2.php?deletesuccess=0' );
     }
 
 ?>

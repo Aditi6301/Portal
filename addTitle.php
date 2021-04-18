@@ -16,8 +16,10 @@ if(isset($_POST['Add_title']))
     $max_cost=$_POST["max_cost"];
     $deliverables=$_POST["tentative_deliverables"];
     $link=$_POST["link"];
-    parse_str(parse_url($link, PHP_URL_QUERY), $variables);
-    $store_link= $variables['v'];
+    // parse_str(parse_url($link, PHP_URL_QUERY), $variables);
+    // $store_link= $variables['v'];
+    preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=embed/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $link, $matches);
+    $store_link=$matches[0]; 
     $folder ="uploads/"; 
 
     $uploads_dir = "uploads/";;
@@ -56,7 +58,7 @@ if(isset($_POST['Add_title']))
     }
     else
     {
-        echo "errorrr";
+        Header( 'Location: tables2.php?titlesuccess=0');
     }
     
 

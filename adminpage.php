@@ -45,7 +45,18 @@ else if( isset($_GET['blocksuccess']) && $_GET['blocksuccess'] == 0 )
     </div>
 <?php 
 }
+if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 0 )
+{
+  unset($_GET['mailsuccess']);
 ?>
+    <div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Approval mail was not sent.Please try again.</strong>
+    </div>
+<?php
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

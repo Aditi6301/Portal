@@ -245,14 +245,24 @@ else
                     $data = $conn->query("SELECT * FROM listing")->fetchAll();
                     foreach ($data as $row) 
                     {
+                      $Genre=$row['genre'];
+                      if(strlen($Genre)>15)
+                      {
+                        $Genre=substr($Genre,0,15).''."...";
+                      }
+                      $Cast=$row['starcast'];
+                      if(strlen($Cast)>30)
+                      {
+                        $Cast=substr($Cast,0,30).''."...";
+                      }
                       ?>
                     
                       <tr>
                       
                       <td><?php echo $row['Type']; ?></td>
                       <td><?php echo $row['Title'] ?></td>
-                      <td><?php echo $row['genre']; ?></td>
-                      <td><?php echo $row['starcast']; ?></td>
+                      <td><?php echo $Genre; ?></td>
+                      <td><?php echo $Cast; ?></td>
                       <td><?php echo $row['Release_date']; ?></td>
                       <td>₹<?php echo $row['min_cost']; ?> to ₹<?php echo $row['max_cost']; ?> </td>
                       <td>
