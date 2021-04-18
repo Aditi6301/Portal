@@ -168,7 +168,7 @@ else if( isset($_GET['blocksuccess']) && $_GET['blocksuccess'] == 0 )
              
              include('dbConn.php');
             
-             $data = $conn->query("SELECT * FROM login JOIN users where login.user_id=users.user_id")->fetchAll();
+             $data = $conn->query("SELECT * FROM login JOIN users where login.user_id=users.user_id and NOT Type='Admin'")->fetchAll();
             foreach ($data as $row) 
                       
                     {

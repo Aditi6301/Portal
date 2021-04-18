@@ -280,10 +280,24 @@ else
                 <p class="item-intro text-muted"><b>Genre:</b><?php echo $row['genre']; ?></p>
                  <img class="img-fluid d-block mx-auto" src="./uploads/<?php echo $row['image']; ?>" alt="">
                   <p></p>
+                  <?php 
+                  if($row['link'])
+                    {
+                    ?>
                   <div class="iframe-container">
+                  
                   <iframe src="http://www.youtube.com/embed/<?php echo $row['link']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                    </div>
-                   <p>http://www.youtube.com/embed/<?php echo $row['link']; ?> </p>
+                   <p></p>
+                 <?php 
+                }
+                else
+                    {
+                ?>
+                   <p><b>Link:</b>Not provided</p>
+                <?php 
+              }
+              ?>
                 <ul class="list-inline">
                   <li><b>Cast:</b> <?php echo $row['starcast']; ?></li>
                   <p></p>
