@@ -137,12 +137,12 @@ if( $_SESSION["Type"]=='Admin')
         Logout
       </a> -->
       <a href="tables2.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Add New Title/Production records</a>
-      <div class="dropdown-divider"></div>
+      <!-- <div class="dropdown-divider"></div> -->
       <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
         Logout
       </a> -->
-      <a href="tables.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Brand Records</a>
+      <!-- <a href="tables.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Brand Records</a> -->
     
       <div class="dropdown-divider"></div>
       <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
@@ -193,8 +193,8 @@ else
         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
         Logout
       </a> -->
-      <a href="login.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Admin</a>
-      <div class="dropdown-divider"></div>
+      <!-- <a href="login.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Admin</a>
+      <div class="dropdown-divider"></div> -->
       <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
         Logout

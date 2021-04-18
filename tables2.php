@@ -157,8 +157,8 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a> -->
-                <a href="tables2.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Add New Title/Production records</a>
-                <div class="dropdown-divider"></div>
+                <!-- <a href="tables2.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Add New Title/Production records</a>
+                <div class="dropdown-divider"></div> -->
                 <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
@@ -271,14 +271,25 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
                     
                     foreach ($data as $row) 
                     {
+                      $Genre=$row['genre'];
+                      if(strlen($Genre)>15)
+                      {
+                        $Genre=substr($Genre,0,15).''."...";
+                      }
+                      $Cast=$row['starcast'];
+                      if(strlen($Cast)>30)
+                      {
+                        $Cast=substr($Cast,0,30).''."...";
+                      }
+
                       
                       ?>
                     
                       <tr>
                       <td><?php echo $row['Type']; ?></td>
                       <td><?php echo $row['Title']; ?></td>
-                      <td><?php echo $row['genre']; ?></td>
-                      <td><?php echo $row['starcast']; ?></td>
+                      <td><?php echo $Genre; ?></td>
+                      <td><?php echo $Cast; ?></td>
                       <td><?php echo $row['Release_date']; ?></td>
                       <td>₹<?php echo $row['min_cost']; ?> to ₹<?php echo $row['max_cost']; ?> </td>
                       <td>
@@ -448,6 +459,20 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
                     }
                     foreach ($data as $row) 
                     {
+                      
+                      if($row['link']!=NULL)
+                      {
+                        $link=$row['link'];
+                        // echo $row['listing_no'];
+                        // echo $link;
+                        // $user_name=$first_name.' '.$last_name;
+                        $displayLink='http://www.youtube.com/embed/'.''.$link;
+                        // echo $displayLink;
+                      }
+                      else
+                      {
+                        $displayLink=NULL;
+                      }
                       ?>
 
 
@@ -508,7 +533,7 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
                             </div>
                             
                           <div class="form-group">
-                              <input name="link" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Trailer Link" value="http://www.youtube.com/embed/<?php echo $row['link']; ?>">
+                              <input name="link" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Trailer Link" value="<?php echo $displayLink; ?>">
                             </div>
                           
                             <div class="custom-file">
@@ -542,7 +567,7 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
   <!-- End of Page Wrapper -->
 
   <!-- modal -->
-  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
@@ -555,7 +580,7 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <div class="modal-body">
-                <!-- Project Details Go Here -->
+                 Project Details Go Here
                 <h2 class="text-uppercase">Tiger Zinda Hai</h2>
                 <p class="item-intro text-muted"><b>Genre:</b> Action, Drama</p>
                  <img class="img-fluid d-block mx-auto" src="img/portfolio/tzh.jpg" alt="">
@@ -587,7 +612,7 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
 

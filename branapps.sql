@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2021 at 11:37 AM
+-- Generation Time: Apr 18, 2021 at 01:28 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -31,9 +31,9 @@ CREATE TABLE `listing` (
   `listing_no` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `Type` varchar(10) DEFAULT NULL,
-  `Title` varchar(30) DEFAULT NULL,
-  `genre` varchar(20) DEFAULT NULL,
-  `starcast` varchar(30) DEFAULT NULL,
+  `Title` varchar(50) DEFAULT NULL,
+  `genre` varchar(100) DEFAULT NULL,
+  `starcast` varchar(100) DEFAULT NULL,
   `synopsis` varchar(200) DEFAULT NULL,
   `Release_date` date DEFAULT NULL,
   `min_cost` int(11) DEFAULT NULL,
@@ -92,7 +92,14 @@ INSERT INTO `listing` (`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starc
 (49, 2, 'Out_Film', 'friends 4', 'romance,drama', 'jennifer aniston, matthew perr', ' v', '2021-05-02', 1, 2, 'v', '', 'abc3.jpg'),
 (50, 2, 'In_Film', 'himym', 'comedy', 'ted', 'd', '2021-04-24', 1000000, 1000000000, 'd b', '', 'money heist.jpg'),
 (52, 3, 'In_Film', 'the bold type', 'romance,drama,comedy', 'samuel page', 'abcde', '2021-05-08', 1000000, 2, 'n', 'https://youtu.be/q9Evo8pJTV0', 'abc13.jpg'),
-(53, 3, 'Out_Film', 'shutter island', 'mx', 'abc', 'j', '2021-05-09', 1, 10000000, 'mmm', '', 'abc14.jpg');
+(53, 3, 'Out_Film', 'shutter island', 'mx', 'abc', 'j', '2021-05-09', 1, 10000000, 'mmm', '', 'abc14.jpg'),
+(54, 3, 'In_Film', 'Avengers', 'Action,Comedy', 'RDJ,Chris Evans,Chris Hemswort', 'Awesome', '2021-04-24', 334444, 10000000, 'fffffff', 'eOrNdBpGMv8', 'abc141.jpg'),
+(55, 3, 'In_Film', 'Avengers 2', 'Action,Comedy', 'RDJ,Chris Evans,Chris Hemswort', 'bbbbbb', '2021-05-01', 7, 2, 'fbfddznds', NULL, 'abc21.jpg'),
+(56, 3, 'In_Film', 'avengers 3', 'Action,Comedy', 'RDJ,Chris Evans,Chris Hemswort', 'gdjhdjmh', '2021-05-08', 900000, 10000000, 'shgsxjnhsjh', 'eOrNdBpGMv8', 'cat1.jpg'),
+(57, 3, 'Out_Film', 'Thor', 'Action,Comedy', 'Chirs Hemsworth,Tom Hiddleston', 'fbfnf', '2021-05-08', 900000, 10000000, 'awesome', 'eOrNdBpGMv8', '.'),
+(58, 3, 'Out_Film', 'Thor 2', 'Action,Comedy', 'Chirs Hemsworth,Tom Hiddleston', 'dvfebf', '2021-04-30', 900000, 10000000, 'evsdrtsn', 'mTT_V0t89MI', 'beagul1.jpg'),
+(59, 3, 'Out_Film', 'Avengers Endgame', 'Action,Comedy', 'RDJ,Chris Evans,Chris Hemsworth,Scarlett Johansson', 'awesome', '2021-05-09', 777, 10000000, 'dvdsbasw', 'eOrNdBpGMv8', 'abc61.jpg'),
+(60, 3, 'Out_Film', 'last try', 'romance,drama,comedy,thriller,action,blah', 'Edward Norton,Michael Keaton,Emma Stone', 'fnfnjdfmktrsk', '2021-05-09', 3536, 54765, 'bfzrjnnfm', '', '.');
 
 -- --------------------------------------------------------
 
@@ -248,7 +255,8 @@ INSERT INTO `login` (`user_id`, `Email`, `CompanyName`, `login_time`, `user_stat
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 06:30:32', 'Active'),
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 09:22:28', 'Active'),
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 09:23:27', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 09:24:04', 'Active');
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 09:24:04', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 10:31:34', 'Active');
 
 -- --------------------------------------------------------
 
@@ -320,7 +328,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `listing`
 --
 ALTER TABLE `listing`
-  MODIFY `listing_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `listing_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `users`
