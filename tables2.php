@@ -101,6 +101,11 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <style>
+        #footer {
+            position: fixed;
+        }
+    </style>
 </head>
 
 <body id="page-top">

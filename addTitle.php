@@ -27,15 +27,24 @@ if(isset($_POST['Add_title']))
     echo $_FILES["image"]["type"];
     $pname = $_FILES["image"]["name"]; 
     $tname=$_FILES["image"]["tmp_name"];
-  
+    $allowed=array('jpeg','png' ,'jpg',NULL);
     $name = pathinfo($_FILES['image']['name'], PATHINFO_FILENAME);
     $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
   
      $increment = 0; 
      $pname = $name . '.' . $extension;
-     while(is_file($uploads_dir.'/'.$pname)) {
-       $increment++;
-       $pname = $name . $increment . '.' . $extension;
+     if(!in_array($extension,$allowed) ) 
+    
+     { 
+     
+      echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
+     
+     }
+     else{
+        //  move_uploaded_file( $_FILES['image'] ['tmp_name'], $path); 
+        while(is_file($uploads_dir.'/'.$pname)) {
+        $increment++;
+        $pname = $name . $increment . '.' . $extension;
      }
      move_uploaded_file($tname, $uploads_dir.'/'.$pname);
 
@@ -54,7 +63,7 @@ if(isset($_POST['Add_title']))
 }
 
        
-
+}
 
 
 

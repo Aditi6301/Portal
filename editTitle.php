@@ -30,47 +30,50 @@ if(isset($_POST['Edit_title']))
             parse_str(parse_url($link, PHP_URL_QUERY), $variables);
             $store_link= $variables['v'];
         }
+        $image=$_POST["image"];
+        
         
         $folder ="uploads/"; 
+
+        $uploads_dir = "uploads/";;
     
-    $image = $_FILES['image']['name'];
-    echo '<br>'; 
-    echo "image:";
-    echo $image;
-    
-    $path = $folder . $image ; 
-    echo '<br>'; 
-    echo "path:";
-    echo $path;
-    
-    $target_file=$folder.basename($_FILES["image"]["name"]);
-    echo '<br>'; 
-    echo "target_file:";
-    echo $target_file;
-    
-    
-    $imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
-    echo '<br>'; 
-    echo "imageFileType";
-    echo $imageFileType;
-    
-    $allowed=array('jpeg','png' ,'jpg',NULL);
-    $filename=$_FILES['image']['name']; 
-    
-    $ext=pathinfo($filename, PATHINFO_EXTENSION);
-    
-    if(!in_array($ext,$allowed) ) 
-    
-    { 
-    
-     echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
-    
-    }
-    else{
-        move_uploaded_file( $_FILES['image'] ['tmp_name'], $path); 
-        $sql = "UPDATE listing SET Type=?,Title=?,genre=?,starcast=?,synopsis=?,Release_date=?,min_cost=?,max_cost=?,deliverables=?,link=?,image=? WHERE listing_no=?";
-        $stmt= $conn->prepare($sql);
-        $result=$stmt->execute([$Type,$Title,$genre,$starcast,$synopsis,$Release_date,$min_cost,$max_cost,$deliverables,$store_link,$image,$listing_no]) or die($conn->error);
+        echo $_FILES["image"]["name"]; 
+        echo $_FILES["image"]["size"];
+        echo $_FILES["image"]["type"];
+        $pname = $_FILES["image"]["name"]; 
+        $tname=$_FILES["image"]["tmp_name"];
+        $allowed=array('jpeg','png' ,'jpg',NULL);
+        $name = pathinfo($_FILES['image']['name'], PATHINFO_FILENAME);
+        $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+         $increment = 0; 
+         $pname = $name . '.' . $extension;
+         if(!in_array($extension,$allowed) ) 
+        
+         { 
+         
+          echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
+         
+         }
+         else{
+            //  move_uploaded_file( $_FILES['image'] ['tmp_name'], $path); 
+                while(is_file($uploads_dir.'/'.$pname)) 
+                {
+                $increment++;
+                $pname = $name . $increment . '.' . $extension;
+                }
+         move_uploaded_file($tname, $uploads_dir.'/'.$pname);
+         if ((!($_FILES['image']['name']))){
+            $sql = "UPDATE listing SET Type=?,Title=?,genre=?,starcast=?,synopsis=?,Release_date=?,min_cost=?,max_cost=?,deliverables=?,link=? WHERE listing_no=?";
+            $stmt= $conn->prepare($sql);
+            $result=$stmt->execute([$Type,$Title,$genre,$starcast,$synopsis,$Release_date,$min_cost,$max_cost,$deliverables,$store_link,$listing_no]) or die($conn->error);
+
+         }
+         else{
+            $sql = "UPDATE listing SET Type=?,Title=?,genre=?,starcast=?,synopsis=?,Release_date=?,min_cost=?,max_cost=?,deliverables=?,link=?,image=? WHERE listing_no=?";
+            $stmt= $conn->prepare($sql);
+            $result=$stmt->execute([$Type,$Title,$genre,$starcast,$synopsis,$Release_date,$min_cost,$max_cost,$deliverables,$store_link,$pname,$listing_no]) or die($conn->error);
+         }
+       
         if($result)
         {
              Header( 'Location: tables2.php?updatesuccess=1' );
@@ -79,10 +82,11 @@ if(isset($_POST['Edit_title']))
         {
             echo "errorrr";
         }
-        
+
     
     }
     
            
-        }
+}
+
 ?>
