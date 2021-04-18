@@ -101,25 +101,25 @@ if ( isset($_GET['accountsuccess']) && $_GET['accountsuccess'] == 1 )
                   <form class="user" method="POST">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" name="FirstName" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
+                    <input type="text" name="FirstName" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name" required>
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" name="LastName" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
+                    <input type="text" name="LastName" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name" required>
                   </div>
                 </div>
                 
                 <div class="form-group">
-                  <input type="text" name="BName" class="form-control form-control-user" id="exampleInputEmail" placeholder="Brand/Company Name">
+                  <input type="text" name="BName" class="form-control form-control-user" id="exampleInputEmail" placeholder="Brand/Company Name" required>
                 </div>
                 <div class="form-group">
-                  <input type="text" name="Designation" class="form-control form-control-user" id="exampleInputEmail" placeholder="Your Designation">
+                  <input type="text" name="Designation" class="form-control form-control-user" id="exampleInputEmail" placeholder="Your Designation" required>
                 </div>
                 <div class="form-group">
-                  <input type="email" name="Email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+                  <input type="email" name="Email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address" required>
                 </div>
                 
                 <div class="form-group">
-                  <input type="number" name="Phone" class="form-control form-control-user" id="exampleInputEmail" placeholder="Mobile Number">
+                  <input type="number" name="Phone" class="form-control form-control-user" id="exampleInputEmail" placeholder="Mobile Number" required>
                 </div>
                 <div class="form-group">
                   <button type="submit" name="RegisterBrand" value="RegisterBrand" class="btn btn-primary btn-block" id="submit">Register

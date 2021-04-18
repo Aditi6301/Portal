@@ -1,7 +1,7 @@
 <?php
 include('UserLogin.php');
 $store_link="";
-$image="";
+// $image="";
 if(isset($_POST['Add_title']))
 {
     echo "hi there";
@@ -20,40 +20,26 @@ if(isset($_POST['Add_title']))
     $store_link= $variables['v'];
     $folder ="uploads/"; 
 
-$image = $_FILES['image']['name']; 
-echo '<br>'; 
-echo "image:";
-echo $image;
-$path = $folder . $image ; 
-echo '<br>'; 
-echo "path:";
-echo $path;
-$target_file=$folder.basename($_FILES["image"]["name"]);
-echo '<br>'; 
-echo "target_file:";
-echo $target_file;
+    $uploads_dir = "uploads/";;
 
-$imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
-echo '<br>'; 
-    echo "imageFileType";
-    echo $imageFileType;
-    
+    echo $_FILES["image"]["name"]; 
+    echo $_FILES["image"]["size"];
+    echo $_FILES["image"]["type"];
+    $pname = $_FILES["image"]["name"]; 
+    $tname=$_FILES["image"]["tmp_name"];
+  
+    $name = pathinfo($_FILES['image']['name'], PATHINFO_FILENAME);
+    $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+  
+     $increment = 0; 
+     $pname = $name . '.' . $extension;
+     while(is_file($uploads_dir.'/'.$pname)) {
+       $increment++;
+       $pname = $name . $increment . '.' . $extension;
+     }
+     move_uploaded_file($tname, $uploads_dir.'/'.$pname);
 
-$allowed=array('jpeg','png' ,'jpg',NULL); $filename=$_FILES['image']['name']; 
-
-$ext=pathinfo($filename, PATHINFO_EXTENSION);
-
-if(!in_array($ext,$allowed) ) 
-
-{ 
-
- echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
-
-}
-else{
-    move_uploaded_file( $_FILES['image'] ['tmp_name'], $path); 
-
-    $sql=$conn->prepare("INSERT INTO `listing`(`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starcast`, `synopsis`, `Release_date`, `min_cost`, `max_cost`,`deliverables`, `link`,`image`) VALUES (NULL,'$user_id','$Type','$Title','$genre','$starcast','$synopsis','$Release_date','$min_cost','$max_cost','$deliverables','$store_link','$image')");
+    $sql=$conn->prepare("INSERT INTO `listing`(`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starcast`, `synopsis`, `Release_date`, `min_cost`, `max_cost`,`deliverables`, `link`,`image`) VALUES (NULL,'$user_id','$Type','$Title','$genre','$starcast','$synopsis','$Release_date','$min_cost','$max_cost','$deliverables','$store_link','$pname')");
     $result=$sql->execute() or die($conn->error);
     if($result)
     {
@@ -68,7 +54,7 @@ else{
 }
 
        
-    }
+
 
 
 

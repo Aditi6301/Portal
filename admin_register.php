@@ -105,22 +105,22 @@ if ( isset($_GET['accountsuccess']) && $_GET['accountsuccess'] == 1 )
                   <div >
                   <form class="user" method="post"  id="setUserPassword" >
                   <div class="form-group">
-                      <input type="text" name="FirstName" class="form-control form-control-user" id="email"placeholder="First Name">
+                      <input type="text" name="FirstName" class="form-control form-control-user" id="email"placeholder="First Name" required>
                     </div>
                   <div class="form-group">
-                      <input type="text" name="LastName" class="form-control form-control-user" id="email"placeholder="Last Name">
+                      <input type="text" name="LastName" class="form-control form-control-user" id="email"placeholder="Last Name" required>
                     </div>
                     <div class="form-group">
-                      <input type="text" name="Phone" class="form-control form-control-user" id="email"placeholder="Phone">
+                      <input type="text" name="Phone" class="form-control form-control-user" id="email"placeholder="Phone" required>
                     </div>
                   <div class="form-group">
-                      <input type="email" name="Email" class="form-control form-control-user" id="email"placeholder="Email">
+                      <input type="email" name="Email" class="form-control form-control-user" id="email"placeholder="Email" required>
                     </div>
                     <div class="form-group">
-                      <input type="password" name="password1" class="form-control form-control-user" id="password1" placeholder="Password" onkeyup='check();'>
+                      <input type="password" name="password1" class="form-control form-control-user" id="password1" placeholder="Password" required onkeyup='check();'>
                     </div>
                     <div class="form-group">
-                      <input type="password" name="password2" class="form-control form-control-user" id="password2" placeholder="Confirm Password" onkeyup='check();'>
+                      <input type="password" name="password2" class="form-control form-control-user" id="password2" placeholder="Confirm Password" required onkeyup='check();'>
                     </div>
                     <span id='message'></span><br>
                     <button class="btn btn-primary btn-block" id="submit" name="AdminRegistration" type="submit">Register</button>

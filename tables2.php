@@ -334,7 +334,7 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
         </div>
         <!-- /.container-fluid -->
 
-      </div>
+      
       <!-- End of Main Content -->
 
       <!-- Footer -->
@@ -374,30 +374,30 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
                     </select>
                     </div>
                     <div class="form-group">
-                      <input name="Title" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Movie/Series Title">
+                      <input name="Title" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Movie/Series Title" required>
                     </div>
                     <div class="form-group">
-                      <input name="genre" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Genre">
+                      <input name="genre" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Genre" required>
                     </div>
                     <div class="form-group">
-                      <input name="starcast" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Starcast">
+                      <input name="starcast" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Starcast" required>
                     </div>
                     <div class="form-group">
-                      <textarea name="synopsis" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Synopsis"></textarea>
+                      <textarea name="synopsis" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Synopsis" required></textarea>
                     </div>
                     
                      <div class="form-group">
-                      <input name="Release_date" type="date" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Release Date">
+                      <input name="Release_date" type="date" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Release Date" required>
                     </div>
                  	
                  	 <div class="form-group">
-                      <input name="min_cost" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Min Association Cost">
+                      <input name="min_cost" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Min Association Cost" required>
                     </div>
                      <div class="form-group">
-                      <input name="max_cost" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Max Association Cost">
+                      <input name="max_cost" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Max Association Cost" required>
                     </div>
                     <div class="form-group">
-                      <textarea name="tentative_deliverables" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Add Tentative deliverables"></textarea>
+                      <textarea name="tentative_deliverables" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Add Tentative deliverables" required></textarea>
                     </div>
                     
                 	<div class="form-group">
@@ -405,8 +405,7 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
                     </div>
                 	
                 	 <div class="custom-file">
-                   <input name="image" class="custom-file-input" type="file" id="file-upload" name="movie_image"
-                   />
+                   <input name="image" class="custom-file-input" type="file" id="file-upload" name="movie_image" multiple/>
                               <label class="custom-file-label" for="file-upload" id="file-upload-filename">Poster Image</label>
                      </div>
                 
@@ -507,14 +506,14 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
                             </div>
                           
                             <div class="custom-file">
-                              <input name="image" class="custom-file-input" type="file" id="file-upload" name="movie_image"/>
+                              <input name="image" class="custom-file-input" type="file" id="file-upload" name="movie_image" multiple/>
                               <label class="custom-file-label" for="file-upload"><?php echo $row['image']; ?></label>
                               <div id="file-upload-filename"></div>
                 
                             </div>
 
                             </ul> 
-                        <button type="submit" name="Edit_title" class="btn btn-primary" id="customFileInput" >Add New Title</button>
+                        <button type="submit" name="Edit_title" class="btn btn-primary" id="customFileInput" >Edit Title</button>
                         <button class="btn btn-primary" data-dismiss="modal" type="button">
                           <i class="fas fa-times"></i>
                           Close Project</button>
@@ -530,13 +529,6 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
                               <?php
                     }
                     ?>
-
-
-
-
-<a href="select.php">See Image</a>
-
-
     </div>
     <!-- End of Content Wrapper -->
 
