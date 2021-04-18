@@ -69,6 +69,11 @@ else if( isset($_GET['blocksuccess']) && $_GET['blocksuccess'] == 0 )
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <style>
+        #footer {
+            position: fixed;
+        }
+    </style>
 
 </head>
 
