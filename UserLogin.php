@@ -21,8 +21,8 @@ if(isset($_POST['Login']))
         {
             if($row['Verified']=='Blocked')
            {
-              
-                Header('Location: login.php?BlockedUser=1' );
+                $_SESSION['BlockedUser']=1;
+                Header('Location: login.php');
            }
             
             else if(password_verify($password,$row['password']))

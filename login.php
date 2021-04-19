@@ -24,9 +24,9 @@ if ( isset($_GET['nouser']) && $_GET['nouser'] == 1 )
     </div>
 <?php
 }
-if (isset($_GET['BlockedUser']) && $_GET['BlockedUser'] == 1 )
+if (isset($_SESSION['BlockedUser']) && $_SESSION['BlockedUser'] == 1 )
 {
-  unset($_GET['BlockedUser']);
+  unset($_SESSION['BlockedUser']);
 
 ?>
 <div class="alert alert-danger" id="success-alert">
