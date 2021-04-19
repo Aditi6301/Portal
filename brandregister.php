@@ -6,18 +6,38 @@ include('brandRegistration.php');
 
 
 
-if ( isset($_GET['accountsuccess']) && $_GET['accountsuccess'] == 1 )
+if ( isset($_SESSION['accountsuccess']) && $_SESSION['accountsuccess'] == 1 )
 {
-  unset($_GET['accountsuccess']);
+  unset($_SESSION['accountsuccess']);
 ?>
     <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>Account added successfully!</strong>
+    <strong>User registered successfully!</strong>
     </div>
 <?php
 }
-
+if ( isset($_SESSION['accountsuccess']) && $_SESSION['accountsuccess'] == 0 )
+{
+  unset($_SESSION['accountsuccess']);
 ?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>User registration failed.Please try again.</strong>
+    </div>
+<?php
+}
+if ( isset($_SESSION['existinguser']) && $_SESSION['existinguser'] == 1 )
+{
+  unset($_SESSION['existinguser']);
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>The entered email is already registered.Please Login if you already have an account!</strong>
+    </div>
+<?php
+}
+?>
+
 
 <!DOCTYPE html>
 
@@ -202,3 +222,12 @@ if ( isset($_GET['accountsuccess']) && $_GET['accountsuccess'] == 1 )
 </body>
 
 </html>
+<script>
+  $('form').each(function() { this.reset() });
+  $(document).ready(function() {
+    // show the alert
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
+});
+</script>

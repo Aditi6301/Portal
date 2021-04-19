@@ -1,6 +1,16 @@
 <?php
 include('UserSetPassword.php'); 
-$email=$_GET['Email'];   
+$email=$_GET['Email'];  
+if ( isset($_SESSION['passwordchange']) && $_SESSION['passwordchange'] == 0 )
+{
+  unset($_SESSION['passwordchange']); 
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Password not set successfully.Please try again.</strong>
+    </div>
+<?php
+}
 ?>
 
 <!DOCTYPE html>

@@ -2,21 +2,29 @@
 include('UserLogin.php');
 if(!isset($_SESSION['loggedin']))
 {
-  Header('Location:login.php?illegalaccess=1' );
+  $_SESSION['illegalaccess']=1;
+  Header('Location:login.php' );
 }
 if($_SESSION["Type"]=='Brand')
 {
-  Header('Location:tables.php?Brand_access=1' );
+  $_SESSION['Brand_access']=1;
+  Header('Location:tables.php' );
 }
 if($_SESSION["Type"]=='Production')
 {
-  Header('Location:tables2.php?Production_access=1' );
+  $_SESSION['Production_access']=1;
+  Header('Location:tables2.php' );
+}
+if($_SESSION["Status"]=='Blocked')
+{
+  $_SESSION['BlockedUser']=1;
+  Header('Location:login.php' );
 }
 ?>
 <?php
-if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 1 )
+if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess']== 1 )
 {
-  unset($_GET['mailsuccess']);
+  unset($_SESSION['mailsuccess']);
 ?>
     <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -24,9 +32,9 @@ if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 1 )
     </div>
 <?php
 }
-if ( isset($_GET['blocksuccess']) && $_GET['blocksuccess'] == 1 )
+if ( isset($_SESSION['blocksuccess']) && $_SESSION['blocksuccess'] == 1 )
 {
-  unset($_GET['blocksuccess']);
+  unset($_SESSION['blocksuccess']);
 ?>
 <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -35,9 +43,9 @@ if ( isset($_GET['blocksuccess']) && $_GET['blocksuccess'] == 1 )
 
 <?php
 }
-else if( isset($_GET['blocksuccess']) && $_GET['blocksuccess'] == 0 )
+else if( isset($_SESSION['blocksuccess']) && $_SESSION['blocksuccess'] == 0 )
 {
-  unset($_GET['blocksuccess']);
+  unset($_SESSION['blocksuccess']);
 ?>
 <div class="alert alert-danger" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -45,9 +53,9 @@ else if( isset($_GET['blocksuccess']) && $_GET['blocksuccess'] == 0 )
     </div>
 <?php 
 }
-if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 0 )
+if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 0 )
 {
-  unset($_GET['mailsuccess']);
+  unset($_SESSION['mailsuccess']);
 ?>
     <div class="alert alert-danger" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -55,7 +63,16 @@ if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 0 )
     </div>
 <?php
 }
+if ( isset($_SESSION['loginsuccess']) && $_SESSION['loginsuccess'] == 1 )
+{
+  unset($_SESSION['loginsuccess']);
 ?>
+<div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Login Successful!</strong>
+    </div>
+<?php
+}?>
 
 <!DOCTYPE html>
 <html lang="en">

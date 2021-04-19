@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2021 at 02:22 PM
+-- Generation Time: Apr 19, 2021 at 07:49 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -261,7 +261,10 @@ INSERT INTO `login` (`user_id`, `Email`, `CompanyName`, `login_time`, `user_stat
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 12:13:04', 'Active'),
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 12:13:43', 'Active'),
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 12:13:43', 'Active'),
-(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 12:17:22', 'Active');
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 12:17:22', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 15:19:26', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 15:25:43', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-19 05:42:51', 'Active');
 
 -- --------------------------------------------------------
 
@@ -288,8 +291,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`, `Designation`, `Email`, `password`, `Phone`, `Verified`) VALUES
 (1, 'Brand', 'Nidhi', 'Abhyankar', 'Puma', 'abc', 'nidhiabhyankar@gmail.com', NULL, 123344, 'Blocked'),
-(2, 'Brand', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'Yes'),
-(3, 'Admin', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia149@gmail.com', '$2y$10$Ikdejj/6W70kRxIOWYLNm.aRKb781qOZq9C7zsy3WRbF6zUmQOBji', 69, 'Yes'),
+(2, 'Admin', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'Yes'),
+(3, 'Brand', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia149@gmail.com', '$2y$10$8fHJQYyUtj.zfBcPjgUBYu3auJ8A6gM9YQCZGqZNTv33oQxijiu0S', 69, 'Yes'),
 (4, 'Brand', '', '', '', '', '', NULL, 0, 'No'),
 (5, 'Brand', '', '', '', '', '', 'radha', 0, 'No'),
 (6, 'Brand', '', '', '', '', '', 'radha1', 0, 'No'),

@@ -1,34 +1,21 @@
 <?php
 include('UserLogin.php');
 ?>
-
+    
 <?php
-
-
-
-if ( isset($_GET['loginsuccess']) && $_GET['loginsuccess'] == 1 )
+if ( isset($_SESSION['loginsuccess']) && $_SESSION['loginsuccess'] == 0 )
 {
-  unset($_GET['loginsuccess']);
-?>
-    <div class="alert alert-success" id="success-alert">
-    <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>Login successful! We will get back to you soon!</strong>
-    </div>
-<?php
-}
-if ( isset($_GET['loginsuccess']) && $_GET['loginsuccess'] == 0 )
-{
-  unset($_GET['loginsuccess']);
+  unset($_SESSION['loginsuccess']);
 ?>
 <div class="alert alert-danger" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>Login Failed!Please check your username and password</strong>
+    <strong>Login Failed!Please check your username and password.</strong>
     </div>
 <?php
 }
-if ( isset($_GET['nouser']) && $_GET['nouser'] == 1 )
+if ( isset($_SESSION['nouser']) && $_SESSION['nouser'] == 1 )
 {
-  unset($_GET['nouser']);
+  unset($_SESSION['nouser']);
 
 ?>
 <div class="alert alert-danger" id="success-alert">
@@ -37,9 +24,9 @@ if ( isset($_GET['nouser']) && $_GET['nouser'] == 1 )
     </div>
 <?php
 }
-if (isset($_GET['BlockedUser']) && $_GET['BlockedUser'] == 1 )
+if (isset($_SESSION['BlockedUser']) && $_SESSION['BlockedUser'] == 1 )
 {
-  unset($_GET['BlockedUser']);
+  unset($_SESSION['BlockedUser']);
 
 ?>
 <div class="alert alert-danger" id="success-alert">
@@ -48,18 +35,27 @@ if (isset($_GET['BlockedUser']) && $_GET['BlockedUser'] == 1 )
     </div>
 <?php
 }
-if (isset($_GET['illegalaccess']) && $_GET['illegalaccess'] == 1 )
+if (isset($_SESSION['passwordchange']) && $_SESSION['passwordchange'] == 1 )
 {
-  unset($_GET['illegalaccess']);
+  unset($_SESSION['passwordchange']);
 
 ?>
-<div class="alert alert-danger" id="success-alert">
+<div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>Please register to access this site.</strong>
+    <strong>Password successfully set.You can login now.</strong>
     </div>
 <?php 
 }
+if (isset($_SESSION['illegalaccess']) && $_SESSION['illegalaccess'] == 1 )
+{
+  unset($_SESSION['illegalaccess']);
 ?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Page not accessible.</strong>
+    </div>
+<?php
+}?>
 
 
 

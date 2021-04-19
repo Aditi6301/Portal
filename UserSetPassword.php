@@ -43,7 +43,8 @@ if(isset($_POST['SetPassword']))
             // $result=$sql->execute() or die($conn->error);
             if($result)
             {
-                Header('Location: login.php?passwordsuccess=1' );
+                $_SESSION['passwordchange']=1;
+                Header('Location: login.php' );
             }
             else
             {
@@ -113,11 +114,14 @@ if(isset($_POST['ResetPassword']))
             // $result=$sql->execute() or die($conn->error);
             if($result)
             {
-                echo "<script>alert('Password changed successfully!Login here'); window.location='login.php'</script>";
+                $_SESSION['passwordchange']=1;
+                Header('Location: login.php');
+               
             }
             else
             {
-                echo "errorrr";
+                $_SESSION['passwordchange']=0;
+                Header('Location:updatePassword.php');
             }
         }
 }

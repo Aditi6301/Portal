@@ -1,8 +1,6 @@
 <?php
 include('dbConn.php');
 
-
-
 if(isset($_POST['RegisterBrand']))
 {
     // echo "heyy!";
@@ -19,7 +17,8 @@ $checkIfUnique->bindValue(1,$Email);
 $checkIfUnique->execute();
 if($checkIfUnique->rowCount()>0)  //similar email found
 {
-    echo "<script>alert('Email already exists!'); window.location='brandregister.php'</script>";
+    $_SESSION['existinguser']=1;
+    Header( 'Location: brandregister.php');
     
 }
 else
@@ -28,12 +27,14 @@ else
     $result=$sql->execute() or die($conn->error);
     if($result)
     {
-        Header( 'Location: brandregister.php?accountsuccess=1' );
+        $_SESSION['accountsuccess']=1;
+        Header( 'Location: brandregister.php' );
 
     }
     else
     {
-        echo "errorrr";
+        $_SESSION['accountsuccess']=0;
+        Header( 'Location: brandregister.php' );
     }
 }
 

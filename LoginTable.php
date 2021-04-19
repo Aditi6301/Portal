@@ -14,9 +14,9 @@ if($_SESSION["Type"]=='Production')
 }
 ?>
 <?php
-if ( isset($_GET['blocksuccess']) && $_GET['blocksuccess'] == 1 )
+if ( isset($_SESSION['blocksuccess']) && $_SESSION['blocksuccess'] == 1 )
 {
-  unset($_GET['blocksuccess']);
+  unset($_SESSION['blocksuccess']);
 ?>
 <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -25,9 +25,9 @@ if ( isset($_GET['blocksuccess']) && $_GET['blocksuccess'] == 1 )
 
 <?php
 }
-else if( isset($_GET['blocksuccess']) && $_GET['blocksuccess'] == 0 )
+else if( isset($_SESSION['blocksuccess']) && $_SESSION['blocksuccess'] == 0 )
 {
-  unset($_GET['blocksuccess']);
+  unset($_SESSION['blocksuccess']);
 ?>
 <div class="alert alert-danger" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>

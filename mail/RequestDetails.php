@@ -46,11 +46,13 @@ if($getEmail->rowCount()>0)  //email found
    $headers .= "Reply-To:$Email \n";   
    if(mail($to,$email_subject,$email_body,$headers))
    {
-      Header('Location: ../tables.php?mailsuccess=1' );
+      $_SESSION['mailsuccess']=1;
+      Header('Location: ../tables.php' );
    }
    else
    {
-      Header('Location: ../tables.php?mailsuccess=0' );
+      $_SESSION['mailsuccess']=0;
+      Header('Location: ../tables.php' );
    }
    echo " hi there";
 

@@ -7,11 +7,13 @@ $result=$stmt->execute() or die($conn->error);
     if($result)
     {
         // echo "<script>window.location='tables2.php'</script>";
-        Header( 'Location: tables2.php?deletesuccess=1' );
+        $_SESSION['deletesuccess']=1;
+        Header( 'Location: tables2.php' );
     }
     else
     {
-        Header( 'Location: tables2.php?deletesuccess=0' );
+        $_SESSION['deletesuccess']=0;
+        Header( 'Location: tables2.php' );
     }
 
 ?>

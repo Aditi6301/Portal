@@ -21,7 +21,8 @@ if(isset($_POST['Login']))
         {
             if($row['Verified']=='Blocked')
            {
-                Header('Location: login.php?BlockedUser=1' );
+                $_SESSION['BlockedUser']=1;
+                Header('Location: login.php' );
            }
             
             else if(password_verify($password,$row['password']))
@@ -60,16 +61,18 @@ if(isset($_POST['Login']))
                         
                         if($Trow['Type']=='Production')
                         {
-                            Header('Location: tables2.php?loginsuccess=1' );
+                            $_SESSION['loginsuccess']=1;
+                            Header('Location: tables2.php' );
                         }
                         elseif($Trow['Type'] =='Brand')
                         {
-                            Header('Location: tables.php?loginsuccess=1' );
+                            $_SESSION['loginsuccess']=1;
+                            Header('Location: tables.php' );
                         }
                         elseif($Trow['Type'] =='Admin')
                         {
-
-                            Header('Location: adminpage.php?loginsuccess=1' );
+                            $_SESSION['loginsuccess']=1;
+                            Header('Location: adminpage.php' );
                         }
                         
                     }
@@ -78,7 +81,8 @@ if(isset($_POST['Login']))
             }
             else
             {
-                Header('Location: login.php?loginsuccess=0' );
+                $_SESSION['loginsuccess']=0;
+                Header('Location: login.php' );
             }
         }
         
@@ -86,7 +90,8 @@ if(isset($_POST['Login']))
     else
     {
         echo "</br>";
-        Header('Location: login.php?nouser=1' );
+        $_SESSION['nouser']=1;
+        Header('Location: login.php');
     }
     
 

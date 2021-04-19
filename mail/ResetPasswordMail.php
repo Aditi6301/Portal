@@ -1,7 +1,6 @@
 <?php
 
 include('../dbConn.php');
-// echo "Mail";
 $type='Admin';
 $getAdminEmail=$conn->prepare("SELECT * FROM users  WHERE Type= ? LIMIT 1");
 $getAdminEmail->bindValue(1,$type);
@@ -16,12 +15,7 @@ if($getAdminEmail->rowCount()>0)  //email found
   }
 }
 $user_id=$_GET['user_id'];
-
-echo $user_id;
 $verified='Yes';
-// $sql = "UPDATE users SET Verified=? WHERE user_id=?";
-// $stmt= $conn->prepare($sql);
-// $vResult=$stmt->execute([$verified,$user_id]);
 
 $getEmail=$conn->prepare("SELECT * FROM users  WHERE user_id= ?");
 $getEmail->bindValue(1,$user_id);
@@ -37,8 +31,6 @@ if($getEmail->rowCount()>0)  //email found
 
   }
    $Name=$FirstName.' '.$LastName;
-   // $Message="./SetPassword.php?Email=$Email";
-
    
    $Message ="http://localhost/Portal/updatePassword.php?Email=$Email";
    $to =$Email; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
@@ -48,16 +40,15 @@ if($getEmail->rowCount()>0)  //email found
    $headers .= "Reply-To:$AdminEmail\n";    
    if(mail($to,$email_subject,$email_body,$headers))
    {
-      echo "Your Mail is sent successfully.";
-      // header("Location:../login.php"); 
+
+     $_SESSION['mailsuccess']=1;
+      Header('Location: ../forgotpassword.php' );
    }
    else
    {
-      echo "Your Mail is not sent. Try Again."; 
+      $_SESSION['mailsuccess']=0;
+      Header('Location: ../forgotpassword.php' );
    }
-   echo " hi there";
-
-  
    return true; 
 }
 

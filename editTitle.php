@@ -78,11 +78,13 @@ if(isset($_POST['Edit_title']))
        
         if($result)
         {
-             Header( 'Location: tables2.php?updatesuccess=1' );
+            $_SESSION['updatesuccess']=1;
+            Header( 'Location: tables2.php' );
         }
         else
         {
-            Header( 'Location: tables2.php?updatesuccess=0' );
+            $_SESSION['updatesuccess']=0;
+            Header( 'Location: tables2.php' );
         }
 
     

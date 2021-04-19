@@ -1,6 +1,25 @@
 <?php
 include('UserSetPassword.php');
-
+if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 1 )
+{
+  unset($_SESSION['mailsuccess']);
+?>
+<div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Mail successfully sent! We will get back to you soon!</strong>
+    </div>
+<?php
+}
+if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 0 )
+{
+  unset($_SESSION['mailsuccess']);
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Error occured.Please try again.</strong>
+    </div>
+<?php 
+}
 ?>
 
 <!DOCTYPE html>
@@ -160,3 +179,12 @@ include('UserSetPassword.php');
 </body>
 
 </html>
+<script>
+  $('form').each(function() { this.reset() });
+  $(document).ready(function() {
+    // show the alert
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
+});
+</script>

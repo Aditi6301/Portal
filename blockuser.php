@@ -10,11 +10,13 @@ if($bResult=$stmt->execute([$block,$user_id]))
 {
     if($flag==1)
     {
-        Header('Location: LoginTable.php?blocksuccess=1' );
+        $_SESSION['blocksuccess']=1;
+        Header('Location: LoginTable.php' );
     }
     else
     {
-        Header('Location: adminpage.php?blocksuccess=1' );
+        $_SESSION['blocksuccess']=1;
+        Header('Location: adminpage.php' );
     }
     
 }
@@ -22,11 +24,13 @@ else
 {
     if($flag==1)
     {
-        Header('Location: LoginTable.php?blocksuccess=0' );
+        $_SESSION['blocksuccess']=0;
+        Header('Location: LoginTable.php' );
     }
     else
     {
-        Header('Location: adminpage.php?blocksuccess=0' );
+        $_SESSION['blocksuccess']=0;
+        Header('Location: adminpage.php' );
     }
 }
 ?>

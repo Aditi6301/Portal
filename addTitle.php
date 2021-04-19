@@ -38,8 +38,9 @@ if(isset($_POST['Add_title']))
      if(!in_array($extension,$allowed) ) 
     
      { 
-     
-      echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
+        $_SESSION['invalidImage']=1;
+        Header( 'Location: tables2.php');
+    //   echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
      
      }
      else{
@@ -54,11 +55,13 @@ if(isset($_POST['Add_title']))
     $result=$sql->execute() or die($conn->error);
     if($result)
     {
-        Header( 'Location: tables2.php?titlesuccess=1');
+        $_SESSION['titlesuccess']=1;
+        Header( 'Location: tables2.php');
     }
     else
     {
-        Header( 'Location: tables2.php?titlesuccess=0');
+        $_SESSION['titlesuccess']=0;
+        Header( 'Location: tables2.php');
     }
     
 

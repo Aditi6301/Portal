@@ -2,13 +2,20 @@
 include('UserLogin.php');
 if(!isset($_SESSION['loggedin']))
 {
-  Header('Location:login.php?illegalaccess=1' );
+  $_SESSION['illegalaccess']=1;
+  Header('Location:login.php' );
 }
 $stmt = $conn->prepare("DELETE FROM listing WHERE Release_date = CURRENT_DATE()"); 
 $result=$stmt->execute() or die($conn->error);
 if($_SESSION["Type"]=='Production')
 {
-  Header('Location:tables2.php?Production_access=1' );
+  $_SESSION["Production_access"]=1;
+  Header('Location:tables2.php' );
+}
+if($_SESSION["Status"]=='Blocked')
+{
+  $_SESSION['BlockedUser']=1;
+  Header('Location:login.php' );
 }
 // session_start();
 
@@ -21,9 +28,9 @@ if (time()-$_SESSION['timestamp']>$idletime){
 }else{
     $_SESSION['timestamp']=time();
 }
-if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 1 )
+if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 1 )
 {
-  unset($_GET['mailsuccess']);
+  unset($_SESSION['mailsuccess']);
 ?>
 <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -31,9 +38,9 @@ if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 1 )
     </div>
 <?php
 }
-if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 0 )
+if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 0 )
 {
-  unset($_GET['mailsuccess']);
+  unset($_SESSION['mailsuccess']);
 ?>
 <div class="alert alert-danger" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -41,9 +48,9 @@ if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 0 )
     </div>
 <?php 
 }
-if ( isset($_GET['Brand_access']) && $_GET['Brand_access'] == 1 )
+if ( isset($_SESSION["Brand_access"]) && $_SESSION["Brand_access"] == 1 )
 {
-  unset($_GET['Brand_access']);
+  unset($_SESSION["Brand_access"]);
 ?>
 <div class="alert alert-danger" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -51,7 +58,16 @@ if ( isset($_GET['Brand_access']) && $_GET['Brand_access'] == 1 )
     </div>
 <?php
 }
+if ( isset($_SESSION['loginsuccess']) && $_SESSION['loginsuccess'] == 1 )
+{
+  unset($_SESSION['loginsuccess']);
 ?>
+<div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Login Successful!</strong>
+    </div>
+<?php
+}?>
 
 
 <!DOCTYPE html>

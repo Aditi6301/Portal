@@ -5,15 +5,18 @@ $stmt = $conn->prepare("DELETE FROM listing WHERE Release_date = CURRENT_DATE()"
 $result=$stmt->execute() or die($conn->error);
 if(!isset($_SESSION['loggedin']))
 {
-  Header('Location:login.php?illegalaccess=1' );
+  $_SESSION['illegalaccess']=1;
+  Header('Location:login.php' );
 }
 if($_SESSION["Type"]=='Brand')
 {
-  Header('Location:tables.php?Brand_access=1' );
+  $_SESSION["Brand_access"]=1;
+  Header('Location:tables.php' );
 }
 if($_SESSION["Status"]=='Blocked')
 {
-  Header('Location:login.php?illegalaccess=1' );
+  $_SESSION['BlockedUser']=1;
+  Header('Location:login.php' );
 }
 
 // session_start();
@@ -30,10 +33,10 @@ if (time()-$_SESSION['timestamp']>$idletime){
 
 
 
-if ( isset($_GET['deletesuccess']) && $_GET['deletesuccess'] == 1 )
+if ( isset($_SESSION['deletesuccess']) && $_SESSION['deletesuccess'] == 1 )
 
 {
-  unset($_GET['deletesuccess']);
+  unset($_SESSION['deletesuccess']);
   ?>
      
      <div class="alert alert-success" id="success-alert">
@@ -43,9 +46,9 @@ if ( isset($_GET['deletesuccess']) && $_GET['deletesuccess'] == 1 )
     
 <?php
 }
-if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 1 )
+if ( isset($_SESSION['updatesuccess']) && $_SESSION['updatesuccess'] == 1 )
 {
-  unset($_GET['updatesuccess']);
+  unset($_SESSION['updatesuccess']);
 ?>
     <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -53,9 +56,9 @@ if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 1 )
     </div>
 <?php
 }
-if ( isset($_GET['titlesuccess']) && $_GET['titlesuccess'] == 1 )
+if ( isset($_SESSION['titlesuccess']) && $_SESSION['titlesuccess'] == 1 )
 {
-  unset($_GET['titlesuccess']);
+  unset($_SESSION['titlesuccess']);
 ?>
     <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -63,9 +66,9 @@ if ( isset($_GET['titlesuccess']) && $_GET['titlesuccess'] == 1 )
     </div>
 <?php
 }
-if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
+if ( isset($_SESSION["Production_access"]) && $_SESSION["Production_access"] == 1 )
 {
-  unset($_GET['Production_access']);
+  unset($_SESSION["Production_access"]);
 
 ?>
 <div class="alert alert-danger" id="success-alert">
@@ -74,9 +77,9 @@ if ( isset($_GET['Production_access']) && $_GET['Production_access'] == 1 )
     </div>
 <?php 
 }
-if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 0 )
+if ( isset($_SESSION['updatesuccess']) && $_SESSION['updatesuccess'] == 0 )
 {
-  unset($_GET['updatesuccess']);
+  unset($_SESSION['updatesuccess']);
 ?>
 <div class="alert alert-danger" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -84,19 +87,19 @@ if ( isset($_GET['updatesuccess']) && $_GET['updatesuccess'] == 0 )
     </div>
 <?php
 }
-if ( isset($_GET['titlesuccess']) && $_GET['titlesuccess'] == 0 )
+if ( isset($_SESSION['titlesuccess']) && $_SESSION['titlesuccess'] == 0 )
 {
-  unset($_GET['titlesuccess']);
+  unset($_SESSION['titlesuccess']);
 ?>
 <div class="alert alert-danger" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>Title was not added.Please try again.</strong>
+    <strong>Could not add title.Please try again.</strong>
     </div>
 <?php
 }
-if ( isset($_GET['deletesuccess']) && $_GET['deletesuccess'] == 0 )
+if ( isset($_SESSION['deletesuccess']) && $_SESSION['deletesuccess'] == 0 )
 {
-  unset($_GET['deletesuccess']);
+  unset($_SESSION['deletesuccess']);
 
 ?>
 <div class="alert alert-danger" id="success-alert">
@@ -106,7 +109,29 @@ if ( isset($_GET['deletesuccess']) && $_GET['deletesuccess'] == 0 )
     
 <?php
 }
+if ( isset($_SESSION['loginsuccess']) && $_SESSION['loginsuccess'] == 1 )
+{
+  unset($_SESSION['loginsuccess']);
 ?>
+<div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Login Successful!</strong>
+    </div>
+<?php
+}
+if ( isset($_SESSION['invalidImage']) && $_SESSION['invalidImage'] == 1 )
+{
+  unset($_SESSION['invalidImage']);
+?>
+<div class="alert alert-danger" id="success-alert">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <strong>Sorry, only JPG, JPEG, PNG & GIF  files are allowed. </strong> 
+    </div>
+    
+<?php
+}
+?>
+
 
 
 <!DOCTYPE html>
