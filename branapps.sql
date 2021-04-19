@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2021 at 07:49 AM
+-- Generation Time: Apr 19, 2021 at 08:25 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -57,7 +57,6 @@ INSERT INTO `listing` (`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starc
 (13, 2, 'In_Film', '', '', '', '', '0000-00-00', 9, 0, '', '', ''),
 (14, 2, 'Out_Film', 'abcs', 'thriller', 'srk', '123', '2021-04-22', 123, 123, '', 'abc.com', 'Screenshot 2020-11-10 105722.p'),
 (15, 2, 'Out_Film', 'mj', 'nn', 'srk', 'abc', '2021-04-29', 123, 123, '', 'www.abc.com', 'header-bg21132.jpg'),
-(17, 3, 'Out_Film', 'amj', 'thriller', 'jennifer aniston', '123', '2021-04-24', 123, 123, '', 'www.', 'Blue-Background-With-Hand-Draw'),
 (18, 2, 'In_Film', 'main hoo na', 'romance,drama', 'shahrukh khan', 'something something blah blah blah', '2021-04-30', 90000, 10000000, '', 'https://www.youtube.com/watch?', 'money heist7.jpg'),
 (19, 2, 'In_Film', 'Roohi', 'Thirller', 'Rajkumar Rao', 'blaaaaah', '2021-04-21', 334444, 555666, '', 'https://www.youtube.com/watch?v=BDBpX6P7u9E', 'Blue-Background-With-Hand-Drawn-Cinema-Items.jpg'),
 (20, 2, 'Out_Film', 'aaaaa', 'bad', 'you', 'la la la', '2021-04-24', 1, 2, '', 'https://www.youtube.com/v/BDBpX6P7u9E', 'cat.jpg'),
@@ -67,40 +66,15 @@ INSERT INTO `listing` (`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starc
 (24, 2, 'Out_Film', 'ROOOHI', 'Thirller', 'Rajkumar Rao', 'BSFFAA', '2021-04-25', 444, 66666, '', '', 'image.jpg'),
 (25, 2, 'In_Film', 'film', 'bad', 'you', 'fgreheawb', '2021-04-23', 7, 90, '', 'mTT_V0t89MI', 'image.jpg'),
 (26, 2, 'In_Film', 'Stree22', 'Horror,Comedy', 'Rajkumar Rao,Kriti Sanon', 'synopsis', '2021-04-29', 88, 99, 'some deliverables', 'PkgStlsVaqw', ''),
-(27, 3, 'Out_Film', 'ssytfd', 'thriller', 'jennifer aniston', 'n', '2021-05-02', 0, 0, 'nbb', '', 'beagul.jpg'),
-(28, 3, 'Out_Film', 'amjbc', 'thriller', 'jennifer aniston', 'abc', '2021-04-24', 10, 20, 'ab', '', 'header-bg21132.jpg'),
-(29, 3, 'Out_Film', 'abcd', 'romance,drama', 'jennifer aniston', 'a', '2021-04-25', 1, 2, 'ba', '', 'Blue-Background-With-Hand-Drawn-Cinema-Items.jpg'),
-(30, 3, 'Out_Film', 'friends', 'abc, abc', 'jennifer aniston', 'abc', '2021-04-30', 10000, 1000000000, 'abc', '', 'image.jpg'),
-(31, 3, 'In_Film', 'Shabaash Mithu', 'Biopic, Drama, Sport', 'Taapsee', 'Mithali Raj biopic', '2022-02-02', 1000000, 5000000, '1. Passive Branding\r\n2. Logo Presence', '', 'beagul.jpg'),
 (32, 2, 'In_Film', 'babababa', 'bababa', 'baba', 'h', '2022-02-02', 123, 455, '1.com', '', 'Blue-Background-With-Hand-Drawn-Cinema-Items.jpg'),
 (33, 2, 'In_Film', 'friends', 'thriller', 'jennifer aniston', 'abc', '2021-05-01', 1, 2, 'abc', '', ''),
 (34, 2, 'Out_Film', 'friends', 'thriller', 'jennifer aniston', 'NNN', '2021-05-09', 100, 1000000000, 'M', '', ''),
 (35, 2, 'Out_Film', 'friends', 'thriller,SUSPENSE', 'jennifer aniston', 'NNMC', '2021-05-09', 1, 1000000000, 'NM', '', ''),
-(36, 3, 'Out_Film', 'gangubai', 'suspense', 'alia bhatt', 'nn', '2021-05-02', 1, 10, 'n', '', 'abc.jpg'),
-(37, 3, 'Out_Film', 'apkgk', 'rom com', 'ranbir', 'abc', '2021-05-09', 1, 2, 'n', '', 'abc.jpg'),
-(38, 3, 'Out_Film', 'bbb', 'nnn', 'bbb', 'bbb', '2021-05-07', 1000000, 10000000, ' n', '', 'abc.jpg'),
-(39, 3, 'Out_Film', 'Shabaash Mithu', 'thriller', 'jennifer aniston', 'sb', '2021-05-09', 1, 1000000000, 's', '', 'abc.jpg'),
-(40, 3, 'Out_Film', 'friends', 'thriller', 'jennifer aniston', 'MBJ', '2021-05-06', 1000000, 1000000000, 'MBJ', '', 'abc.jpg'),
-(41, 3, 'Out_Film', 'Friends', 'comedy', 'jennifer aniston', 'c', '2021-05-07', 1, 1000000000, 'c', '', 'abc.jpg'),
-(42, 3, 'In_Film', 'amj', 'nn', 'jennifer aniston', 'm', '2021-04-30', 1, 1000000000, 'm', '', 'abc.jpg'),
-(43, 3, 'In_Film', 'FRIENDS', '', '', '', '0000-00-00', 0, 0, '', '', ''),
-(44, 3, 'In_Film', 'Money heist', 'thriller', 'Álvaro Morte', 'ABC', '2021-05-09', 1, 1000000000, 'WSN', '', 'abc.jpg'),
-(45, 3, 'Out_Film', 'abcsn', 'abc', 'srk', 'nn', '2021-05-09', 1, 2, ' m', '', 'abc.'),
 (46, 2, 'Out_Film', 'z', 'zz', 'z', 'z', '2021-05-01', 123, 1000000000, 'z', '', 'abc1.jpg'),
 (47, 2, 'Out_Film', 'c', 'c', 'c', 'c', '2021-05-09', 123, 123, 'c', '', 'abc2.jpg'),
 (48, 2, 'Out_Film', 'Money heist 5', 'nn', 'alvaro morte', 'c', '2021-05-09', 1000000, 123, 'c', '', 'money heist.jpg'),
 (49, 2, 'Out_Film', 'friends 4', 'romance,drama', 'jennifer aniston, matthew perr', ' v', '2021-05-02', 1, 2, 'v', '', 'abc3.jpg'),
-(50, 2, 'In_Film', 'himym', 'comedy', 'ted', 'd', '2021-04-24', 1000000, 1000000000, 'd b', '', 'money heist.jpg'),
-(52, 3, 'In_Film', 'the bold type', 'romance,drama,comedy', 'samuel page', 'abcde', '2021-05-08', 1000000, 2, 'n', 'https://youtu.be/q9Evo8pJTV0', 'abc13.jpg'),
-(53, 3, 'Out_Film', 'shutter island', 'mx', 'abc', 'j', '2021-05-09', 1, 10000000, 'mmm', '', 'abc14.jpg'),
-(54, 3, 'In_Film', 'Avengers', 'Action,Comedy', 'RDJ,Chris Evans,Chris Hemswort', 'Awesome', '2021-04-24', 334444, 10000000, 'fffffff', 'eOrNdBpGMv8', 'abc141.jpg'),
-(55, 3, 'In_Film', 'Avengers 2', 'Action,Comedy', 'RDJ,Chris Evans,Chris Hemswort', 'bbbbbb', '2021-05-01', 7, 2, 'fbfddznds', NULL, 'abc21.jpg'),
-(56, 3, 'In_Film', 'avengers 3', 'Action,Comedy', 'RDJ,Chris Evans,Chris Hemswort', 'gdjhdjmh', '2021-05-08', 900000, 10000000, 'shgsxjnhsjh', 'eOrNdBpGMv8', 'cat1.jpg'),
-(57, 3, 'Out_Film', 'Thor', 'Action,Comedy', 'Chirs Hemsworth,Tom Hiddleston', 'fbfnf', '2021-05-08', 900000, 10000000, 'awesome', 'eOrNdBpGMv8', '.'),
-(58, 3, 'Out_Film', 'Thor 2', 'Action,Comedy', 'Chirs Hemsworth,Tom Hiddleston', 'dvfebf', '2021-04-30', 900000, 10000000, 'evsdrtsn', 'mTT_V0t89MI', 'beagul1.jpg'),
-(59, 3, 'Out_Film', 'Avengers Endgame', 'Action,Comedy', 'RDJ,Chris Evans,Chris Hemsworth,Scarlett Johansson', 'awesome', '2021-05-09', 777, 10000000, 'dvdsbasw', 'eOrNdBpGMv8', 'abc61.jpg'),
-(60, 3, 'Out_Film', 'last try', 'romance,drama,comedy,thriller,action,blah', 'Edward Norton,Michael Keaton,Emma Stone', 'fnfnjdfmktrsk', '2021-05-09', 3536, 54765, 'bfzrjnnfm', '', '.'),
-(61, 3, 'In_Film', 'Link trial 2', 'Action,Comedy', 'c ccccc', ' cbc ncxns', '2021-05-01', 900000, 10000000, 'fhbsrh', 'RPLjf6781Rs', '.');
+(50, 2, 'In_Film', 'himym', 'comedy', 'ted', 'd', '2021-04-24', 1000000, 1000000000, 'd b', '', 'money heist.jpg');
 
 -- --------------------------------------------------------
 
@@ -264,7 +238,10 @@ INSERT INTO `login` (`user_id`, `Email`, `CompanyName`, `login_time`, `user_stat
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 12:17:22', 'Active'),
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-18 15:19:26', 'Active'),
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-18 15:25:43', 'Active'),
-(2, 'aditi6301@gmail.com', 'Puma', '2021-04-19 05:42:51', 'Active');
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-19 05:42:51', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-19 06:20:45', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-19 06:20:59', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-19 06:22:12', 'Active');
 
 -- --------------------------------------------------------
 
@@ -292,7 +269,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`, `Designation`, `Email`, `password`, `Phone`, `Verified`) VALUES
 (1, 'Brand', 'Nidhi', 'Abhyankar', 'Puma', 'abc', 'nidhiabhyankar@gmail.com', NULL, 123344, 'Blocked'),
 (2, 'Admin', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'Yes'),
-(3, 'Brand', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia149@gmail.com', '$2y$10$8fHJQYyUtj.zfBcPjgUBYu3auJ8A6gM9YQCZGqZNTv33oQxijiu0S', 69, 'Yes'),
+(3, 'Production', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia149@gmail.com', '$2y$10$8fHJQYyUtj.zfBcPjgUBYu3auJ8A6gM9YQCZGqZNTv33oQxijiu0S', 69, 'Yes'),
 (4, 'Brand', '', '', '', '', '', NULL, 0, 'No'),
 (5, 'Brand', '', '', '', '', '', 'radha', 0, 'No'),
 (6, 'Brand', '', '', '', '', '', 'radha1', 0, 'No'),
