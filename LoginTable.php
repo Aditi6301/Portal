@@ -250,7 +250,6 @@ else if( isset($_SESSION['blocksuccess']) && $_SESSION['blocksuccess'] == 0 )
 
       </div>
       <!-- End of Main Content -->
-
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -260,6 +259,11 @@ else if( isset($_SESSION['blocksuccess']) && $_SESSION['blocksuccess'] == 0 )
         </div>
       </footer>
       <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
       
   </div>
     <!-- End of Content Wrapper -->

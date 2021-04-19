@@ -13,9 +13,9 @@ if ( isset($_SESSION['loginsuccess']) && $_SESSION['loginsuccess'] == 0 )
     </div>
 <?php
 }
-if ( isset($_SESSION['nouser']) && $_SESSION['nouser'] == 1 )
+if ( isset($_GET['nouser']) && $_GET['nouser'] == 1 )
 {
-  unset($_SESSION['nouser']);
+  unset($_GET['nouser']);
 
 ?>
 <div class="alert alert-danger" id="success-alert">
@@ -24,9 +24,9 @@ if ( isset($_SESSION['nouser']) && $_SESSION['nouser'] == 1 )
     </div>
 <?php
 }
-if (isset($_SESSION['BlockedUser']) && $_SESSION['BlockedUser'] == 1 )
+if (isset($_GET['BlockedUser']) && $_GET['BlockedUser'] == 1 )
 {
-  unset($_SESSION['BlockedUser']);
+  unset($_GET['BlockedUser']);
 
 ?>
 <div class="alert alert-danger" id="success-alert">

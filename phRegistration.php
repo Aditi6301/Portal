@@ -20,7 +20,7 @@ if(isset($_POST['RegisterProduction']))
     if($checkIfUnique->rowCount()>0)  //similar email found
     {
         $_SESSION['existinguser']=1;
-        Header( 'Location: phregister.php');
+        Header( 'Location: phregister.php?existinguser=1');
         
     }
     else
@@ -30,12 +30,12 @@ if(isset($_POST['RegisterProduction']))
         if($result)
         {
             $_SESSION['accountsuccess']=1;
-            Header( 'Location: phregister.php');
+            Header( 'Location: phregister.php?accountsuccess=1');
         }
         else
         {
             $_SESSION['accountsuccess']=0;
-            Header( 'Location: phregister.php');
+            Header( 'Location: phregister.php?accountsuccess=0');
         }
     }
 

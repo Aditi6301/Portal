@@ -21,8 +21,8 @@ if(isset($_POST['Login']))
         {
             if($row['Verified']=='Blocked')
            {
-                $_SESSION['BlockedUser']=1;
-                Header('Location: login.php' );
+              
+                Header('Location: login.php?BlockedUser=1' );
            }
             
             else if(password_verify($password,$row['password']))
@@ -90,8 +90,8 @@ if(isset($_POST['Login']))
     else
     {
         echo "</br>";
-        $_SESSION['nouser']=1;
-        Header('Location: login.php');
+      
+        Header('Location: login.php?nouser=1');
     }
     
 

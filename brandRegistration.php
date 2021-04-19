@@ -17,8 +17,8 @@ $checkIfUnique->bindValue(1,$Email);
 $checkIfUnique->execute();
 if($checkIfUnique->rowCount()>0)  //similar email found
 {
-    $_SESSION['existinguser']=1;
-    Header( 'Location: brandregister.php');
+    
+    Header( 'Location: brandregister.php?existinguser=1' );
     
 }
 else
@@ -27,14 +27,14 @@ else
     $result=$sql->execute() or die($conn->error);
     if($result)
     {
-        $_SESSION['accountsuccess']=1;
-        Header( 'Location: brandregister.php' );
+
+        Header( 'Location: brandregister.php?accountsuccess=1');
 
     }
     else
     {
-        $_SESSION['accountsuccess']=0;
-        Header( 'Location: brandregister.php' );
+    
+        Header( 'Location: brandregister.php?accountsuccess=0' );
     }
 }
 

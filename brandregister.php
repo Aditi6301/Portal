@@ -6,9 +6,9 @@ include('brandRegistration.php');
 
 
 
-if ( isset($_SESSION['accountsuccess']) && $_SESSION['accountsuccess'] == 1 )
+if ( isset($_GET['accountsuccess']) && $_GET['accountsuccess'] == 1 )
 {
-  unset($_SESSION['accountsuccess']);
+  unset($_GET['accountsuccess']);
 ?>
     <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -16,9 +16,9 @@ if ( isset($_SESSION['accountsuccess']) && $_SESSION['accountsuccess'] == 1 )
     </div>
 <?php
 }
-if ( isset($_SESSION['accountsuccess']) && $_SESSION['accountsuccess'] == 0 )
+if ( isset($_GET['accountsuccess']) && $_GET['accountsuccess'] == 0 )
 {
-  unset($_SESSION['accountsuccess']);
+  unset($_GET['accountsuccess']);
 ?>
 <div class="alert alert-danger" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -26,9 +26,9 @@ if ( isset($_SESSION['accountsuccess']) && $_SESSION['accountsuccess'] == 0 )
     </div>
 <?php
 }
-if ( isset($_SESSION['existinguser']) && $_SESSION['existinguser'] == 1 )
+if ( isset($_GET['existinguser']) && $_GET['existinguser'] == 1 )
 {
-  unset($_SESSION['existinguser']);
+  unset($_GET['existinguser']);
 ?>
 <div class="alert alert-danger" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
