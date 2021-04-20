@@ -18,9 +18,9 @@ else
 
 
 
-if ( isset($_GET['passwordsuccess']) && $_GET['passwordsuccess'] == 1 )
+if ( isset($_SESSION['passwordsuccess']) && $_SESSION['passwordsuccess'] == 1 )
 {
-  unset($_GET['passwordsuccess']);
+  unset($_SESSION['passwordsuccess']);
 ?>
     <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
