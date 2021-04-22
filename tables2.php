@@ -611,7 +611,7 @@ if ( isset($_SESSION['invalidImage']) && $_SESSION['invalidImage'] == 1 )
                    
                    
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
+        <footer class="sticky-footer bg-white fixed-bottom">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2019</span>

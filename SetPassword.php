@@ -1,17 +1,32 @@
 <?php
 include('UserSetPassword.php');
-$email=$_GET['Email'];
+//  include('/mail/temp.php');
+$email=$_SESSION['Email'];
 $AlreadySet=$conn->prepare("SELECT * FROM users  WHERE Email= ?");
 $AlreadySet->bindValue(1,$email);
 $AlreadySet->execute();
 if($AlreadySet->rowCount()>0)  //email found
 {
-  $PasswordAlreadySet='Yes';
+    while($User = $AlreadySet->fetch())
+    {
+      if($User['password'])
+      {
+        $PasswordAlreadySet='Yes';
+      }
+      else
+      {
+        $PasswordAlreadySet='No';
+      }
+    }
+    
+        
+  
 }
 else
 {
   $PasswordAlreadySet='No';
 }
+// echo $PasswordAlreadySet
     
 ?>
 <?php
@@ -24,9 +39,10 @@ if ( isset($_SESSION['passwordsuccess']) && $_SESSION['passwordsuccess'] == 1 )
 ?>
     <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>Password set succesfully! Login here.</strong>
+    <strong>Password set succesfully! Login now.</strong>
     </div>
 <?php
+// Header('Location:logout.php' );
 }
 
 ?>
@@ -114,7 +130,7 @@ if ( isset($_SESSION['passwordsuccess']) && $_SESSION['passwordsuccess'] == 1 )
                   <div >
                   <form class="user" method="post"  id="setUserPassword" >
                   <div class="form-group">
-                      <input type="text" name="email" class="form-control form-control-user" id="email" value="<?php echo $email;?>">
+                      <input type="text" name="email" class="form-control form-control-user" id="email" value="<?php echo $email;?>" readonly>
                     </div>
                     <div class="form-group">
                       <input type="password" name="password1" class="form-control form-control-user" id="password1" placeholder="Password" onkeyup='check();'>

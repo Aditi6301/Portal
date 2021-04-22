@@ -1,6 +1,6 @@
 <?php
 include('UserSetPassword.php'); 
-$email=$_GET['Email'];  
+$email=$_SESSION['Email'];  
 if ( isset($_SESSION['passwordchange']) && $_SESSION['passwordchange'] == 0 )
 {
   unset($_SESSION['passwordchange']); 
@@ -95,7 +95,7 @@ if ( isset($_SESSION['passwordchange']) && $_SESSION['passwordchange'] == 0 )
                   <div >
                   <form class="user" method="post"  id="setUserPassword" >
                   <div class="form-group">
-                      <input type="text" name="email" class="form-control form-control-user" id="email" value="<?php echo $email;?>" disable>
+                      <input type="text" name="email" class="form-control form-control-user" id="email" value="<?php echo $email;?>" readonly>
                     </div>
                     <div class="form-group">
                       <input type="password" name="password1" class="form-control form-control-user" id="password1" placeholder="Password" onkeyup='check();'>

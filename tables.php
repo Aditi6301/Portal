@@ -5,6 +5,11 @@ if(!isset($_SESSION['loggedin']))
   $_SESSION['illegalaccess']=1;
   Header('Location:login.php' );
 }
+if(!isset($_SESSION['user_id']))
+{
+  $_SESSION['illegalaccess']=1;
+  Header('Location:login.php' );
+}
 $stmt = $conn->prepare("DELETE FROM listing WHERE Release_date = CURRENT_DATE()"); 
 $result=$stmt->execute() or die($conn->error);
 if($_SESSION["Type"]=='Production')

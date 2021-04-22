@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2021 at 08:25 AM
+-- Generation Time: Apr 22, 2021 at 10:26 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -55,7 +55,6 @@ INSERT INTO `listing` (`listing_no`, `user_id`, `Type`, `Title`, `genre`, `starc
 (11, 2, 'In_Film', 'mj', 'abc', 'abc', 'nacm', '2021-05-08', 123, 123, '', 'www.', '.'),
 (12, 2, 'In_Film', 'amj', 'thriller', 'srk', 'Rom-com', '2021-05-06', 123, 123, '', 'www.abc.com', 'cat.jpg'),
 (13, 2, 'In_Film', '', '', '', '', '0000-00-00', 9, 0, '', '', ''),
-(14, 2, 'Out_Film', 'abcs', 'thriller', 'srk', '123', '2021-04-22', 123, 123, '', 'abc.com', 'Screenshot 2020-11-10 105722.p'),
 (15, 2, 'Out_Film', 'mj', 'nn', 'srk', 'abc', '2021-04-29', 123, 123, '', 'www.abc.com', 'header-bg21132.jpg'),
 (18, 2, 'In_Film', 'main hoo na', 'romance,drama', 'shahrukh khan', 'something something blah blah blah', '2021-04-30', 90000, 10000000, '', 'https://www.youtube.com/watch?', 'money heist7.jpg'),
 (19, 2, 'In_Film', 'Roohi', 'Thirller', 'Rajkumar Rao', 'blaaaaah', '2021-04-21', 334444, 555666, '', 'https://www.youtube.com/watch?v=BDBpX6P7u9E', 'Blue-Background-With-Hand-Drawn-Cinema-Items.jpg'),
@@ -241,7 +240,16 @@ INSERT INTO `login` (`user_id`, `Email`, `CompanyName`, `login_time`, `user_stat
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-19 05:42:51', 'Active'),
 (2, 'aditi6301@gmail.com', 'Puma', '2021-04-19 06:20:45', 'Active'),
 (3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-19 06:20:59', 'Active'),
-(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-19 06:22:12', 'Active');
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-19 06:22:12', 'Active'),
+(3, 'shreyakedia149@gmail.com', 'Puma', '2021-04-19 06:33:53', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-19 06:35:03', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-22 06:17:01', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-22 07:00:45', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-22 07:11:17', 'Active'),
+(16, 'shreyakedia149@gmail.com', 'gucci', '2021-04-22 07:25:05', 'Active'),
+(2, 'aditi6301@gmail.com', 'Puma', '2021-04-22 07:29:01', 'Active'),
+(17, 'shreyakedia149@gmail.com', 'expensive', '2021-04-22 07:33:42', 'Active'),
+(17, 'shreyakedia149@gmail.com', 'expensive', '2021-04-22 07:42:19', 'Active');
 
 -- --------------------------------------------------------
 
@@ -269,7 +277,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`, `Designation`, `Email`, `password`, `Phone`, `Verified`) VALUES
 (1, 'Brand', 'Nidhi', 'Abhyankar', 'Puma', 'abc', 'nidhiabhyankar@gmail.com', NULL, 123344, 'Blocked'),
 (2, 'Admin', 'Aditi', 'Joshi', 'Puma', 'abc', 'aditi6301@gmail.com', '$2y$10$9RGIZ7BX0sx29Rf7H/NNE.F6iPmnUCz4AjCihnfp17ONafYPbWkRC', 2, 'Yes'),
-(3, 'Production', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia149@gmail.com', '$2y$10$8fHJQYyUtj.zfBcPjgUBYu3auJ8A6gM9YQCZGqZNTv33oQxijiu0S', 69, 'Yes'),
+(3, 'Production', 'Shreya', 'k', 'Puma', 'abc', 'shreyakedia@gmail.com', NULL, 69, 'Yes'),
 (4, 'Brand', '', '', '', '', '', NULL, 0, 'No'),
 (5, 'Brand', '', '', '', '', '', 'radha', 0, 'No'),
 (6, 'Brand', '', '', '', '', '', 'radha1', 0, 'No'),
@@ -280,7 +288,10 @@ INSERT INTO `users` (`user_id`, `Type`, `First name`, `Last name`, `CompanyName`
 (11, 'Admin', 'Nidhi', 'Abhyankar', '', '', 'nidhiabhyankar1@gmail.com', '$2y$10$FER7FVnx2EDnZ3JAfPNJC.qEg7Fof/uvfwCwNEsL1HSYU2iYWsUqm', 0, 'Blocked'),
 (12, 'Brand', 'Aditya', 'Gade', 'Reebok', 'abc', 'adityagade@gmail.com', NULL, 123, 'Blocked'),
 (13, 'Brand', 'd', 'd', 'dd', 'd', 'abc@gmail.com', NULL, 123, 'Blocked'),
-(14, 'Production', 'Radha', 'Mujumdar', 'none', 'none', 'radhamujumdar1@gmail.com', NULL, 162, 'No');
+(14, 'Production', 'Radha', 'Mujumdar', 'none', 'none', 'radhamujumdar1@gmail.com', NULL, 162, 'No'),
+(15, 'Production', 'Shreya', 'Kedia', 'puma', 'dsgsges', 'shreyakedia1@gmail.com', '$2y$10$pNjn.vTCP07pmr8I3G5rbu8IHNtA6ytevLnZboAhtVR/0.99Yki0G', 32536437, 'Yes'),
+(16, 'Production', 'Shreya', 'Kedia', 'gucci', 'aaa', 'shreyakedia14@gmail.com', '$2y$10$9yUEMhy.gSjrHLBi/JqgQuQs63uvu7Pp86oOr/WbymZOJbGv3/ib.', 35236346, 'Yes'),
+(17, 'Brand', 'Shreya', 'Kedia', 'expensive', 'aaaaaaa', 'shreyakedia149@gmail.com', '$2y$10$oD7OtR8wjRJJCYAIjkzknOKPwqZQdcwhsmaWrhn1uXLb41AgqH3mm', 3354645, 'Yes');
 
 --
 -- Indexes for dumped tables
@@ -319,7 +330,7 @@ ALTER TABLE `listing`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables

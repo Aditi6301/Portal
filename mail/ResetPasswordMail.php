@@ -32,7 +32,7 @@ if($getEmail->rowCount()>0)  //email found
   }
    $Name=$FirstName.' '.$LastName;
    
-   $Message ="http://localhost/Portal/updatePassword.php?Email=$Email";
+   $Message ="http://localhost/Portal/mail/temp.php?Email=$Email&flag=1";
    $to =$Email; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
    $email_subject = "Website Contact Form:  $Name";
    $email_body = "You have received a new message from your website contact form.Click on the link\n\n"."Here are the details:\n\nName: $Name\n\nEmail: $Email\n\nPhone: $Phone\n\nMessage:\n$Message";
