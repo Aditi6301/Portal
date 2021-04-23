@@ -1,18 +1,18 @@
 <?php
 include('UserSetPassword.php');
-if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 1 )
+if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 1 )
 {
-  unset($_SESSION['mailsuccess']);
+  unset($_GET['mailsuccess']);
 ?>
 <div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>Mail successfully sent! We will get back to you soon!</strong>
+    <strong>Mail successfully sent!!</strong>
     </div>
 <?php
 }
-if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 0 )
+if ( isset($_GET['mailsuccess']) && $_GET['mailsuccess'] == 0 )
 {
-  unset($_SESSION['mailsuccess']);
+  unset($_GET['mailsuccess']);
 ?>
 <div class="alert alert-danger" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>

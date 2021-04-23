@@ -40,14 +40,11 @@ if($getEmail->rowCount()>0)  //email found
    $headers .= "Reply-To:$AdminEmail\n";    
    if(mail($to,$email_subject,$email_body,$headers))
    {
-
-     $_SESSION['mailsuccess']=1;
-      Header('Location: ../forgotpassword.php' );
+      Header('Location: ../forgotpassword.php?mailsuccess=1' );
    }
    else
    {
-      $_SESSION['mailsuccess']=0;
-      Header('Location: ../forgotpassword.php' );
+      Header('Location: ../forgotpassword.php?mailsuccess=0' );
    }
    return true; 
 }
