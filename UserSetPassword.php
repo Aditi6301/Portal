@@ -44,7 +44,7 @@ if(isset($_POST['SetPassword']))
             if($result)
             {
                 $_SESSION['passwordsuccess']=1;
-                Header('Location:SetPassword.php' );
+                Header('Location:login.php' );
             }
             else
             {

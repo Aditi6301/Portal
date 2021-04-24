@@ -1,7 +1,14 @@
 <?php
 include('UserSetPassword.php');
 //  include('/mail/temp.php');
-$email=$_GET['Email'];
+if(isset($_SESSION['Email'])) 
+{
+  $email=$_SESSION['Email']; 
+}
+else
+{
+    Header('Location: login.php' );
+}
 $AlreadySet=$conn->prepare("SELECT * FROM users  WHERE Email= ?");
 $AlreadySet->bindValue(1,$email);
 $AlreadySet->execute();

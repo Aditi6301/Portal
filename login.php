@@ -55,7 +55,27 @@ if (isset($_SESSION['illegalaccess']) && $_SESSION['illegalaccess'] == 1 )
     <strong>Page not accessible.</strong>
     </div>
 <?php
-}?>
+}
+if (!isset($_SESSION['Email']))
+{
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Please login here.</strong>
+    </div>
+<?php
+}
+if (isset($_SESSION['passwordsuccess']) && $_SESSION['passwordsuccess'] == 1 )
+{
+  unset($_SESSION['passwordsuccess']);
+?>
+<div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Please login here.</strong>
+    </div>
+<?php
+}
+?>
 
 
 
