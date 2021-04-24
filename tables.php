@@ -68,16 +68,7 @@ if ( isset($_SESSION["Brand_access"]) && $_SESSION["Brand_access"] == 1 )
     </div>
 <?php
 }
-if ( isset($_SESSION['loginsuccess']) && $_SESSION['loginsuccess'] == 1 )
-{
-  unset($_SESSION['loginsuccess']);
 ?>
-<div class="alert alert-success" id="success-alert">
-    <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>Login Successful!</strong>
-    </div>
-<?php
-}?>
 
 
 <!DOCTYPE html>

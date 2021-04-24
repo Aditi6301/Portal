@@ -43,13 +43,12 @@ if(isset($_POST['SetPassword']))
             // $result=$sql->execute() or die($conn->error);
             if($result)
             {
-                $_SESSION['passwordsuccess']=1;
-                Header('Location:login.php' );
+              Header('Location:login.php?passwordsuccess=1' );
             }
             else
             {
-                $_SESSION['passwordsuccess']=0;
-                Header('Location:SetPassword.php' );
+                // $_GET['passwordsuccess']=0;
+                Header('Location:SetPassword.php?passwordsuccess=0' );
             }
         }
 }
