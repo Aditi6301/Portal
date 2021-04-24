@@ -6,7 +6,7 @@ $result=$stmt->execute() or die($conn->error);
 if(!isset($_SESSION['loggedin']))
 {
   $_SESSION['illegalaccess']=1;
-  Header('Location:login.php' );
+  Header('Location:login.php?illegalaccess=1' );
 }
 if($_SESSION["Type"]=='Brand')
 {
@@ -16,6 +16,11 @@ if($_SESSION["Type"]=='Brand')
 if($_SESSION["Status"]=='Blocked')
 {
   $_SESSION['BlockedUser']=1;
+  Header('Location:login.php' );
+}
+if(!isset($_SESSION['Email']))
+{
+ 
   Header('Location:login.php' );
 }
 

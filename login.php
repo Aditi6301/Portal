@@ -13,7 +13,7 @@ if ( isset($_SESSION['loginsuccess']) && $_SESSION['loginsuccess'] == 0 )
     </div>
 <?php
 }
-if ( isset($_GET['nouser']) && $_GET['nouser'] == 1 )
+else if ( isset($_GET['nouser']) && $_GET['nouser'] == 1 )
 {
   unset($_GET['nouser']);
 
@@ -24,7 +24,7 @@ if ( isset($_GET['nouser']) && $_GET['nouser'] == 1 )
     </div>
 <?php
 }
-if (isset($_SESSION['BlockedUser']) && $_SESSION['BlockedUser'] == 1 )
+else if (isset($_SESSION['BlockedUser']) && $_SESSION['BlockedUser'] == 1 )
 {
   unset($_SESSION['BlockedUser']);
 
@@ -35,7 +35,7 @@ if (isset($_SESSION['BlockedUser']) && $_SESSION['BlockedUser'] == 1 )
     </div>
 <?php
 }
-if (isset($_SESSION['passwordchange']) && $_SESSION['passwordchange'] == 1 )
+else if (isset($_SESSION['passwordchange']) && $_SESSION['passwordchange'] == 1 )
 {
   unset($_SESSION['passwordchange']);
 
@@ -46,9 +46,9 @@ if (isset($_SESSION['passwordchange']) && $_SESSION['passwordchange'] == 1 )
     </div>
 <?php 
 }
-if (isset($_SESSION['illegalaccess']) && $_SESSION['illegalaccess'] == 1 )
+else if (isset($_GET['illegalaccess']) && $_GET['illegalaccess'] == 1 )
 {
-  unset($_SESSION['illegalaccess']);
+  unset($_GET['illegalaccess']);
 ?>
 <div class="alert alert-danger" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -56,9 +56,9 @@ if (isset($_SESSION['illegalaccess']) && $_SESSION['illegalaccess'] == 1 )
     </div>
 <?php
 }
-if (!isset($_SESSION['loginsuccess']))
+else if (isset($_GET['loginsuccess']) && $_GET['loginsuccess'] == 0 )
 {
-  // unset($_GET['loginsuccess']);
+   unset($_GET['loginsuccess']);
 ?>
 <div class="alert alert-danger" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
@@ -66,26 +66,19 @@ if (!isset($_SESSION['loginsuccess']))
     </div>
 <?php
 }
-else if (!isset($_SESSION['Email']))
+else if(!isset($_SESSION['Email']))
 {
 ?>
-<div class="alert alert-danger" id="success-alert">
+    <div class="alert alert-info" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
     <strong>Please login here.</strong>
     </div>
 <?php
 }
-if (isset($_SESSION['passwordsuccess']) && $_SESSION['passwordsuccess'] == 1 )
-{
-  unset($_SESSION['passwordsuccess']);
-?>
-<div class="alert alert-success" id="success-alert">
-    <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>Please login here.</strong>
-    </div>
-<?php
-}
-?>
+
+?>  
+
+
 
 
 

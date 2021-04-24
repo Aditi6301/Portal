@@ -82,7 +82,7 @@ if(isset($_POST['Login']))
             else
             {
                 // $_SESSION['loginsuccess']=0;
-                Header('Location: login.php' );
+                Header('Location: login.php?loginsuccess=0' );
             }
         }
         

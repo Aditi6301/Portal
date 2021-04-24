@@ -3,11 +3,16 @@ include('UserLogin.php');
 if(!isset($_SESSION['loggedin']))
 {
   $_SESSION['illegalaccess']=1;
-  Header('Location:login.php' );
+  Header('Location:login.php?illegalaccess=1' );
 }
 if(!isset($_SESSION['user_id']))
 {
   $_SESSION['illegalaccess']=1;
+  Header('Location:login.php?illegalaccess=1' );
+}
+if(!isset($_SESSION['Email']))
+{
+ 
   Header('Location:login.php' );
 }
 $stmt = $conn->prepare("DELETE FROM listing WHERE Release_date = CURRENT_DATE()"); 
