@@ -7,7 +7,7 @@ if(isset($_SESSION['Email']))
 }
 else
 {
-    Header('Location: login.php' );
+    Header('Location: login.php?loginhere=1' );
 }
 $AlreadySet=$conn->prepare("SELECT * FROM users  WHERE Email= ?");
 $AlreadySet->bindValue(1,$email);

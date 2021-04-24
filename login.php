@@ -66,7 +66,7 @@ else if (isset($_GET['loginsuccess']) && $_GET['loginsuccess'] == 0 )
     </div>
 <?php
 }
-else if(!isset($_SESSION['Email']))
+else if(isset($_GET['loginhere']) && $_GET['loginhere'] == 1)
 {
 ?>
     <div class="alert alert-info" id="success-alert">

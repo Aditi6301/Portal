@@ -7,7 +7,7 @@ if(isset($_SESSION['Email']))
 }
 else
 {
-    Header('Location: login.php' );
+  Header('Location: login.php?loginhere=1' );
 }
 if ( isset($_SESSION['passwordchange']) && $_SESSION['passwordchange'] == 0 )
 {
