@@ -56,7 +56,17 @@ if (isset($_SESSION['illegalaccess']) && $_SESSION['illegalaccess'] == 1 )
     </div>
 <?php
 }
-if (!isset($_SESSION['Email']))
+if (!isset($_SESSION['loginsuccess']))
+{
+  // unset($_GET['loginsuccess']);
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Wrong password.</strong>
+    </div>
+<?php
+}
+else if (!isset($_SESSION['Email']))
 {
 ?>
 <div class="alert alert-danger" id="success-alert">
@@ -76,6 +86,7 @@ if (isset($_SESSION['passwordsuccess']) && $_SESSION['passwordsuccess'] == 1 )
 <?php
 }
 ?>
+
 
 
 

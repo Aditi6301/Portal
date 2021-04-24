@@ -82,7 +82,8 @@ if(isset($_POST['Login']))
             else
             {
                 $_SESSION['loginsuccess']=0;
-                Header('Location: login.php' );
+                echo"wrong password";
+                Header('Location: login.php?' );
             }
         }
         
