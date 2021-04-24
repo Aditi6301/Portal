@@ -68,6 +68,7 @@ else if (isset($_GET['loginsuccess']) && $_GET['loginsuccess'] == 0 )
 }
 else if(isset($_GET['loginhere']) && $_GET['loginhere'] == 1)
 {
+  unset($_GET['loginhere']);
 ?>
     <div class="alert alert-info" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>
