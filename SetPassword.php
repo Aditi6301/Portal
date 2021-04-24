@@ -130,7 +130,7 @@ if ( isset($_SESSION['passwordsuccess']) && $_SESSION['passwordsuccess'] == 1 )
                   <div >
                   <form class="user" method="post"  id="setUserPassword" >
                   <div class="form-group">
-                      <input type="text" name="email" class="form-control form-control-user" id="email" value="<?php echo $email;?>" readonly>
+                      <input type="hidden" name="email" class="form-control form-control-user" id="email" value="<?php echo $email;?>">
                     </div>
                     <div class="form-group">
                       <input type="password" name="password1" class="form-control form-control-user" id="password1" placeholder="Password" onkeyup='check();'>
