@@ -29,12 +29,12 @@ if(isset($_POST['RegisterProduction']))
         $result=$sql->execute() or die($conn->error);
         if($result)
         {
-            $_SESSION['accountsuccess']=1;
+           
             Header( 'Location: phregister.php?accountsuccess=1');
         }
         else
         {
-            $_SESSION['accountsuccess']=0;
+         
             Header( 'Location: phregister.php?accountsuccess=0');
         }
     }
